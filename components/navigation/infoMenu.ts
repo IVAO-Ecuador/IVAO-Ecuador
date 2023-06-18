@@ -1,4 +1,10 @@
-import { BsAirplaneFill } from "react-icons/bs";
+import {
+	BsAirplaneFill, BsCalendar2DateFill, BsDiscord,
+	BsFillAirplaneEnginesFill, BsFillRocketTakeoffFill,
+	BsPatchQuestionFill, BsPlusCircle, BsShieldFillCheck,
+	BsStar } from "react-icons/bs";
+
+import { LuMap, LuTowerControl } from "react-icons/lu";
 
 export const infoMenu = {
 	'division': [
@@ -9,19 +15,19 @@ export const infoMenu = {
 			description: 'Conoce nuestra historia',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsShieldFillCheck,
 			iconBackground: 'degradado-azul',
 			title: 'Normas regulatorias',
 			description: 'Políticas de uso',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsCalendar2DateFill,
 			iconBackground: 'degradado-rojo',
 			title: 'Eventos',
 			description: 'Conectando a través de eventos',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsDiscord,
 			iconBackground: 'degradado-morado',
 			title: 'Discord',
 			description: 'Canal oficial de comunicación',
@@ -30,13 +36,13 @@ export const infoMenu = {
 
 	'pilotos': [
 		{
-			icon: BsAirplaneFill,
+			icon: BsFillRocketTakeoffFill,
 			iconBackground: 'degradado-verde',
 			title: 'Entrenamiento piloto',
 			description: 'Amplia tus conocimientos',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: LuTowerControl,
 			iconBackground: 'degradado-azul',
 			title: 'Manual de comunicaciones',
 			description: 'Potencia tu habilidad de comunicación',
@@ -45,25 +51,25 @@ export const infoMenu = {
 
 	'controladores': [
 		{
-			icon: BsAirplaneFill,
+			icon: LuTowerControl,
 			iconBackground: 'degradado-rosa',
 			title: 'Operaciones ATC',
 			description: 'Procedimientos locales',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsPatchQuestionFill,
 			iconBackground: 'degradado-azul',
 			title: 'Lineamientos examen ATC',
 			description: 'Prepara tu examen',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsStar,
 			iconBackground: 'degradado-amarillo',
 			title: 'Examen GCA',
 			description: 'Controla en Ecuador',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsFillRocketTakeoffFill,
 			iconBackground: 'degradado-verde',
 			title: 'Entrenamiento controlador',
 			description: 'Amplia tus conocimientos',
@@ -72,19 +78,19 @@ export const infoMenu = {
 
 	'recursos': [
 		{
-			icon: BsAirplaneFill,
+			icon: LuMap,
 			iconBackground: 'degradado-amarillo',
 			title: 'Cartas de navegación',
 			description: 'Actualizadas para su uso',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsFillAirplaneEnginesFill,
 			iconBackground: 'degradado-verde',
 			title: 'Operaciones especiales',
 			description: 'Impacto desde las alturas',
 		},
 		{
-			icon: BsAirplaneFill,
+			icon: BsPlusCircle,
 			iconBackground: 'degradado-azul',
 			title: 'Otros recursos',
 			description: 'Documentos, información y más',
