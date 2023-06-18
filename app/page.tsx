@@ -1,9 +1,10 @@
 'use client'
 
 import React from "react";
-import GlobeCanvas from "../components/GlobeCanvas";
+import GlobeCanvas from "../components/home/GlobeCanvas";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { Menu } from "@/components/navigation/Menu";
+import AInformation from "@/components/home/AInformation";
 
 export default function MainContent() {
 
@@ -17,11 +18,9 @@ export default function MainContent() {
 				</header>
 
 				<div className="container px-8 relative">
-
 					<ul className="box-area2 absolute z-0">
 						<li></li><li></li><li></li><li></li><li></li>
 					</ul>
-
 					<div className="xl:flex xl:items-center relative z-20 max-xl:mt-20">
 						<div className="xl:w-1/2 w-full ">
 							<p className="text-text-color opacity-50 mb-8 select-none">✔️ Estas en la página oficial de IVAO Ecuador</p>
@@ -41,7 +40,7 @@ export default function MainContent() {
 							</div>
 						</div>
 						<div className="opacity-60 xl:w-1/2 w-full">
-							<div className="xl:ml-20 max-xl:hidden relative z-50">
+							<div className="xl:ml-20 max-xl:hidden relative z-20">
 								<GlobeCanvas />
 							</div>
 						</div>
@@ -51,18 +50,9 @@ export default function MainContent() {
 
 
 
-			<div className="bg-dark-blue diagonal -mt-14">
-				<div className="container py-52">
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quod odit quas dolorum iusto incidunt tempora quos, delectus itaque atque beatae autem distinctio exercitationem doloribus corporis expedita soluta sapiente quidem!</p>
+			<div className="bg-dark-blue diagonal -mt-14 relative z-50">
+				<div className="container">
+					<AInformation></AInformation>
 				</div>
 			</div>
 
