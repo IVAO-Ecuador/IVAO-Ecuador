@@ -2,9 +2,8 @@
 
 import React from "react";
 import GlobeCanvas from "../components/GlobeCanvas";
-import Menu from "@/components/navigation/Menu";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { HeaderMegaMenu } from "@/components/navigation/Menutest";
+import { Menu } from "@/components/navigation/Menu";
 
 export default function MainContent() {
 
@@ -14,7 +13,7 @@ export default function MainContent() {
 			<div className="bg-degrade-purple xl:pb-24 pb-40 z-0">
 
 				<header className='border-b-2 border-menu'>
-					<HeaderMegaMenu></HeaderMegaMenu>
+					<Menu></Menu>
 				</header>
 
 				<div className="container px-8 relative">
