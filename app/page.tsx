@@ -4,12 +4,9 @@ import React from "react";
 import GlobeCanvas from "../components/GlobeCanvas";
 import Menu from "@/components/navigation/Menu";
 import { RiSendPlaneFill } from "react-icons/ri";
-import { useAuth, useUser } from "../components/auth";
+import { HeaderMegaMenu } from "@/components/navigation/Menutest";
 
 export default function MainContent() {
-
-	const auth = useAuth();
-	const {user, isLoading: isLoadingUserData} = useUser();
 
 	return (
 		<div className="overflow-hidden">
@@ -17,7 +14,7 @@ export default function MainContent() {
 			<div className="bg-degrade-purple xl:pb-24 pb-40 z-0">
 
 				<header className='border-b-2 border-menu'>
-					<Menu></Menu>
+					<HeaderMegaMenu></HeaderMegaMenu>
 				</header>
 
 				<div className="container px-8 relative">
@@ -52,6 +49,8 @@ export default function MainContent() {
 					</div>
 				</div>
 			</div>
+
+
 
 			<div className="bg-dark-blue diagonal -mt-14">
 				<div className="container py-52">

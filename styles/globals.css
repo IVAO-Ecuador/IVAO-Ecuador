@@ -174,3 +174,15 @@
 	border-right: 10px solid transparent;
 	border-bottom: 10px solid #1D1E2B;
   }
+
+  .mantine-Drawer-header, .mantine-Drawer-content{
+	background-color: #1D1E2B;
+  }
+
+  .mantine-Drawer-header{
+	padding: 40px;
+  }
+
+  .mantine-Drawer-header h2{
+	color: #ffffff;
+  }

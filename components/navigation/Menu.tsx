@@ -14,7 +14,6 @@ import {
 import { LuMap, LuTowerControl } from "react-icons/lu";
 import { FiChevronDown, FiLoader, FiX } from "react-icons/fi";
 import { RiMenuLine, RiTranslate2 } from "react-icons/ri";
-import { useAuth, useUser } from '../auth';
 
 export default function Menu() {
 
@@ -23,9 +22,6 @@ export default function Menu() {
 	const [responsiveMenu, setResponsiveMenu] = useState(false)
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 	const dropdownRefs = useRef<any>({ division: null, pilotos: null, controladores: null, recursos: null });
-
-	const auth = useAuth();
-	const {user, isLoading: isLoadingUserData} = useUser();
 
 	const closeEventAlert = () => {
 		setEventAlert(false);
@@ -294,7 +290,7 @@ export default function Menu() {
 						<div className='border p-2 rounded-md opacity-40 cursor-pointer'>
 							<RiTranslate2 className='text-xl'></RiTranslate2>
 						</div>
-						<button className='bg-main-green text-text-white px-5 py-2 rounded-md' onClick={() => auth.signinRedirect()}>Iniciar sesión</button>
+						<button className='bg-main-green text-text-white px-5 py-2 rounded-md'>Iniciar sesión</button>
 					</div>
 					<div className='xl:hidden  border p-2 rounded-md cursor-pointer' onClick={handleResponsiveMenu}>
 						<RiMenuLine className='text-xl font-bold'></RiMenuLine>

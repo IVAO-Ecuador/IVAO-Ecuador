@@ -1,4 +1,7 @@
 'use client'
+import '../styles/globals.css'
+import { Nunito_Sans } from 'next/font/google'
+import { MantineProvider } from '@mantine/core'
 
 export const metadata = {
 	title: 'IVAO Ecuador',
@@ -7,20 +10,11 @@ export const metadata = {
   ¡Vive la emoción de volar en un entorno virtual realista con IVAO Ecuador!`,
 
 }
-import Menu from '@/components/navigation/Menu'
-import '../styles/globals.css'
-
-import { Nunito_Sans } from 'next/font/google'
-import { AuthProvider } from '../components/auth'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import { BrowserRouter } from 'react-router-dom'
 
 const pageFont = Nunito_Sans({
 	weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
 	subsets: ['latin']
 })
-
-const queryClient = new QueryClient();
 
 export default function RootLayout({ children, }: { children: any }) {
 	return (
@@ -28,13 +22,10 @@ export default function RootLayout({ children, }: { children: any }) {
 			<link rel="icon" href="/logos/logo-ivao.png" sizes="any" />
 			<body className={`${pageFont.className} `}>
 				<main>
-					<QueryClientProvider client={queryClient}>
-						<BrowserRouter>
-							<AuthProvider>
-								{children}
-							</AuthProvider>
-						</BrowserRouter>
-					</QueryClientProvider>
+					{/* @ts-ignore*/}
+					<MantineProvider theme={{fontFamily: pageFont}}>
+						{children}
+					</MantineProvider>
 				</main>
 				<footer></footer>
 			</body>
