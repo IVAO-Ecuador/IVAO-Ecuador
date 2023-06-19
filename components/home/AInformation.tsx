@@ -1,46 +1,50 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BsFillLightningFill } from "react-icons/bs";
+import { BsAwardFill, BsBoxSeam, BsFillEaselFill, BsFillLightningFill, BsHeartFill } from "react-icons/bs";
 
 export default function AInformation() {
 
-	const imageRef = useRef<HTMLImageElement>(null);
-	const [originalY, setOriginalY] = useState(0);
-	const [scrollY, setScrollY] = useState(0);
-	const [startTransitionY, setStartTransitionY] = useState(0);
+	const airplaneRef = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
+		let animationFrameId: number;
+		const airplane = airplaneRef.current;
+		let finisher: boolean;
+
+		if (!airplane) return;
+
+		const airplaneRect = airplane.getBoundingClientRect();
+		const windowHeight = window.innerHeight;
+		const startingPosition = (airplaneRect.top + 250) - windowHeight;
+		const windowScroll = window.scrollY;
+
 		const handleScroll = () => {
-			setScrollY(window.scrollY);
+			const scrollPosition = window.scrollY;
+			const distance = Math.max(0, scrollPosition - startingPosition);
+			const translateY = Math.min(distance, 335);
+
+			if(translateY == 335 && windowScroll != 0){
+				if(!finisher){
+					airplane.style.transform = `translateY(${175}px)`;
+				}
+			}else{
+				airplane.style.transform = `translateY(${translateY}px)`;
+				finisher = true;
+			}
+			
+			if (distance <= 335) {
+				animationFrameId = requestAnimationFrame(handleScroll);
+			}
 		};
+
+		handleScroll(); // Call the initial scroll handler
 
 		window.addEventListener('scroll', handleScroll);
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
+			cancelAnimationFrame(animationFrameId);
 		};
 	}, []);
-
-	useEffect(() => {
-		const image = imageRef.current;
-
-		if (image) {
-			const imageRect = image.getBoundingClientRect();
-			setOriginalY(imageRect.top + window.scrollY);
-
-			const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-			const transitionOffset = windowHeight * 0.2; // Ajusta aquí el porcentaje de la altura de la ventana donde deseas que inicie la animación
-			setStartTransitionY(imageRect.top - transitionOffset);
-		}
-	}, []);
-
-	let translateY = Math.max(scrollY - startTransitionY, 0) * 0.4; // Ajusta aquí la velocidad de desplazamiento (0.2 representa la velocidad del 20% de la distancia de desplazamiento)
-
-	const maxTranslateY = 400; // Ajusta aquí la cantidad máxima de píxeles que la imagen puede moverse hacia adelante
-
-	if (translateY > maxTranslateY) {
-		translateY = maxTranslateY;
-	}
-
 
 	return (
 		<div className='relative z-50 -mt-20'>
@@ -55,7 +59,7 @@ export default function AInformation() {
 
 			<div className='flex gap-x-5 mt-24'>
 				<div className='w-2/5 text-text-white grid justify-end gap-y-8'>
-					<div className='w-[368px] h-48'>
+					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
 								<p className="text-lg font-semibold mb-4 text-text-blue">Entrenamientos</p>
@@ -63,24 +67,22 @@ export default function AInformation() {
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
-									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" stroke-width="2">
+									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" strokeWidth="2">
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-									<div className="pl-1 pt-1 w-10 h-10 step-feature-card text-[#306EE8]" aria-hidden="true">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="feather feather-zap"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z">
-										</path>
-										</svg>
+									<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+									<BsFillEaselFill></BsFillEaselFill>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div className='w-[368px] h-48'>
+					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
 								<p className="text-lg font-semibold mb-4 text-text-blue">Eventos</p>
@@ -88,17 +90,15 @@ export default function AInformation() {
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
-									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" stroke-width="2">
+									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" strokeWidth="2">
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-									<div className="pl-1 pt-1 w-10 h-10 step-feature-card text-[#306EE8]" aria-hidden="true">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="feather feather-zap"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z">
-										</path>
-										</svg>
+								<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+									<BsAwardFill></BsAwardFill>
 									</div>
 								</div>
 							</div>
@@ -109,16 +109,16 @@ export default function AInformation() {
 				<div className='w-1/5 text-text-white relative'>
 					<div className="w-4 -mt-12 h-[130%] mx-auto blue-track"></div>
 					<img
-						ref={imageRef}
-						src="/icons/airplane.svg"
+						ref={airplaneRef}
+						src="/icons/airplane.png"
 						className='absolute top-0 bottom-0 w-24 airplane'
-						style={{ transform: `translateY(${translateY}px) rotate(180deg)` }}
+						style={{ transform: 'translateY(0) rotate(180deg)' }}
 					/>
 				</div>
 
 
 				<div className='w-2/5 text-text-white grid justify-start gap-y-8'>
-					<div className='w-[368px] h-48'>
+					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
 								<p className="text-lg font-semibold mb-4 text-text-blue">Recursos</p>
@@ -126,24 +126,22 @@ export default function AInformation() {
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
-									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" stroke-width="2">
+									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" strokeWidth="2">
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-									<div className="pl-1 pt-1 w-10 h-10 step-feature-card text-[#306EE8]" aria-hidden="true">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="feather feather-zap"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z">
-										</path>
-										</svg>
+								<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+									<BsBoxSeam></BsBoxSeam>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div className='w-[368px] h-48'>
+					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
 								<p className="text-lg font-semibold mb-4 text-text-blue">Comunidad</p>
@@ -151,17 +149,15 @@ export default function AInformation() {
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
-									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" stroke-width="2"></path>
-									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" stroke-width="2">
+									<path d="M73 6C73 3.23858 75.2386 1 78 1L122 1C124.761 1 127 3.23858 127 6V34C127 36.7614 124.761 39 122 39H78C75.2386 39 73 36.7614 73 34V6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M73 78C73 75.2386 75.2386 73 78 73H122C124.761 73 127 75.2386 127 78V122C127 124.761 124.761 127 122 127H78C75.2386 127 73 124.761 73 122V78Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 6C1 3.23858 3.23858 1 6 1L50 1C52.7614 1 55 3.23858 55 6V50C55 52.7614 52.7614 55 50 55H6C3.23858 55 1 52.7614 1 50L1 6Z" stroke="#183367" strokeWidth="2"></path>
+									<path d="M1 94C1 91.2386 3.23858 89 6 89H50C52.7614 89 55 91.2386 55 94V122C55 124.761 52.7614 127 50 127H6C3.23858 127 1 124.761 1 122L1 94Z" stroke="#183367" strokeWidth="2">
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-									<div className="pl-1 pt-1 w-10 h-10 step-feature-card text-[#306EE8]" aria-hidden="true">
-										<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="feather feather-zap"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z">
-										</path>
-										</svg>
+								<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+									<BsHeartFill></BsHeartFill>
 									</div>
 								</div>
 							</div>

@@ -2,6 +2,7 @@
 import '../styles/globals.css'
 import { Nunito_Sans } from 'next/font/google'
 import { MantineProvider } from '@mantine/core'
+import { useEffect } from 'react';
 
 export const metadata = {
 	title: 'IVAO Ecuador',
@@ -17,13 +18,14 @@ const pageFont = Nunito_Sans({
 })
 
 export default function RootLayout({ children, }: { children: any }) {
+
 	return (
 		<html lang="en">
 			<link rel="icon" href="/logos/logo-ivao.png" sizes="any" />
 			<body className={`${pageFont.className} `}>
 				<main>
 					{/* @ts-ignore*/}
-					<MantineProvider theme={{fontFamily: pageFont}}>
+					<MantineProvider theme={{ fontFamily: pageFont }}>
 						{children}
 					</MantineProvider>
 				</main>
