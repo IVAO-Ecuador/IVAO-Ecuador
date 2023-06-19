@@ -14,15 +14,24 @@ export default function RootLayout({ children, }: { children: any }) {
 
 	return (
 		<html lang="en">
-			<title>IVAO Ecuador</title>
-			<meta name="author" content="Santiago Baron Zuleta" />
-			<meta
-				name="description"
-				content="Disfruta de la simulación de vuelo en Ecuador con la comunidad de IVAO. Explora nuestros eventos, 
-				controla el tráfico aéreo, participa en vuelos virtuales y conéctate con entusiastas de la aviación en Ecuador. 
-				¡Vive la emoción de volar en un entorno virtual realista con IVAO Ecuador!"
-			/>
-			<link rel="icon" href="/logos/logo-ivao.png" sizes="any" />
+
+			<head>
+				<title>IVAO Ecuador</title>
+				<meta name="author" content="Santiago Baron Zuleta" />
+				<meta name="description" content="Disfruta de la simulación de vuelo en Ecuador con la comunidad de IVAO. 
+				Explora nuestros eventos, controla el tráfico aéreo, participa en vuelos virtuales y conéctate con entusiastas de la aviación en Ecuador. 
+				¡Vive la emoción de volar en un entorno virtual realista con IVAO Ecuador!" />
+				<link rel="icon" href="/logos/logo-ivao.png" sizes="any" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<meta name="keywords" content="IVAO, Ecuador, simulación de vuelo, tráfico aéreo, vuelos virtuales, comunidad de aviación" />
+				<meta name="robots" content="index, follow" />
+				<meta http-equiv="Content-Language" content="es" />
+				<meta name="geo.region" content="EC" />
+				<meta name="geo.placename" content="Ecuador" />
+				<meta name="geo.position" content="-0.2295;-78.5249" />
+				<meta name="ICBM" content="-0.2295, -78.5249" />
+			</head>
+
 			<body className={`${pageFont.className} bg-degrade-purple`}>
 				{/* @ts-ignore*/}
 				<MantineProvider theme={{ fontFamily: pageFont }}>
