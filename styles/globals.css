@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+body::-webkit-scrollbar{
+    width: 7px;
+    background-color: transparent;
+}
+body::-webkit-scrollbar-track{
+    background-color: #000000;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: #252525;
+    border-radius: 3px;
+}
+
 .gray-icon {
 	color: #d2d3e0bf;
   }
@@ -199,8 +212,4 @@
 
   .blue-track{
 	background: linear-gradient(0deg, rgb(255 255 255/0) 0%, hsla(220, 62%, 25%, .5) 15%, hsla(220, 62%, 25%, .5) 85%, rgb(255 255 255/0) 100%);
-}
-
-.airplane{
-	left: 30%;
 }

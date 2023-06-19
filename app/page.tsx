@@ -48,7 +48,7 @@ export default function MainContent() {
 				</div>
 			</div>
 			<div className="bg-dark-blue pb-96">
-				<div className="container relative">
+				<div className="container relative px-8">
 					<AInformation></AInformation>
 				</div>
 			</div>

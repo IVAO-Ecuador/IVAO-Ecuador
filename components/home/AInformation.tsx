@@ -47,7 +47,7 @@ export default function AInformation() {
 	}, []);
 
 	return (
-		<div className='relative z-50 -mt-20'>
+		<div className='relative z-50 lg:-mt-20 -mt-24 '>
 			<div className="flex relative z-50 items-center justify-center mx-auto mb-16 rounded-full text-4xl w-[72px] h-[72px] info-number text-light-blue bg-[#183367]">
 				<BsFillLightningFill></BsFillLightningFill>
 			</div>
@@ -57,8 +57,8 @@ export default function AInformation() {
 			<hr className="w-40 mx-auto my-6 border-light-blue"></hr>
 			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Comienza con tu experiencia en IVAO Ecuador, regístrate y comienza a volar o controlar. Nuestra división extiende a sus usuarios las herramientas necesarias para aumentar el realismo en las operaciones áreas.</p>
 
-			<div className='flex gap-x-5 mt-24'>
-				<div className='w-2/5 text-text-white grid justify-end gap-y-8'>
+			<div className='lg:flex gap-x-5 mt-24 justify-center'>
+				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-end gap-y-8'>
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
@@ -106,18 +106,18 @@ export default function AInformation() {
 					</div>
 				</div>
 
-				<div className='w-1/5 text-text-white relative'>
+				<div className='w-1/5 text-text-white relative lg:flex justify-center hidden'>
 					<div className="w-4 -mt-12 h-[130%] mx-auto blue-track"></div>
 					<img
 						ref={airplaneRef}
 						src="/icons/airplane.png"
-						className='absolute top-0 bottom-0 w-24 airplane'
+						className='absolute top-0 bottom-0 w-24'
 						style={{ transform: 'translateY(0) rotate(180deg)' }}
 					/>
 				</div>
 
 
-				<div className='w-2/5 text-text-white grid justify-start gap-y-8'>
+				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-start gap-y-8 max-lg:mt-8'>
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
