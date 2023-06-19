@@ -9,19 +9,19 @@ import AInformation from "@/components/home/AInformation";
 export default function MainContent() {
 
 	return (
-		<div className="overflow-hidden">
+		<div className="overflow-hidden relative bg-degrade-purple">
 
-			<div className="bg-degrade-purple xl:pb-24 pb-40 z-0">
+			<div className="bg-degrade-purple xl:pb-20 pb-40 z-10 relative diagonal">
 
 				<header className='border-b-2 border-menu'>
 					<Menu></Menu>
 				</header>
 
-				<div className="container px-8 relative">
+				<div className="container px-8 relative z-0">
 					<ul className="box-area2 absolute z-0">
 						<li></li><li></li><li></li><li></li><li></li>
 					</ul>
-					<div className="xl:flex xl:items-center relative z-20 max-xl:mt-20">
+					<div className="xl:flex xl:items-center relative z-0 max-xl:mt-20">
 						<div className="xl:w-1/2 w-full ">
 							<p className="text-text-color opacity-50 mb-8 select-none">✔️ Estas en la página oficial de IVAO Ecuador</p>
 							<h1 className="sm:text-6xl text-5xl font-bold text-text-white mb-8">Únete a la comunidad de IVAO Ecuador y vuela alto</h1>
@@ -47,15 +47,11 @@ export default function MainContent() {
 					</div>
 				</div>
 			</div>
-
-
-
-			<div className="bg-dark-blue diagonal -mt-14 relative z-50">
-				<div className="container">
+			<div className="bg-dark-blue pb-40">
+				<div className="container relative">
 					<AInformation></AInformation>
 				</div>
 			</div>
-
 		</div>
 	);
 }

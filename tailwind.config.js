@@ -27,7 +27,8 @@ module.exports = {
 		  'dark-blue': '#13111C',
 		  'hover-color': '#37384b42',
 		  'sub-menus': '#1D1E2B',
-		  'light-blue': '#306EE8'
+		  'light-blue': '#306EE8',
+		  'text-blue': '#A8C0F0'
 	  }
 	},
 	plugins: [],

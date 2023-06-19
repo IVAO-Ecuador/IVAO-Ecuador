@@ -43,23 +43,23 @@ export default function AInformation() {
 
 
 	return (
-		<div>
+		<div className='relative z-50 -mt-20'>
 			<div className="flex relative z-50 items-center justify-center mx-auto mb-16 rounded-full text-4xl w-[72px] h-[72px] info-number text-light-blue bg-[#183367]">
 				<BsFillLightningFill></BsFillLightningFill>
 			</div>
 
-			<p className="text-2xl font-bold mb-2 text-light-blue text-center">¡Abordando ahora, a nivel local!</p>
-			<h2 className="text-4xl font-bold text-text-white text-center">Comienza y Explora</h2>
+			<p className="text-2xl font-bold mb-2 text-light-blue text-center">¡Abordando ahora, no esperes más!</p>
+			<h2 className="text-4xl font-bold text-text-white text-center">Comienza y explora</h2>
 			<hr className="w-40 mx-auto my-6 border-light-blue"></hr>
-			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Comienza con tu experiencia en IVAO Ecuador, o únete a través de una plantilla. Nuestra plataforma extiende tu experiencia con complementos y gestión de variables para que los entornos sean los mismos en vivo y en local.</p>
+			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Comienza con tu experiencia en IVAO Ecuador, regístrate y comienza a volar o controlar. Nuestra división extiende a sus usuarios las herramientas necesarias para aumentar el realismo en las operaciones áreas.</p>
 
 			<div className='flex gap-x-5 mt-24'>
 				<div className='w-2/5 text-text-white grid justify-end gap-y-8'>
 					<div className='w-[368px] h-48'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-h5 font-semibold mb-4 text-blue-700">Solid Base</p>
-								<p className="text-sm text-gray-600">Start from scratch or pick a template to deploy instantly, from bots to blogs.</p>
+								<p className="text-lg font-semibold mb-4 text-text-blue">Entrenamientos</p>
+								<p className="text-sm text-text-color">Solicita un entrenamiento para mejorar tus habilidades como piloto o controlador.</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
@@ -83,8 +83,8 @@ export default function AInformation() {
 					<div className='w-[368px] h-48'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-h5 font-semibold mb-4 text-blue-700">Solid Base</p>
-								<p className="text-sm text-gray-600">Start from scratch or pick a template to deploy instantly, from bots to blogs.</p>
+								<p className="text-lg font-semibold mb-4 text-text-blue">Eventos</p>
+								<p className="text-sm text-text-color">Explora una amplia variedad de eventos y disfruta de vuelos en grupo con pilotos del país.</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
@@ -121,8 +121,8 @@ export default function AInformation() {
 					<div className='w-[368px] h-48'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-h5 font-semibold mb-4 text-blue-700">Solid Base</p>
-								<p className="text-sm text-gray-600">Start from scratch or pick a template to deploy instantly, from bots to blogs.</p>
+								<p className="text-lg font-semibold mb-4 text-text-blue">Recursos</p>
+								<p className="text-sm text-text-color">Usa nuestras cartas de navegación y escenarios del Ecuador para aumentar el realismo.</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
@@ -146,8 +146,8 @@ export default function AInformation() {
 					<div className='w-[368px] h-48'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-h5 font-semibold mb-4 text-blue-700">Solid Base</p>
-								<p className="text-sm text-gray-600">Start from scratch or pick a template to deploy instantly, from bots to blogs.</p>
+								<p className="text-lg font-semibold mb-4 text-text-blue">Comunidad</p>
+								<p className="text-sm text-text-color">Forma parte de una comunidad apasionada por la aviación y establece nuevas conexiones.</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
