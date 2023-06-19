@@ -14,6 +14,14 @@ export default function RootLayout({ children, }: { children: any }) {
 
 	return (
 		<html lang="en">
+			<title>IVAO Ecuador</title>
+			<meta name="author" content="Santiago Baron Zuleta" />
+			<meta
+				name="description"
+				content="Disfruta de la simulación de vuelo en Ecuador con la comunidad de IVAO. Explora nuestros eventos, 
+				controla el tráfico aéreo, participa en vuelos virtuales y conéctate con entusiastas de la aviación en Ecuador. 
+				¡Vive la emoción de volar en un entorno virtual realista con IVAO Ecuador!"
+			/>
 			<link rel="icon" href="/logos/logo-ivao.png" sizes="any" />
 			<body className={`${pageFont.className} bg-degrade-purple`}>
 				{/* @ts-ignore*/}
