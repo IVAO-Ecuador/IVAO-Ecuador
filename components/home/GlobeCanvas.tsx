@@ -19,7 +19,7 @@ const GlobeCanvas = () => {
       phi: 10,
       theta: 0,
       dark: 1,
-      diffuse: 1.2,
+      diffuse: 1,
       mapSamples: 20000,
       mapBrightness: 2,
       baseColor: [0.8, 0.8, 0.8],

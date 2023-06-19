@@ -105,21 +105,23 @@ export function Menu() {
 		}
 
 		return menuSelected.map((item: any) => (
-			<UnstyledButton className={classes.subLink} key={item.title}>
-				<Group noWrap align="flex-start">
-					<ThemeIcon size={46} className={`${item.iconBackground} border-none rounded-md`} >
-						<item.icon size={rem(22)} color={'#fff'} />
-					</ThemeIcon>
-					<div>
-						<Text className='text-[16px] text-text-white' fw={500}>
-							{item.title}
-						</Text>
-						<Text className='text-[14px]' color="dimmed">
-							{item.description}
-						</Text>
-					</div>
-				</Group>
-			</UnstyledButton>
+			<Link href={item.url} target={item.newTab ? '_blank' : '_self'}>
+				<UnstyledButton className={classes.subLink} key={item.title}>
+					<Group noWrap align="flex-start">
+						<ThemeIcon size={46} className={`${item.iconBackground} border-none rounded-md`} >
+							<item.icon size={rem(22)} color={'#fff'} />
+						</ThemeIcon>
+						<div>
+							<Text className='text-[16px] text-text-white' fw={500}>
+								{item.title}
+							</Text>
+							<Text className='text-[14px]' color="dimmed">
+								{item.description}
+							</Text>
+						</div>
+					</Group>
+				</UnstyledButton>
+			</Link>
 		))
 	}
 
