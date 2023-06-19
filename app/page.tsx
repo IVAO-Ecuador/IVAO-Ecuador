@@ -9,14 +9,12 @@ import AInformation from "@/components/home/AInformation";
 export default function MainContent() {
 
 	return (
-		<div className="overflow-hidden relative bg-degrade-purple">
+		<div className="overflow-hidden relative">
 
-			<div className="bg-degrade-purple xl:pb-20 pb-40 z-10 relative diagonal">
-
+			<div className="bg-degrade-purple xl:pb-20 pb-40 z-10 relative upper-diagonal-right-top">
 				<header className='border-b-2 border-menu'>
 					<Menu></Menu>
 				</header>
-
 				<div className="container px-8 relative z-0">
 					<ul className="box-area2 absolute z-0">
 						<li></li><li></li><li></li><li></li><li></li>
@@ -47,11 +45,19 @@ export default function MainContent() {
 					</div>
 				</div>
 			</div>
-			<div className="bg-dark-blue pb-96">
+
+			<div className="bg-dark-blue pb-52">
 				<div className="container relative px-8">
 					<AInformation></AInformation>
 				</div>
 			</div>
+
+			<div className="bg-degrade-black upper-diagonal-right-bottom">
+				<div className="container relative px-8">
+					
+				</div>
+			</div>
+
 		</div>
 	);
 }

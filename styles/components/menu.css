@@ -1,0 +1,37 @@
+.border-menu{
+	border: 1px solid rgb(33 35 46 / 1)
+}
+
+.dropdown-menu::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 33%;
+	transform: translateX(-50%);
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #1D1E2B;
+  }
+
+.dropdown-responsive-menu::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #1D1E2B;
+  }
+
+  .mantine-Drawer-header, .mantine-Drawer-content{
+	background-color: #1D1E2B;
+  }
+
+  .mantine-Drawer-header{
+	padding: 40px;
+  }
+
+  .mantine-Drawer-header h2{
+	color: #ffffff;
+  }

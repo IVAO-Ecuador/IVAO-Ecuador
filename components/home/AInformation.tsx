@@ -58,7 +58,7 @@ export default function AInformation() {
 			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Comienza con tu experiencia en IVAO Ecuador, regístrate y comienza a volar o controlar. Nuestra división extiende a sus usuarios las herramientas necesarias para aumentar el realismo en las operaciones áreas.</p>
 
 			<div className='lg:flex gap-x-5 mt-24 justify-center'>
-				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-end gap-y-8'>
+				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-end gap-y-8 max-sm:scale-95'>
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
@@ -117,7 +117,7 @@ export default function AInformation() {
 				</div>
 
 
-				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-start gap-y-8 max-lg:mt-8'>
+				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-start gap-y-8 max-lg:mt-8 max-sm:mt-3 max-sm:scale-95'>
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
