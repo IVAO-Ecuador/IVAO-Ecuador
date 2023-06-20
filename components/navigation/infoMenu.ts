@@ -1,6 +1,6 @@
 import {
-	BsAirplaneFill, BsCalendar2DateFill, BsDiscord,
-	BsFillAirplaneEnginesFill, BsFillRocketTakeoffFill,
+	BsAirplaneFill, BsCalendar2DateFill, BsClipboardDataFill, BsDiscord,
+	BsFillAirplaneEnginesFill, BsFillClipboard2DataFill, BsFillRocketTakeoffFill,
 	BsPatchQuestionFill, BsPlusCircle, BsShieldFillCheck,
 	BsStar } from "react-icons/bs";
 
@@ -13,7 +13,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-amarillo',
 			title: 'Sobre IVAO Ecuador',
 			description: 'Conoce nuestra historia',
-			url: '#',
+			url: '/about',
 			newTab: false
 		},
 		{
@@ -33,6 +33,14 @@ export const infoMenu = {
 			newTab: false
 		},
 		{
+			icon: BsClipboardDataFill,
+			iconBackground: 'degradado-verde',
+			title: 'Entrenamientos',
+			description: 'Mejora tus habilidades',
+			url: '#',
+			newTab: false
+		},
+		{
 			icon: BsDiscord,
 			iconBackground: 'degradado-morado',
 			title: 'Discord',
@@ -43,14 +51,6 @@ export const infoMenu = {
 	],
 
 	'pilotos': [
-		{
-			icon: BsFillRocketTakeoffFill,
-			iconBackground: 'degradado-verde',
-			title: 'Entrenamiento piloto',
-			description: 'Amplia tus conocimientos',
-			url: 'https://www.ivao.aero/training/training/statustraining.asp',
-			newTab: true
-		},
 		{
 			icon: LuTowerControl,
 			iconBackground: 'degradado-azul',
@@ -85,14 +85,6 @@ export const infoMenu = {
 			description: 'Controla en Ecuador',
 			url: '#',
 			newTab: false
-		},
-		{
-			icon: BsFillRocketTakeoffFill,
-			iconBackground: 'degradado-verde',
-			title: 'Entrenamiento controlador',
-			description: 'Amplia tus conocimientos',
-			url: 'https://www.ivao.aero/training/training/statustraining.asp',
-			newTab: true
 		}
 	],
 
@@ -110,7 +102,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-verde',
 			title: 'Operaciones especiales',
 			description: 'Impacto desde las alturas',
-			url: '#',
+			url: '/special-operations',
 			newTab: false
 		},
 		{

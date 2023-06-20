@@ -78,7 +78,7 @@ export function Menu() {
 		recursos: false,
 	});
 
-	const [eventAlert, setEventAlert] = useState(true);
+	const [eventAlert, setEventAlert] = useState(false);
 	const { classes, theme } = useStyles();
 
 	const closeEventAlert = () => {
@@ -130,12 +130,15 @@ export function Menu() {
 			<Header height={105} px="md" bg={'none'} className='border-none'>
 				<Group position="apart" sx={{ height: '100%' }} className='container'>
 
-					<Image
-						src={'/logos/logo-complete.png'}
-						width={270}
-						height={30}
-						alt='Logo de IVAO Ecuador'
-					></Image>
+					<Link href={'/'}>
+						<Image
+							src={'/logos/logo-complete.png'}
+							width={270}
+							height={30}
+							alt='Logo de IVAO Ecuador'
+						></Image>
+					</Link>
+
 
 					<Group sx={{ height: '100%', width: '45%', justifyContent: 'space-between' }} spacing={0} className={classes.hiddenMobile}>
 						<HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
