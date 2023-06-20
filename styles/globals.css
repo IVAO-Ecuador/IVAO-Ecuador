@@ -25,6 +25,10 @@ body::-webkit-scrollbar-thumb{
 	margin-bottom: 20px;
 }
 
+.border-documents{
+	border-bottom: 2px solid #afb0bb0a
+}
+
 .upper-diagonal-right-top{
 	clip-path: polygon(0 0%, 100% 0, 100% 98%, 0 93%);
 }
