@@ -48,8 +48,8 @@ export const infoMenu = {
 			iconBackground: 'degradado-verde',
 			title: 'Entrenamiento piloto',
 			description: 'Amplia tus conocimientos',
-			url: '#',
-			newTab: false
+			url: 'https://www.ivao.aero/training/training/statustraining.asp',
+			newTab: true
 		},
 		{
 			icon: LuTowerControl,
@@ -91,8 +91,8 @@ export const infoMenu = {
 			iconBackground: 'degradado-verde',
 			title: 'Entrenamiento controlador',
 			description: 'Amplia tus conocimientos',
-			url: '#',
-			newTab: false
+			url: 'https://www.ivao.aero/training/training/statustraining.asp',
+			newTab: true
 		}
 	],
 
@@ -102,8 +102,8 @@ export const infoMenu = {
 			iconBackground: 'degradado-amarillo',
 			title: 'Cartas de navegación',
 			description: 'Actualizadas para su uso',
-			url: '#',
-			newTab: false
+			url: 'https://charts.ec.ivao.aero/',
+			newTab: true
 		},
 		{
 			icon: BsFillAirplaneEnginesFill,
@@ -118,7 +118,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-azul',
 			title: 'Otros recursos',
 			description: 'Documentos, información y más',
-			url: '#',
+			url: '/resources',
 			newTab: false
 		}
 	]

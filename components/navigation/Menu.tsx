@@ -221,7 +221,7 @@ export function Menu() {
 												Visita el foro de publicaciones de la división
 											</Text>
 										</div>
-										<Link href={'#'} className='bg-main-purple border-none text-text-white px-4 py-2 rounded-[5px] transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>Ir al foro</Link>
+										<Link href={'https://ec.forum.ivao.aero/'} target='_blank' className='bg-main-purple border-none text-text-white px-4 py-2 rounded-[5px] transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>Ir al foro</Link>
 									</Group>
 								</div>
 							</HoverCard.Dropdown>

@@ -35,7 +35,7 @@ export default function RootLayout({ children, }: { children: any }) {
 			<body className={`${pageFont.className} bg-degrade-purple`}>
 				{/* @ts-ignore*/}
 				<MantineProvider theme={{ fontFamily: pageFont }}>
-					<header className='border-b-2 border-menu'>
+					<header className='border-menu'>
 						<Menu></Menu>
 					</header>
 					<main>

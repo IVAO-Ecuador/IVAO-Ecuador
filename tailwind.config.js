@@ -28,7 +28,16 @@ module.exports = {
 		  'hover-color': '#37384b42',
 		  'sub-menus': '#1D1E2B',
 		  'light-blue': '#306EE8',
-		  'text-blue': '#A8C0F0'
+		  'text-blue': '#A8C0F0',
+
+		  'gray': 'hsl(246,  6%, 55%)',
+		  'gray-200': 'hsl(246,  8%, 35%)',
+		  'pink': 'hsl(270, 55%, 43%)', // Events
+		  'blue': 'hsl(220, 80%, 55%)', // Resources
+		  'cyan': 'hsl(180, 50%, 44%)', // Trainings
+		  'green': 'hsl(152, 38%, 42%)', // Exams
+		  'yellow': 'hsl(44, 74%, 52%)',
+		  'red': 'hsl(1, 62%, 44%)',
 	  }
 	},
 	plugins: [],

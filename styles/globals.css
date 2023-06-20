@@ -22,6 +22,7 @@ body::-webkit-scrollbar-thumb{
 
 .border-menu{
 	border-bottom: 2px solid #afb0bb0a;
+	margin-bottom: 20px;
 }
 
 .upper-diagonal-right-top{
