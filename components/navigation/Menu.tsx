@@ -105,7 +105,7 @@ export function Menu() {
 		}
 
 		return menuSelected.map((item: any) => (
-			<Link href={item.url} target={item.newTab ? '_blank' : '_self'}>
+			<Link key={item.title} href={item.url} target={item.newTab ? '_blank' : '_self'}>
 				<UnstyledButton className={classes.subLink} key={item.title}>
 					<Group noWrap align="flex-start">
 						<ThemeIcon size={46} className={`${item.iconBackground} border-none rounded-md`} >

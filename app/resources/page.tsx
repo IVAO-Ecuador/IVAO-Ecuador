@@ -69,7 +69,7 @@ export default function Resources() {
 							</div>
 							<div className='w-full'>
 								<h3 className='text-text-white max-md:mb-3'>Documentación para exámenes GCA en Ecuador</h3>
-								<p className='text-text-color'>Acceda al documento guía y prepárese para presentar el examen GCA.</p>
+								<p className='text-text-color'>Accede al documento guía y prepárese para presentar el examen GCA.</p>
 							</div>
 						</div>
 

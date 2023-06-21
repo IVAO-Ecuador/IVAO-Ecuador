@@ -1,6 +1,7 @@
 import {
 	BsAirplaneFill, BsCalendar2DateFill, BsClipboardDataFill, BsDiscord,
 	BsFillAirplaneEnginesFill, BsFillClipboard2DataFill, BsFillRocketTakeoffFill,
+	BsGeoAltFill,
 	BsPatchQuestionFill, BsPlusCircle, BsShieldFillCheck,
 	BsStar } from "react-icons/bs";
 
@@ -52,6 +53,14 @@ export const infoMenu = {
 
 	'pilotos': [
 		{
+			icon: BsGeoAltFill,
+			iconBackground: 'degradado-rojo',
+			title: 'IVAO Webeye',
+			description: 'Mapa en tiempo real de vuelos',
+			url: 'https://webeye.ivao.aero/',
+			newTab: true
+		},
+		{
 			icon: LuTowerControl,
 			iconBackground: 'degradado-azul',
 			title: 'Manual de comunicaciones',
@@ -59,6 +68,7 @@ export const infoMenu = {
 			url: '#',
 			newTab: false
 		}
+	
 	],
 
 	'controladores': [
@@ -67,7 +77,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-rosa',
 			title: 'Operaciones ATC',
 			description: 'Procedimientos locales',
-			url: '#',
+			url: '/atc-operations',
 			newTab: false
 		},
 		{

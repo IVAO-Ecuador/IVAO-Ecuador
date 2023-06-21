@@ -25,20 +25,28 @@ export default function About() {
 
 				<div className='container mt-20 px-8'>
 					<div>
-						<h2 className='text-text-white font-bold text-3xl mb-5'>La historia de IVAO Ecuador</h2>
-						<p className='text-text-color mb-10 text-lg'>
-							IVAO Ecuador es la división ecuatoriana de IVAO (International Virtual Aviation Organization), una red global
-							de simulación de vuelo en línea que ha cautivado a entusiastas de la aviación en todo el mundo. IVAO Ecuador
-							se dedica a brindar una experiencia realista y educativa a sus miembros, promoviendo la simulación de vuelo
-							y el control de tráfico aéreo en un entorno virtual. Acompáñanos en este recorrido por su fascinante trayectoria.
-						</p>
+						<h2 className='text-text-white font-bold text-3xl mb-10'>La historia de IVAO Ecuador</h2>
+						<div className='xl:flex'>
+							<div className='xl:w-1/2'>
+								<p className='text-text-color mb-10 text-lg'>
+									IVAO Ecuador es la división ecuatoriana de IVAO (International Virtual Aviation Organization), una red global
+									de simulación de vuelo en línea que ha cautivado a entusiastas de la aviación en todo el mundo. IVAO Ecuador
+									se dedica a brindar una experiencia realista y educativa a sus miembros, promoviendo la simulación de vuelo
+									y el control de tráfico aéreo en un entorno virtual. Acompáñanos en este recorrido por su fascinante trayectoria.
+								</p>
 
-						<p className='text-text-color mb-10 text-lg'>
-							El 12 de mayo de 2002 marca el inicio de la historia de IVAO Ecuador. En ese momento, entusiastas ecuatorianos de
-							la aviación decidieron establecer la división local de IVAO para ofrecer a los amantes de los vuelos virtuales
-							una plataforma de simulación realista y emocionante. Con determinación y pasión, dieron los primeros pasos para
-							construir una comunidad sólida.
-						</p>
+								<p className='text-text-color mb-10 text-lg'>
+									El 12 de mayo de 2002 marca el inicio de la historia de IVAO Ecuador. En ese momento, entusiastas ecuatorianos de
+									la aviación decidieron establecer la división local de IVAO para ofrecer a los amantes de los vuelos virtuales
+									una plataforma de simulación realista y emocionante. Con determinación y pasión, dieron los primeros pasos para
+									construir una comunidad sólida.
+								</p>
+							</div>
+							<div className='xl:w-1/2 max-xl:hidden flex justify-center items-center'>
+								<img src="/logos/logo-ivao.png" alt="" className='w-96' />
+							</div>
+						</div>
+
 
 						<p className='text-text-color mb-10 text-lg'>
 							En los años siguientes, IVAO Ecuador experimentó un crecimiento significativo. La comunidad se fortaleció con la
@@ -49,16 +57,16 @@ export default function About() {
 					</div>
 
 					<div className="grid grid-cols-5 grid-rows-6 gap-4 xl:h-[525px] lg:h-[400px] h-[250px] opacity-80 mb-10">
-						<div className="row-span-6"><Image src={'/images/about/a6.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-2"><Image src={'/images/about/c5.png'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-2 col-start-2 row-start-3"><Image src={'/images/about/c2.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-2 col-start-2 row-start-5"><Image src={'/images/about/b3.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-3 col-start-3 row-start-1"><Image src={'/images/about/a6.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-3 col-start-3 row-start-4"><Image src={'/images/about/c1.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="col-span-2 row-span-2 col-start-4 row-start-1"><Image src={'/images/about/c5.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-4 col-start-4 row-start-3"><Image src={'/images/about/c3.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-2 col-start-5 row-start-3"><Image src={'/images/about/c4.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="row-span-2 col-start-5 row-start-5"><Image src={'/images/about/b1.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-6"><Image src={'/images/about/a6.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2"><Image src={'/images/about/c5.png'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2 col-start-2 row-start-3"><Image src={'/images/about/c2.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2 col-start-2 row-start-5"><Image src={'/images/about/b3.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-3 col-start-3 row-start-1"><Image src={'/images/about/a6.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-3 col-start-3 row-start-4"><Image src={'/images/about/c1.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 col-span-2 row-span-2 col-start-4 row-start-1"><Image src={'/images/about/c5.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-4 col-start-4 row-start-3"><Image src={'/images/about/c3.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2 col-start-5 row-start-3"><Image src={'/images/about/c4.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2 col-start-5 row-start-5"><Image src={'/images/about/b1.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
 					</div>
 
 					<div>

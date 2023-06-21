@@ -25,7 +25,7 @@ export default function RootLayout({ children, }: { children: any }) {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta name="keywords" content="IVAO, Ecuador, simulación de vuelo, tráfico aéreo, vuelos virtuales, comunidad de aviación" />
 				<meta name="robots" content="index, follow" />
-				<meta http-equiv="Content-Language" content="es" />
+				<meta httpEquiv="Content-Language" content="es" />
 				<meta name="geo.region" content="EC" />
 				<meta name="geo.placename" content="Ecuador" />
 				<meta name="geo.position" content="-0.2295;-78.5249" />
