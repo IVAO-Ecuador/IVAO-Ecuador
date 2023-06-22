@@ -5,7 +5,7 @@ import { BsFillAirplaneEnginesFill, BsRocketFill } from 'react-icons/bs'
 export default function SpecialOperations() {
 	return (
 		<div className="overflow-hidden relative">
-			<div className="bg-dark-blue pb-56 relative">
+			<div className="bg-dark-blue relative">
 				<div className='bg-[url("/images/special-operations.jpg")] bg-cover bg-no-repeat bg-center h-60 flex items-center'>
 					<div className='container px-8'>
 						<div className='text-text-white bg-green px-5 py-1 rounded flex w-min items-center gap-x-2'>
@@ -16,7 +16,7 @@ export default function SpecialOperations() {
 					</div>
 				</div>
 
-				<div className='container py-20 px-8'>
+				<div className='container py-24 px-8'>
 					<p className='text-text-color text-lg mb-8'>
 						¡Te invitamos a observar las operaciones especiales de Ecuador en la plataforma de IVAO! Descubre
 						diversos temas relacionados con patrones de tráfico, altitudes y niveles de vuelo, clases de

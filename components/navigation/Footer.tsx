@@ -1,0 +1,153 @@
+import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
+import Image from 'next/image';
+import { BsDiscord, BsFacebook, BsInstagram } from 'react-icons/bs';
+import { infoFooter } from './infoFooter';
+
+const useStyles = createStyles((theme) => ({
+	footer: {
+		paddingTop: `calc(${theme.spacing.xl} * 2)`,
+		paddingBottom: `calc(${theme.spacing.xl} * 2)`
+	},
+
+	logo: {
+		maxWidth: rem(250),
+
+		[theme.fn.smallerThan('sm')]: {
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'center',
+		},
+	},
+
+	description: {
+		fontSize: '14px',
+		marginTop: rem(5),
+
+		[theme.fn.smallerThan('sm')]: {
+			marginTop: theme.spacing.xs,
+			textAlign: 'center',
+		},
+	},
+
+	inner: {
+		display: 'flex',
+		justifyContent: 'space-between',
+
+		[theme.fn.smallerThan('sm')]: {
+			flexDirection: 'column',
+			alignItems: 'center',
+		},
+	},
+
+	groups: {
+		display: 'flex',
+		flexWrap: 'wrap',
+
+		[theme.fn.smallerThan('sm')]: {
+			display: 'none',
+		},
+	},
+
+	wrapper: {
+		width: rem(160),
+	},
+
+	link: {
+		display: 'block',
+		color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[6],
+		fontSize: theme.fontSizes.sm,
+		paddingTop: rem(3),
+		paddingBottom: rem(3),
+
+		'&:hover': {
+			textDecoration: 'underline',
+		},
+	},
+
+	title: {
+		fontSize: theme.fontSizes.lg,
+		fontWeight: 700,
+		marginBottom: `calc(${theme.spacing.xs} / 2)`,
+		color: '#FFF'
+	},
+
+	afterFooter: {
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		marginTop: theme.spacing.xl,
+		paddingTop: theme.spacing.xl,
+		paddingBottom: theme.spacing.xl,
+		borderTop: `${rem(1)} solid #afb0bb0a`,
+
+		[theme.fn.smallerThan('sm')]: {
+			flexDirection: 'column',
+		},
+	},
+
+	social: {
+		[theme.fn.smallerThan('sm')]: {
+			marginTop: theme.spacing.xs,
+		},
+	},
+}));
+
+export function Footer() {
+	const { classes } = useStyles();
+
+	let data = infoFooter;
+
+	const groups = data.map((group: any) => {
+		const links = group.links.map((link: any, index: any) => (
+			<Text<'a'>
+				key={index}
+				className={classes.link}
+				component="a"
+				href={link.link}
+				onClick={(event) => event.preventDefault()}
+			>
+				{link.label}
+			</Text>
+		));
+
+		return (
+			<div className={classes.wrapper} key={group.title}>
+				<Text className={classes.title}>{group.title}</Text>
+				{links}
+			</div>
+		);
+	});
+
+	return (
+		<footer className={`${classes.footer}`}>
+			<Container className={classes.inner}>
+				<div className={classes.logo}>
+					<Image src={'/logos/logo-complete.png'} width={270} height={30} alt='Logo IVAO Ecuador' className='-ml-9'></Image>
+					<Text size="xs" color="dimmed" className={classes.description}>
+						¡Explora el fascinante mundo de la simulación de vuelo en IVAO Ecuador!
+					</Text>
+				</div>
+				<div className={classes.groups}>
+					{groups}
+				</div>
+			</Container>
+			<Container className={classes.afterFooter}>
+				<Text color="dimmed" size="sm" className='max-md:text-center'>
+					© 2023 IVAO Ecuador. Todos los derechos reservados.
+				</Text>
+
+				<Group spacing={0} className={classes.social} position="right" noWrap>
+					<ActionIcon size="lg">
+						<BsInstagram size="1.05rem" />
+					</ActionIcon>
+					<ActionIcon size="lg">
+						<BsFacebook size="1.05rem" />
+					</ActionIcon>
+					<ActionIcon size="lg">
+						<BsDiscord size="1.05rem" />
+					</ActionIcon>
+				</Group>
+			</Container>
+		</footer>
+	);
+}

@@ -6,7 +6,7 @@ import { BsHeartFill, BsLamp } from 'react-icons/bs'
 export default function About() {
 	return (
 		<div className="overflow-hidden relative">
-			<div className="bg-dark-blue pb-56 relative">
+			<div className="bg-dark-blue relative">
 				<div className='bg-[url("/images/resources.jpg")] bg-cover bg-no-repeat bg-center h-60 flex items-center'>
 					<div className='container px-8'>
 						<div className='flex items-center gap-x-3'>
@@ -23,7 +23,7 @@ export default function About() {
 					</div>
 				</div>
 
-				<div className='container mt-20 px-8'>
+				<div className='container py-24 px-8'>
 					<div>
 						<h2 className='text-text-white font-bold text-3xl mb-10'>La historia de IVAO Ecuador</h2>
 						<div className='xl:flex'>
