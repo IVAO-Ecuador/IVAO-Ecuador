@@ -33,6 +33,7 @@ module.exports = {
 		  'gray': 'hsl(246,  6%, 55%)',
 		  'gray-200': 'hsl(246,  8%, 35%)',
 		  'pink': 'hsl(270, 55%, 43%)', // Events
+		  'pink-500': 'hsl(270, 60%, 52%)',
 		  'blue': 'hsl(220, 80%, 55%)', // Resources
 		  'cyan': 'hsl(180, 50%, 44%)', // Trainings
 		  'green': 'hsl(152, 38%, 42%)', // Exams

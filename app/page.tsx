@@ -5,6 +5,7 @@ import { Menu } from "@/components/navigation/Menu";
 import AInformation from "@/components/home/AInformation";
 import Banner from "@/components/home/Banner";
 import LatestEvents from "@/components/home/LatestEvents";
+import DivisionData from "@/components/home/DivisionData";
 
 export default function MainContent() {
 
@@ -17,7 +18,7 @@ export default function MainContent() {
 				</div>
 			</div>
 
-			<div className="bg-dark-blue pb-56">
+			<div className="bg-dark-blue">
 				<div className="container relative px-8">
 					<AInformation></AInformation>
 				</div>
@@ -25,7 +26,7 @@ export default function MainContent() {
 
 			<div className="bg-degrade-black upper-diagonal-right-bottom">
 				<div className="container relative px-8">
-					<LatestEvents></LatestEvents>
+					<DivisionData></DivisionData>
 				</div>
 			</div>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BsAwardFill, BsBoxSeam, BsFillEaselFill, BsFillLightningFill, BsHeartFill } from "react-icons/bs";
+import { BsAwardFill, BsBoxSeam, BsFillAirplaneFill, BsFillEaselFill, BsFillLightningFill, BsHeartFill } from "react-icons/bs";
 
 export default function AInformation() {
 
@@ -22,15 +22,15 @@ export default function AInformation() {
 			const distance = Math.max(0, scrollPosition - startingPosition);
 			const translateY = Math.min(distance, 335);
 
-			if(translateY == 335 && windowScroll != 0){
-				if(!finisher){
+			if (translateY == 335 && windowScroll != 0) {
+				if (!finisher) {
 					airplane.style.transform = `translateY(${175}px)`;
 				}
-			}else{
+			} else {
 				airplane.style.transform = `translateY(${translateY}px)`;
 				finisher = true;
 			}
-			
+
 			if (distance <= 335) {
 				animationFrameId = requestAnimationFrame(handleScroll);
 			}
@@ -48,7 +48,7 @@ export default function AInformation() {
 
 	return (
 		<div className='relative z-50 lg:-mt-20 -mt-24 '>
-			<div className="flex relative z-50 items-center justify-center mx-auto mb-16 rounded-full text-4xl w-[72px] h-[72px] info-number text-light-blue bg-[#183367]">
+			<div className="flex relative z-50 items-center justify-center mx-auto mb-16 rounded-full text-4xl w-[72px] h-[72px] info-number-blue text-light-blue bg-[#183367]">
 				<BsFillLightningFill></BsFillLightningFill>
 			</div>
 
@@ -75,7 +75,7 @@ export default function AInformation() {
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
 									<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
-									<BsFillEaselFill></BsFillEaselFill>
+										<BsFillEaselFill></BsFillEaselFill>
 									</div>
 								</div>
 							</div>
@@ -97,8 +97,8 @@ export default function AInformation() {
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-								<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
-									<BsAwardFill></BsAwardFill>
+									<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+										<BsAwardFill></BsAwardFill>
 									</div>
 								</div>
 							</div>
@@ -133,8 +133,8 @@ export default function AInformation() {
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-								<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
-									<BsBoxSeam></BsBoxSeam>
+									<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+										<BsBoxSeam></BsBoxSeam>
 									</div>
 								</div>
 							</div>
@@ -156,13 +156,18 @@ export default function AInformation() {
 									</path>
 								</svg>
 								<div className="flex items-center justify-center z-10 rounded-full w-24 h-24 border bg-background bg-dark-blue">
-								<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
-									<BsHeartFill></BsHeartFill>
+									<div className="text-2xl mr-1 mb-2 text-[#306EE8]" aria-hidden="true">
+										<BsHeartFill></BsHeartFill>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div className='mt-44'>
+				<div className="flex items-center justify-center mx-auto rounded-full text-4xl w-[72px] h-[72px] info-number-pink text-pink-500 bg-[#291839]">
+					<BsFillAirplaneFill className='rotate-180'></BsFillAirplaneFill>
 				</div>
 			</div>
 		</div>
