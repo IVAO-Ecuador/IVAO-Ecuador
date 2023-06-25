@@ -47,8 +47,8 @@ export default function AInformation() {
 	}, []);
 
 	return (
-		<div className='relative z-50 lg:-mt-20 -mt-24 '>
-			<div className="flex relative z-50 items-center justify-center mx-auto mb-16 rounded-full text-4xl w-[72px] h-[72px] info-number-blue text-light-blue bg-[#183367]">
+		<div className='relative z-50 pt-14 '>
+			<div className="flex mt-20 relative z-50 items-center justify-center mx-auto mb-16 rounded-full text-4xl w-[72px] h-[72px] info-number-blue text-light-blue bg-[#183367]">
 				<BsFillLightningFill></BsFillLightningFill>
 			</div>
 

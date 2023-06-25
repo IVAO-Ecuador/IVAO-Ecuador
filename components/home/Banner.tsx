@@ -28,7 +28,7 @@ export default function Banner() {
 				</div>
 				<div className="opacity-60 xl:w-1/2 w-full">
 					<div className="xl:ml-20 max-xl:hidden relative z-20">
-						{/*<GlobeCanvas />*/}
+						<GlobeCanvas />
 					</div>
 				</div>
 			</div>

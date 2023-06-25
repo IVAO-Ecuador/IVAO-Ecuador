@@ -9,7 +9,6 @@ const GlobeCanvas = () => {
   useEffect(() => {
     let phi = 0;
     let theta = 0;
-    let isMouseDown = false;
     let lastUpdate = Date.now();
 
     const globe = createGlobe(canvasRef.current, {
@@ -51,31 +50,8 @@ const GlobeCanvas = () => {
       }
     });
 
-    const handleMouseDown = () => {
-      isMouseDown = true;
-    };
-
-    const handleMouseUp = () => {
-      isMouseDown = false;
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      if (isMouseDown) {
-        phi += event.movementX * 0.01;
-        theta += event.movementY * 0.01;
-        lastUpdate = Date.now();
-      }
-    };
-
-    canvasRef.current.addEventListener("mousedown", handleMouseDown);
-    canvasRef.current.addEventListener("mouseup", handleMouseUp);
-    canvasRef.current.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       globe.destroy();
-      canvasRef.current.removeEventListener("mousedown", handleMouseDown);
-      canvasRef.current.removeEventListener("mouseup", handleMouseUp);
-      canvasRef.current.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

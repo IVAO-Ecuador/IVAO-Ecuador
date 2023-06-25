@@ -8,6 +8,14 @@
 	box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
 }
 
+.event-border{
+	border: 1px solid hsla(152, 38%, 42%, 0.446);
+}
+
+.events-card-shadow{
+	box-shadow: rgba(66, 148, 110, 0.058) 0px 4px 24px;
+}
+
 .info-number-pink {
 	border: 3px solid #853BCE;
 }

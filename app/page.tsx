@@ -12,7 +12,7 @@ export default function MainContent() {
 	return (
 		<div className="overflow-hidden relative">
 
-			<div className="xl:pb-20 pb-40 z-10 relative upper-diagonal-right-top">
+			<div className="xl:pb-20 pb-20 relative upper-diagonal-right-top">
 				<div className="container px-8 relative z-0">
 					<Banner></Banner>
 				</div>

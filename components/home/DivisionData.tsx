@@ -260,7 +260,7 @@ export default function DivisionData() {
 							</button>
 					</div>
 					<div className='max-xl:hidden w-1/2'>
-						<img src="/images/about/a1.jpg" alt="" className=' h-[420px] object-cover brightness-50'/>
+						<img src="/images/about/c3.jpg" alt="" className=' h-[420px] object-cover brightness-50'/>
 					</div>
 				</div>
 			</div>

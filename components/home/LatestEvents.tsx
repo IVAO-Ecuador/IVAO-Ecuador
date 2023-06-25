@@ -55,10 +55,10 @@ export default function LatestEvents() {
 				<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Cargando información...</p>
 			) : (
 				<div>
-					<div className='md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10'>
+					<div className='lg:flex gap-x-6 mb-10'>
 						{eventsList.map(event => (
-							<div key={event.id_evento} className='bg-hover-color cursor-pointer rounded-xl max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
-								<img src={event.imagen_evento} className='xl:h-[248px] lg:h-44 max-lg:h-52 object-cover rounded-tr-lg rounded-tl-lg' />
+							<div key={event.id_evento} className='bg-hover-color cursor-pointer rounded-xl events-card-shadow event-border max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
+								<img src={event.imagen_evento} className='w-[700px] h-[80px] xl:h-[248px] lg:h-44 max-lg:h-52 object-cover rounded-tr-lg rounded-tl-lg' />
 								<div className='p-7'>
 									<div className='xl:flex gap-x-3 items-center'>
 										<h3 className='text-text-white text-xl font-semibold'>{event.nombre_evento}</h3>
