@@ -18,9 +18,15 @@ export default function MainContent() {
 				</div>
 			</div>
 
-			<div className="bg-dark-blue">
+			<div className="bg-dark-blue upper-diagonal-right-bottom">
 				<div className="container relative px-8">
 					<AInformation></AInformation>
+				</div>
+			</div>
+
+			<div className="bg-degrade-green upper-diagonal-right-bottom">
+				<div className="container relative px-8">
+					<LatestEvents></LatestEvents>
 				</div>
 			</div>
 

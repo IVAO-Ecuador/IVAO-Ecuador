@@ -57,7 +57,7 @@ export default function AInformation() {
 			<hr className="w-40 mx-auto my-6 border-light-blue"></hr>
 			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Comienza con tu experiencia en IVAO Ecuador, regístrate y comienza a volar o controlar. Nuestra división extiende a sus usuarios las herramientas necesarias para aumentar el realismo en las operaciones áreas.</p>
 
-			<div className='lg:flex gap-x-5 lg:mt-24 mt-16 justify-center'>
+			<div className='lg:flex gap-x-5 lg:mt-24 mt-16 justify-center pb-36'>
 				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-end gap-y-8 max-sm:scale-95'>
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
@@ -163,11 +163,6 @@ export default function AInformation() {
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div className='lg:mt-44 mt-28'>
-				<div className="flex items-center justify-center mx-auto rounded-full text-4xl w-[72px] h-[72px] info-number-pink text-pink-500 bg-[#291839]">
-					<BsFillAirplaneFill className='rotate-180'></BsFillAirplaneFill>
 				</div>
 			</div>
 		</div>

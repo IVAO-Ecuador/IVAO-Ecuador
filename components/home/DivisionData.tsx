@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { BsArrowRight, BsFillAirplaneFill } from 'react-icons/bs';
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { LuTowerControl } from 'react-icons/lu';
 
@@ -41,7 +42,7 @@ export default function DivisionData() {
 	const airportsArray: string[] = [
 		'SEQM', 'SEGU', 'SEMT', 'SEST', 'SEGS',
 		'SECU', 'SERO', 'SELT', 'SENL', 'SECO', 'SESM', 'SEMC',
-		'SEJD', 'SETN', 'SETU', 'SESA', 'SECA','SBKP'
+		'SEJD', 'SETN', 'SETU', 'SESA', 'SECA'
 	];
 
 	useEffect(() => {
@@ -73,7 +74,7 @@ export default function DivisionData() {
 		return () => clearInterval(interval);
 	}, []);
 
-	
+
 	const filterFlights = (type: FlightType): Pilot[] => {
 		const filteredFlights = pilotsInfo.filter(pilot => {
 			if (type === 'departure') {
@@ -114,19 +115,17 @@ export default function DivisionData() {
 		infoToShow == 7 ? setInfoToShow(500) : setInfoToShow(7)
 	}
 
-	const convertMinutesToHours = (minutes:number) => {
-		const hours = Math.floor(minutes / 60);
-		const remainingMinutes = minutes % 60;
-		const hoursStr = String(hours).padStart(2, "0");
-		const minutesStr = String(remainingMinutes).padStart(2, "0"); 
-		const secondsStr = "00";
-		return hoursStr + ":" + minutesStr + ":" + secondsStr;
-	  }
-
 	const filteredFlights = filterFlights(selectedFlightType);
 
 	return (
-		<div className='lg:-mt-14 -mt-16 py-36'>
+		<div className='py-32 -mt-28'>
+
+			<div className='mt-10 mb-10'>
+				<div className="flex pink-blur items-center justify-center mx-auto rounded-full text-4xl w-[72px] h-[72px] info-number-pink text-pink-500 bg-[#291839]">
+					<BsFillAirplaneFill className='rotate-180'></BsFillAirplaneFill>
+				</div>
+			</div>
+
 			<p className="text-2xl font-bold mb-2 text-pink-500 text-center">¡Estás en el radar!</p>
 			<h2 className="text-4xl font-bold text-text-white text-center">Usuarios activos en Ecuador</h2>
 			<hr className="w-40 mx-auto my-6 border-pink-500"></hr>
@@ -174,7 +173,7 @@ export default function DivisionData() {
 					<ul className="md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 						{controllersInfo.map(atc => (
 							<li key={atc.id} className="border-pink pink-blur rounded-lg p-4 flex items-center gap-x-5">
-									<LuTowerControl className='text-text-white text-6xl opacity-80'></LuTowerControl>
+								<LuTowerControl className='text-text-white text-6xl opacity-80'></LuTowerControl>
 								<div>
 									<div className='flex items-center gap-x-3'>
 										<p className='text-pink-500 font-bold'>{atc.callsign}</p>
@@ -240,7 +239,7 @@ export default function DivisionData() {
 						{filteredFlights.length > 7 && (
 							<div className='mt-10 text-center'>
 								<button className="text-pink-500 font-bold border px-8 py-1 rounded-md hover:px-10 transition-all"
-								onClick={handleInfoToShow}>
+									onClick={handleInfoToShow}>
 									{infoToShow == 7 ? 'Ver más' : 'Ver menos'}
 								</button>
 							</div>
@@ -249,6 +248,22 @@ export default function DivisionData() {
 					</div>
 				</div>
 			)}
+
+			<div className='mt-20'>
+				<div className='flex rounded-2xl overflow-hidden gap-x-8  items-center bg-[linear-gradient(110.1deg,_rgba(46,_29,_99,_0.4)_0%,_#3D0F34_100%)]'>
+					<div className='xl:py-12 xl:px-16 xl:w-1/2 md:py-16 md:px-16 px-12 py-12'>
+							<p className='text-3xl font-semibold mb-5 max-w-md text-text-white'>Comienza ya tu aventura en IVAO Ecuador.</p>
+							<p className='text-xl mb-7 text-gray-600 text-text-color'>Escoge entre ser piloto, controlador o ambos y disfruta del increíble mundo de la simulación</p>
+							<button className='bg-main-purple text-text-white px-16 py-2 rounded-md flex justify-center items-center gap-x-3'>
+								<p>Registrarme ahora</p>
+								<BsArrowRight className='max-md:hidden'></BsArrowRight>
+							</button>
+					</div>
+					<div className='max-xl:hidden w-1/2'>
+						<img src="/images/about/a1.jpg" alt="" className=' h-[420px] object-cover brightness-50'/>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

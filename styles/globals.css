@@ -30,9 +30,9 @@ body::-webkit-scrollbar-thumb{
 }
 
 .upper-diagonal-right-top{
-	clip-path: polygon(0 0%, 100% 0, 100% 98%, 0 93%);
+	clip-path: polygon(0 0%, 100% 0, 100% 98%, 0 93%) ;
 }
 
 .upper-diagonal-right-bottom{
-	clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+	clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
 }

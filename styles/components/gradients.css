@@ -26,6 +26,10 @@
 	 rgba(114, 192, 156, 0) 66.58%), hsl(250, 21%, 11%);
 }
 
+.bg-degrade-green{
+	background: linear-gradient(132.29deg, rgba(132, 200, 168, 0.08) 17.64%, rgba(114, 192, 156, 0) 66.58%), hsl(250, 21%, 11%);
+}
+
 .degradado-azul{
 	background-image: linear-gradient(225deg, #7fa5ff 0, #3a71e6 50%, #004194 100%);
 }
