@@ -12,6 +12,10 @@
 	border: 3px solid #853BCE;
 }
 
+.border-pink{
+	border: 1px solid #853BCE;
+}
+
 .pink-blur {
 	box-shadow: rgba(132, 59, 206, 0.15) 0px 4px 24px;
 }
