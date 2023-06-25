@@ -165,7 +165,7 @@ export default function AInformation() {
 					</div>
 				</div>
 			</div>
-			<div className='mt-44'>
+			<div className='lg:mt-44 mt-28'>
 				<div className="flex items-center justify-center mx-auto rounded-full text-4xl w-[72px] h-[72px] info-number-pink text-pink-500 bg-[#291839]">
 					<BsFillAirplaneFill className='rotate-180'></BsFillAirplaneFill>
 				</div>
