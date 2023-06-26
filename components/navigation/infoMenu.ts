@@ -65,7 +65,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-azul',
 			title: 'Manual de comunicaciones',
 			description: 'Potencia tu habilidad de comunicación',
-			url: '#',
+			url: '/comms',
 			newTab: false
 		}
 	
@@ -85,7 +85,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-azul',
 			title: 'Lineamientos examen ATC',
 			description: 'Prepara tu examen',
-			url: '#',
+			url: '/atc-guidelines',
 			newTab: false
 		},
 		{
@@ -93,7 +93,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-amarillo',
 			title: 'Examen GCA',
 			description: 'Controla en Ecuador',
-			url: '#',
+			url: '/gca-exam',
 			newTab: false
 		}
 	],
