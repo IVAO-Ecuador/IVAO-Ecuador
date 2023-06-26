@@ -344,8 +344,19 @@ export function Menu() {
 							<RiTranslate2 className='text-xl'></RiTranslate2>
 							<p className='md:hidden'>Traducir pagina</p>
 						</div>
-						<button className='bg-main-green text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3'>Iniciar sesión</button>
-						<Link href={'https://www.ivao.aero/members/person/register.htm'} target='_blank' className='bg-main-purple text-text-white px-5 py-2 rounded-md block text-center max-md:w-full'>Registrarse</Link>
+						{status == 'unauthenticated' ? (
+							<>
+								<button className='bg-main-green text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3' onClick={() => signIn("ivao")}>Iniciar sesión</button>
+								<Link href={'https://www.ivao.aero/members/person/register.htm'} target='_blank' className='bg-main-purple text-text-white px-5 py-2 rounded-md block text-center max-md:w-full'>Registrarse</Link>
+							</>
+
+						) : (
+							<>
+								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3'>{userData?.publicNickname}</button>
+								<button className='bg-red text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3' onClick={() => signOut()}>Cerrar sesión</button>
+							</>
+						)}
+
 					</div>
 
 				</ScrollArea>
