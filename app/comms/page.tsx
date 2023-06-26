@@ -1,6 +1,7 @@
 
+import CtaIVAO from '@/components/navigation/CtaIVAO'
 import React from 'react'
-import { BsJournalBookmarkFill, BsStarFill, BsTools } from 'react-icons/bs'
+import { BsArrowRight, BsJournalBookmarkFill, BsStarFill, BsTools } from 'react-icons/bs'
 
 export default function Comms() {
 	return (
@@ -57,6 +58,9 @@ export default function Comms() {
 							<button className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>Abrir documento</button>
 						</div>
 					</div>
+
+					<CtaIVAO></CtaIVAO>
+
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 
+import CtaIVAO from '@/components/navigation/CtaIVAO'
 import React from 'react'
 import { BsClipboard2Check, BsRocketFill, BsStarFill } from 'react-icons/bs'
 import { LuTowerControl } from 'react-icons/lu'
@@ -52,9 +53,10 @@ export default function GCAExam() {
 							<button className='bg-gray-200 text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>Abrir guía</button>
 							<a href='mailto:ec-training@ivao.aero' className='bg-pink text-text-white px-10 py-2 rounded-md max-md:w-full hover:px-11 transition-all'>Solicitar examen</a>
 						</div>
-
-
 					</div>
+
+					<CtaIVAO></CtaIVAO>
+
 				</div>
 			</div>
 		</div>
