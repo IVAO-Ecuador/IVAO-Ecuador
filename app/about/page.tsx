@@ -58,7 +58,7 @@ export default function About() {
 
 					<div className="grid grid-cols-5 grid-rows-6 gap-4 xl:h-[525px] lg:h-[400px] h-[250px] opacity-80 mb-10">
 						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-6"><Image src={'/images/about/a6.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
-						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2"><Image src={'/images/about/c5.png'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
+						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2"><Image src={'/images/about/c5.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
 						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2 col-start-2 row-start-3"><Image src={'/images/about/c2.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
 						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-2 col-start-2 row-start-5"><Image src={'/images/about/b3.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>
 						<div className="transition-all hover:translate-x-0.5 hover:-translate-y-0.5 row-span-3 col-start-3 row-start-1"><Image src={'/images/about/a6.jpg'} width={1000} height={100} alt='Imagen de mosaico' className='w-full h-full object-cover rounded-md'></Image></div>

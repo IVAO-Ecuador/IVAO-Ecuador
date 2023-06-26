@@ -8,8 +8,7 @@ interface Event {
 	nombre_evento: string;
 	descripcion_evento: string;
 	imagen_evento: string;
-	fecha_inicio: string;
-	fecha_fin: string;
+	fecha_evento: string;
 	tipo_evento: string;
 	estado: string;
 }
@@ -19,7 +18,6 @@ export default function LatestEvents() {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-
 		const fetchData = () => {
 			fetch('http://localhost:3005/api/events')
 				.then(response => response.json())
@@ -32,11 +30,21 @@ export default function LatestEvents() {
 					setIsLoading(false);
 				});
 		};
-
 		fetchData();
-
 	}, [])
 
+	const calculateDate = (date: string) => {
+
+		const eventInitialDate = new Date(date);
+
+		const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+			'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+		]
+
+		return `${eventInitialDate.getDate()} de
+		 		${months[eventInitialDate.getMonth()]} de
+		  		${eventInitialDate.getFullYear()}`
+	}
 
 	return (
 		<div className='py-48'>
@@ -57,7 +65,7 @@ export default function LatestEvents() {
 				<div>
 					<div className='lg:flex gap-x-6 mb-10'>
 						{eventsList.map(event => (
-							<div key={event.id_evento} className='bg-hover-color cursor-pointer rounded-xl events-card-shadow event-border max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
+							<div key={event.id_evento} className='bg-hover-color lg:w-1/3 cursor-pointer rounded-xl events-card-shadow event-border max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 								<img src={event.imagen_evento} className='w-[700px] h-[80px] xl:h-[248px] lg:h-44 max-lg:h-52 object-cover rounded-tr-lg rounded-tl-lg' />
 								<div className='p-7'>
 									<div className='xl:flex gap-x-3 items-center'>
@@ -65,6 +73,7 @@ export default function LatestEvents() {
 										<span className='text-sm text-text-white px-2 rounded-sm bg-cyan'>{event.tipo_evento}</span>
 									</div>
 									<p className='mt-5 text-text-color mb-5'>{event.descripcion_evento}</p>
+									<p className='text-text-white'>Fecha: {calculateDate(event.fecha_evento)}</p>
 								</div>
 							</div>
 						))}
