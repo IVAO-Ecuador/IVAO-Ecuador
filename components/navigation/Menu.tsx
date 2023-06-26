@@ -9,11 +9,13 @@ import {
 
 import { FiChevronDown, FiLoader, FiX } from "react-icons/fi";
 import { RiTranslate2 } from 'react-icons/ri';
-import { useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { infoMenu } from './infoMenu';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { BsArrowRight, BsArrowRightSquare } from 'react-icons/bs';
+import { getUserData } from '@/auth/components/userData';
+import { IUser } from "@/auth/types/user";
 
 
 const useStyles = createStyles((theme) => ({
@@ -75,7 +77,9 @@ export function Menu() {
 	const { status } = useSession();
 
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-
+	const [eventAlert, setEventAlert] = useState(false);
+	const [userData, setUserData] = useState<IUser | null>(null);
+	const { classes, theme } = useStyles();
 	const [linksOpened, setLinksOpened] = useState({
 		division: false,
 		pilotos: false,
@@ -83,8 +87,15 @@ export function Menu() {
 		recursos: false,
 	});
 
-	const [eventAlert, setEventAlert] = useState(false);
-	const { classes, theme } = useStyles();
+	const getUserData = async () => {
+		const res = await fetch("/api/user");
+		const user = (await res.json()) as IUser;
+		setUserData(user);
+	};
+
+	if (status == 'authenticated') {
+		getUserData();
+	}
 
 	const closeEventAlert = () => {
 		setEventAlert(false);
@@ -248,7 +259,7 @@ export function Menu() {
 								<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
 									<BsArrowRight className='text-xl' onClick={() => signOut()}></BsArrowRight>
 								</div>
-								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md'>Perfil</button>
+								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</button>
 							</>
 						)}
 

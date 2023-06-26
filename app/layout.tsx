@@ -16,7 +16,6 @@ export default function RootLayout({ children, }: { children: any }) {
 
 	return (
 		<html lang="en">
-
 			<head>
 				<title>IVAO Ecuador</title>
 				<meta name="author" content="Santiago Baron Zuleta" />
