@@ -41,7 +41,7 @@ export default function About() {
 									con las divisiones europeas.
 								</p>
 							</div>
-							<div className='xl:w-1/2 max-xl:hidden flex justify-center items-center'>
+							<div className='xl:w-1/2 max-xl:mt-10 flex justify-center items-center'>
 								<img src="/images/about/c5.jpg" alt="Imagen sobre la división de IVAO Ecuador" className='w-5/6 h-5/6 object-cover rounded-2xl brightness-50' />
 							</div>
 						</div>
