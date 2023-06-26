@@ -319,7 +319,7 @@ export function Menu() {
 							<p className='md:hidden'>Traducir pagina</p>
 						</div>
 						<button className='bg-main-green text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3'>Iniciar sesión</button>
-						<a className='bg-main-purple text-text-white px-5 py-2 rounded-md block text-center max-md:w-full'>Registrarse</a>
+						<Link href={'https://www.ivao.aero/members/person/register.htm'} target='_blank' className='bg-main-purple text-text-white px-5 py-2 rounded-md block text-center max-md:w-full'>Registrarse</Link>
 					</div>
 
 				</ScrollArea>

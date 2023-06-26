@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { BsArrowRight, BsFillAirplaneFill } from 'react-icons/bs';
+import { BsFillAirplaneFill } from 'react-icons/bs';
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { LuTowerControl } from 'react-icons/lu';
 import CtaIVAO from '../navigation/CtaIVAO';
@@ -54,6 +53,14 @@ export default function DivisionData() {
 					setPilotsInfo(page.clients.pilots);
 					setControllersInfo(page.clients.atcs.filter((atc: ATC) => airportsArray.some(icao => atc.callsign.startsWith(icao))));
 					setIsLoading(false);
+
+					if (filterFlights('departure').length != 0) {
+						setSelectedFlightType('departure')
+						setShowControllerList(false)
+					}else if (filterFlights('arrival').length != 0) {
+						setSelectedFlightType('arrival')
+						setShowControllerList(false)
+					}
 				})
 				.catch(() => {
 					console.error('Error al obtener datos de IVAO');
@@ -63,13 +70,7 @@ export default function DivisionData() {
 
 		fetchData();
 
-		if (filterFlights('departure').length != 0) {
-			setSelectedFlightType('departure')
-			setShowControllerList(false)
-		} else if (filterFlights('arrival').length != 0) {
-			setSelectedFlightType('arrival')
-			setShowControllerList(false)
-		}
+		
 
 		const interval = setInterval(fetchData, 20000);
 		return () => clearInterval(interval);
@@ -188,7 +189,7 @@ export default function DivisionData() {
 				</div>
 			) : (
 				<div>
-					<div className='max-w-full overflow-x-auto'>
+					<div className='max-w-full overflow-x-auto overflow-y-hidden'>
 						<table className="min-w-full divide-y divide-gray-200">
 							<thead className="bg-gray-50">
 								<tr>

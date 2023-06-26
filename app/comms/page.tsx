@@ -7,7 +7,7 @@ export default function Comms() {
 	return (
 		<div className="overflow-hidden relative">
 			<div className="bg-dark-blue relative">
-				<div className='bg-[url("/images/gca-exam.jpg")] bg-cover bg-no-repeat bg-center h-60 flex items-center'>
+				<div className='bg-[url("/images/comms.jpg")] bg-cover bg-no-repeat bg-center h-60 flex items-center'>
 					<div className='container px-8'>
 						<div className='text-text-white bg-light-blue px-5 py-1 rounded flex w-min items-center gap-x-2'>
 							<BsTools className='text-sm'></BsTools>

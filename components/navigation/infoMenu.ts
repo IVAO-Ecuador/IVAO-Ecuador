@@ -30,7 +30,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-rojo',
 			title: 'Eventos',
 			description: 'Conectando a través de eventos',
-			url: '#',
+			url: '/events',
 			newTab: false
 		},
 		{

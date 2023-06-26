@@ -64,7 +64,7 @@ export default function LatestEvents() {
 			) : (
 				<div>
 					<div className='lg:flex gap-x-6 mb-10'>
-						{eventsList.map(event => (
+						{eventsList.slice(0, 3).map(event => (
 							<div key={event.id_evento} className='bg-hover-color lg:w-1/3 cursor-pointer rounded-xl events-card-shadow event-border max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 								<img src={event.imagen_evento} className='w-[700px] h-[80px] xl:h-[248px] lg:h-44 max-lg:h-52 object-cover rounded-tr-lg rounded-tl-lg' />
 								<div className='p-7'>
