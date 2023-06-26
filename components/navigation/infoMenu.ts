@@ -38,7 +38,7 @@ export const infoMenu = {
 			iconBackground: 'degradado-verde',
 			title: 'Entrenamientos',
 			description: 'Mejora tus habilidades',
-			url: '#',
+			url: '/training',
 			newTab: false
 		},
 		{

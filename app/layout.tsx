@@ -4,8 +4,8 @@ import '../styles/globals.css'
 import { Nunito_Sans } from 'next/font/google'
 import { MantineProvider } from '@mantine/core'
 import { Menu } from '@/components/navigation/Menu';
-import { Footer} from '@/components/navigation/Footer';
-import { infoFooter } from '@/components/navigation/infoFooter';
+import { Footer } from '@/components/navigation/Footer';
+import { NextAuthProvider, QueryProvider } from '@/auth/providers';
 
 const pageFont = Nunito_Sans({
 	weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
@@ -35,18 +35,22 @@ export default function RootLayout({ children, }: { children: any }) {
 			</head>
 
 			<body className={`${pageFont.className} bg-degrade-purple`}>
-				{/* @ts-ignore*/}
-				<MantineProvider theme={{ fontFamily: pageFont }}>
-					<header className='border-menu'>
-						<Menu></Menu>
-					</header>
-					<main>
-						{children}
-					</main>
-					<footer className='bg-degrade-black'>
-						<Footer></Footer>
-					</footer>
-				</MantineProvider>
+				<QueryProvider>
+					<NextAuthProvider>
+						{/* @ts-ignore*/}
+						<MantineProvider theme={{ fontFamily: pageFont }}>
+							<header className='border-menu'>
+								<Menu></Menu>
+							</header>
+							<main>
+								{children}
+							</main>
+							<footer className='bg-degrade-black'>
+								<Footer></Footer>
+							</footer>
+						</MantineProvider>
+					</NextAuthProvider>
+				</QueryProvider>
 			</body>
 		</html>
 	)

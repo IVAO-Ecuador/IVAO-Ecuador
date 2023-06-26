@@ -12,6 +12,8 @@ import { RiTranslate2 } from 'react-icons/ri';
 import { useState } from 'react';
 import Link from 'next/link';
 import { infoMenu } from './infoMenu';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { BsArrowRight, BsArrowRightSquare } from 'react-icons/bs';
 
 
 const useStyles = createStyles((theme) => ({
@@ -69,6 +71,9 @@ const useStyles = createStyles((theme) => ({
 
 
 export function Menu() {
+
+	const { status } = useSession();
+
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
 
 	const [linksOpened, setLinksOpened] = useState({
@@ -236,7 +241,17 @@ export function Menu() {
 						<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
 							<RiTranslate2 className='text-xl'></RiTranslate2>
 						</div>
-						<button className='bg-main-green text-text-white px-5 py-2 rounded-md'>Iniciar sesión</button>
+						{status == 'unauthenticated' ? (
+							<button className='bg-main-green text-text-white px-5 py-2 rounded-md' onClick={() => signIn("ivao")}>Iniciar sesión</button>
+						) : (
+							<>
+								<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
+									<BsArrowRight className='text-xl' onClick={() => signOut()}></BsArrowRight>
+								</div>
+								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md'>Perfil</button>
+							</>
+						)}
+
 					</Group>
 
 					<Burger opened={drawerOpened} onClick={toggleDrawer} className={`${classes.hiddenDesktop} max-md:mr-5`} color='#fff' />

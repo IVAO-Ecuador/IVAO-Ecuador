@@ -1,8 +1,13 @@
 import React from 'react'
 import { RiSendPlaneFill } from 'react-icons/ri'
 import GlobeCanvas from './GlobeCanvas'
+import { useSession } from 'next-auth/react';
 
 export default function Banner() {
+
+	const { status } = useSession();
+
+
 	return (
 		<>
 			<ul className="box-area2 absolute z-0">

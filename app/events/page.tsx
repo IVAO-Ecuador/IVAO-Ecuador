@@ -3,8 +3,7 @@
 import CtaIVAO from '@/components/navigation/CtaIVAO'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { BsTelephoneForward } from 'react-icons/bs'
-import { LuTowerControl } from 'react-icons/lu'
+import { BsLightningFill, BsTelephoneForward } from 'react-icons/bs'
 
 interface Event {
 	id_evento: number;
@@ -16,7 +15,7 @@ interface Event {
 	estado: string;
 }
 
-export default function AtcOperation() {
+export default function Events() {
 
 	const [eventsList, setEventsList] = useState<Event[]>([])
 	const [emailCopy, setEmailCopy] = useState(false)
@@ -72,7 +71,7 @@ export default function AtcOperation() {
 				<div className='bg-[url("/images/events.jpg")] bg-cover bg-no-repeat bg-center h-60 flex items-center'>
 					<div className='container px-8'>
 						<div className='text-text-white bg-green px-5 py-1 rounded flex w-min items-center gap-x-2'>
-							<LuTowerControl className='text-sm'></LuTowerControl>
+							<BsLightningFill className='text-sm'></BsLightningFill>
 							<p>Departamento</p>
 						</div>
 						<h1 className='text-text-white md:text-6xl text-4xl mt-5 font-extrabold'>Eventos</h1>
