@@ -75,11 +75,10 @@ const useStyles = createStyles((theme) => ({
 export function Menu() {
 
 	const { status } = useSession();
-
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
 	const [eventAlert, setEventAlert] = useState(false);
 	const [userData, setUserData] = useState<IUser | null>(null);
-	const { classes, theme } = useStyles();
+	const { classes } = useStyles();
 	const [linksOpened, setLinksOpened] = useState({
 		division: false,
 		pilotos: false,
@@ -87,15 +86,18 @@ export function Menu() {
 		recursos: false,
 	});
 
-	const getUserData = async () => {
-		const res = await fetch("/api/user");
-		const user = (await res.json()) as IUser;
-		setUserData(user);
-	};
+	useEffect(() => {
+		const refreshData = async () => {
+			const result = await getUserData();
+			setUserData(result);
+		};
 
-	if (status == 'authenticated') {
-		getUserData();
-	}
+		if (status === 'authenticated') {
+			refreshData();
+		}
+	}, [status]);
+
+
 
 	const closeEventAlert = () => {
 		setEventAlert(false);
@@ -256,10 +258,10 @@ export function Menu() {
 							<button className='bg-main-green text-text-white px-5 py-2 rounded-md' onClick={() => signIn("ivao")}>Iniciar sesión</button>
 						) : (
 							<>
+								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</button>
 								<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
 									<BsArrowRight className='text-xl' onClick={() => signOut()}></BsArrowRight>
 								</div>
-								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</button>
 							</>
 						)}
 

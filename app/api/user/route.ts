@@ -7,7 +7,6 @@ const secret = process.env.NEXTAUTH_SECRET as string
 
 export async function GET(req: any) {
     const token = await getToken({ req, secret })
-	console.log(token)
 
     if(token) {
         try {
@@ -20,6 +19,7 @@ export async function GET(req: any) {
         
             const data: IUser = await response.json()
             return NextResponse.json({ ...data })
+			
         }catch (err) {
             return NextResponse.json(err)
         }

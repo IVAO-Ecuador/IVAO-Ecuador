@@ -19,7 +19,7 @@ export default function LatestEvents() {
 
 	useEffect(() => {
 		const fetchData = () => {
-			fetch('http://localhost:3005/api/events')
+			fetch('http://localhost:3005/ec/api/events')
 				.then(response => response.json())
 				.then(page => {
 					setEventsList(page)
@@ -63,24 +63,28 @@ export default function LatestEvents() {
 				<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Cargando información...</p>
 			) : (
 				<div>
-					<div className='lg:flex gap-x-6 mb-10'>
-						{eventsList.slice(0, 3).map(event => (
-							<div key={event.id_evento} className='bg-hover-color lg:w-1/3 cursor-pointer rounded-xl events-card-shadow event-border max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
-								<img src={event.imagen_evento} className='w-[700px] h-[80px] xl:h-[248px] lg:h-44 max-lg:h-52 object-cover rounded-tr-lg rounded-tl-lg' />
-								<div className='p-7'>
-									<div className='xl:flex gap-x-3 items-center'>
-										<h3 className='text-text-white text-xl font-semibold'>{event.nombre_evento}</h3>
-										<span className='text-sm text-text-white px-2 rounded-sm bg-cyan'>{event.tipo_evento}</span>
+					{eventsList.length != undefined && (
+						<>
+							<div className='lg:flex gap-x-6 mb-10'>
+								{eventsList.slice(0, 3).map(event => (
+									<div key={event.id_evento} className='bg-hover-color lg:w-1/3 cursor-pointer rounded-xl events-card-shadow event-border max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
+										<img src={event.imagen_evento} className='w-[700px] h-[80px] xl:h-[248px] lg:h-44 max-lg:h-52 object-cover rounded-tr-lg rounded-tl-lg' />
+										<div className='p-7'>
+											<div className='xl:flex gap-x-3 items-center'>
+												<h3 className='text-text-white text-xl font-semibold'>{event.nombre_evento}</h3>
+												<span className='text-sm text-text-white px-2 rounded-sm bg-cyan'>{event.tipo_evento}</span>
+											</div>
+											<p className='mt-5 text-text-color mb-5'>{event.descripcion_evento}</p>
+											<p className='text-text-white'>Fecha: {calculateDate(event.fecha_evento)}</p>
+										</div>
 									</div>
-									<p className='mt-5 text-text-color mb-5'>{event.descripcion_evento}</p>
-									<p className='text-text-white'>Fecha: {calculateDate(event.fecha_evento)}</p>
-								</div>
+								))}
 							</div>
-						))}
-					</div>
-					<div className='flex justify-center'>
-						<Link href={'/events'} className='text-green font-bold border px-8 py-1 rounded-md hover:px-10 transition-all'>Ver todos los eventos</Link>
-					</div>
+							<div className='flex justify-center'>
+								<Link href={'/events'} className='text-green font-bold border px-8 py-1 rounded-md hover:px-10 transition-all'>Ver todos los eventos</Link>
+							</div>
+						</>
+					)}
 				</div>
 
 			)}

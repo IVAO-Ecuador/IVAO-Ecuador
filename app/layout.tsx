@@ -6,6 +6,7 @@ import { MantineProvider } from '@mantine/core'
 import { Menu } from '@/components/navigation/Menu';
 import { Footer } from '@/components/navigation/Footer';
 import { NextAuthProvider, QueryProvider } from '@/auth/providers';
+import { useSession } from 'next-auth/react';
 
 const pageFont = Nunito_Sans({
 	weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
