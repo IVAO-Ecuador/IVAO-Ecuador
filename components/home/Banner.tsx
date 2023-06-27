@@ -5,17 +5,14 @@ import { useSession } from 'next-auth/react';
 
 export default function Banner() {
 
-	const { status } = useSession();
-
-
 	return (
 		<>
 			<ul className="box-area2 absolute z-0">
 				<li></li><li></li><li></li><li></li><li></li>
 			</ul>
-			<div className="xl:flex xl:items-center relative z-0 max-xl:mt-20">
+			<div className="xl:flex xl:items-center relative z-0 max-xl:mt-16">
 				<div className="xl:w-1/2 w-full ">
-					<p className="text-text-color opacity-50 mb-8 select-none">✔️ Estas en la página oficial de IVAO Ecuador</p>
+					<p className="text-text-color opacity-50 md:mb-8 select-none mb-10">✔️ Estas en la página oficial de IVAO Ecuador</p>
 					<h1 className="sm:text-6xl text-5xl font-bold text-text-white mb-8">Únete a la comunidad de IVAO Ecuador y vuela alto</h1>
 					<p className="text-text-color text-lg">
 						¡Explora el fascinante mundo de la simulación de vuelo en IVAO Ecuador! Nuestra comunidad te ofrece una experiencia única

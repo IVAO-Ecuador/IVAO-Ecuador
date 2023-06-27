@@ -8,7 +8,7 @@ const getData = async () => {
 	return user;
 }
 
-const updateUserDB = async (userInfo:IUser) => {
+const updateUserDB = async (userInfo: IUser) => {
 	await fetch('http://localhost:3005/ec/api/updateUser', {
 		method: 'POST',
 		headers: {
@@ -27,6 +27,8 @@ const updateUserDB = async (userInfo:IUser) => {
 
 export const getUserData = async () => {
 	const userData = await getData();
-	updateUserDB(userData)
+	if (userData.message != 'Forbidden') {
+		updateUserDB(userData)
+	}
 	return userData;
 };

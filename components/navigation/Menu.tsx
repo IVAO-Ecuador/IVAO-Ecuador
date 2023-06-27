@@ -2,7 +2,7 @@ import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 
 import {
-	createStyles, Header, HoverCard, Group, Button, UnstyledButton,
+	createStyles, Header, HoverCard, Group, UnstyledButton,
 	Text, SimpleGrid, ThemeIcon, Anchor, Divider, Center, Box, Burger,
 	Drawer, Collapse, ScrollArea, rem,
 } from '@mantine/core';
@@ -13,7 +13,7 @@ import { use, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { infoMenu } from './infoMenu';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { BsArrowRight, BsArrowRightSquare } from 'react-icons/bs';
+import { BsArrowRight } from 'react-icons/bs';
 import { getUserData } from '@/auth/components/userData';
 import { IUser } from "@/auth/types/user";
 
@@ -78,6 +78,7 @@ export function Menu() {
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
 	const [eventAlert, setEventAlert] = useState(true);
 	const [userData, setUserData] = useState<IUser | null>(null);
+	const [isLoading, setIsLoading] = useState<Boolean>(true)
 	const { classes } = useStyles();
 	const [linksOpened, setLinksOpened] = useState({
 		division: false,
@@ -89,12 +90,23 @@ export function Menu() {
 	useEffect(() => {
 		const refreshData = async () => {
 			const result = await getUserData();
-			setUserData(result);
+
+			if (result.message == 'Forbidden') {
+				signOut()
+			} else {
+				setUserData(result);
+				setIsLoading(false)
+			}
+
 		};
 
 		if (status === 'authenticated') {
 			refreshData();
+		} else {
+			setIsLoading(false)
 		}
+
+
 	}, [status]);
 
 
@@ -141,6 +153,16 @@ export function Menu() {
 				</UnstyledButton>
 			</Link>
 		))
+	}
+
+	if (isLoading) {
+		return (
+			<div className='container p-5 flex gap-x-5'>
+				<div className='bg-gray w-1/5 h-14 rounded-xl opacity-20 skeleton-animation'></div>
+				<div className='bg-gray w-3/5 h-14 rounded-xl opacity-20 skeleton-animation'></div>
+				<div className='bg-gray w-1/5 h-14 rounded-xl opacity-20 skeleton-animation'></div>
+			</div>
+		);
 	}
 
 	return (
@@ -258,7 +280,7 @@ export function Menu() {
 							<button className='bg-main-green text-text-white px-5 py-2 rounded-md' onClick={() => signIn("ivao")}>Iniciar sesión</button>
 						) : (
 							<>
-								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</button>
+								<Link href={'/profile'} className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</Link>
 								<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
 									<BsArrowRight className='text-xl' onClick={() => signOut()}></BsArrowRight>
 								</div>
@@ -274,10 +296,10 @@ export function Menu() {
 			{eventAlert && (
 				<div className='bg-pink py-[10px] flex z-50 max-sm:mt-6 max-md:hidden'>
 					<div className='container max-lg:px-8 sm:flex block lg:justify-around justify-between items-center text-text-white'>
-						<Link href={'/'} className='sm:w-5/6'>
+						<Link href={status == 'authenticated' ? '/profile' : '#'} className='sm:w-5/6'>
 							<div className='flex gap-x-4 items-center max-sm:text-center'>
 								<FiLoader className='max-lg:hidden'></FiLoader>
-								<p className='text-[15px] max-md:mr-5'>Un nuevo evento RFO esta disponible - Inicia sesión y reserva tu lugar</p>
+								<p className='text-[15px] max-md:mr-5'>Un nuevo evento RFO esta disponible - {status == 'authenticated' ? 'Reserva tu lugar ahora' : 'Inicia sesión y reserva tu lugar'}</p>
 							</div>
 						</Link>
 						<FiX className='cursor-pointer max-sm:hidden' onClick={closeEventAlert}></FiX>

@@ -2,6 +2,7 @@ import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/
 import Image from 'next/image';
 import { BsDiscord, BsFacebook, BsInstagram } from 'react-icons/bs';
 import { infoFooter } from './infoFooter';
+import { useEffect, useState } from 'react';
 
 const useStyles = createStyles((theme) => ({
 	footer: {
@@ -94,6 +95,15 @@ const useStyles = createStyles((theme) => ({
 
 export function Footer() {
 	const { classes } = useStyles();
+	const [isLoading, setIsLoading] = useState<boolean>(true);
+
+	useEffect(() => {
+		const loadFooter = () => {
+			setIsLoading(false);
+		};
+
+		setTimeout(loadFooter, 300);
+	}, []);
 
 	let data = infoFooter;
 
@@ -117,6 +127,19 @@ export function Footer() {
 			</div>
 		);
 	});
+
+	if (isLoading) {
+		return (
+			<div className='container p-5 '>
+				<div className='flex gap-x-5'>
+					<div className='bg-gray w-2/5 h-32 rounded-xl opacity-20 skeleton-animation'></div>
+					<div className='bg-gray w-3/5 h-32 rounded-xl opacity-20 skeleton-animation'></div>
+				</div>
+				<div className='bg-gray w-full h-16 rounded-xl opacity-20 skeleton-animation mt-5'></div>
+			</div>
+
+		)
+	}
 
 	return (
 		<footer className={`${classes.footer}`}>

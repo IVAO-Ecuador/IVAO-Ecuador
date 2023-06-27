@@ -58,4 +58,5 @@ export type IUser = {
     }
   ];
   publicNickname: string;
+  message: string;
 };
