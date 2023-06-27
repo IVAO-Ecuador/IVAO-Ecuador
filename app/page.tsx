@@ -1,7 +1,6 @@
 'use client'
 
 import React from "react";
-import { Menu } from "@/components/navigation/Menu";
 import AInformation from "@/components/home/AInformation";
 import Banner from "@/components/home/Banner";
 import LatestEvents from "@/components/home/LatestEvents";
@@ -12,7 +11,7 @@ export default function MainContent() {
 	return (
 		<div className="overflow-hidden relative">
 
-			<div className="xl:pb-20 pb-20 relative upper-diagonal-right-top">
+			<div className="xl:pb-20 pb-20 relative">
 				<div className="container px-8 relative z-0">
 					<Banner></Banner>
 				</div>

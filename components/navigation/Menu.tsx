@@ -76,7 +76,7 @@ export function Menu() {
 
 	const { status } = useSession();
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-	const [eventAlert, setEventAlert] = useState(false);
+	const [eventAlert, setEventAlert] = useState(true);
 	const [userData, setUserData] = useState<IUser | null>(null);
 	const { classes } = useStyles();
 	const [linksOpened, setLinksOpened] = useState({
@@ -272,7 +272,7 @@ export function Menu() {
 			</Header>
 
 			{eventAlert && (
-				<div className='bg-main-purple py-[10px] flex z-50 max-sm:mt-6 max-md:hidden'>
+				<div className='bg-pink py-[10px] flex z-50 max-sm:mt-6 max-md:hidden'>
 					<div className='container max-lg:px-8 sm:flex block lg:justify-around justify-between items-center text-text-white'>
 						<Link href={'/'} className='sm:w-5/6'>
 							<div className='flex gap-x-4 items-center max-sm:text-center'>

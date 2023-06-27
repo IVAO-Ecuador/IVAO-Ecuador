@@ -47,7 +47,7 @@ export default function LatestEvents() {
 	}
 
 	return (
-		<div className='py-48'>
+		<div className='-mt-28 py-48'>
 			<div className='-mt-14 mb-8'>
 				<div className="flex pink-blur items-center justify-center mx-auto rounded-full text-4xl w-[72px] h-[72px] info-number-green text-green bg-[#15231D]">
 					<BsFillCalendarDateFill></BsFillCalendarDateFill>
