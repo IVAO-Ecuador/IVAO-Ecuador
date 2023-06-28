@@ -120,7 +120,7 @@ export default function DivisionData() {
 	const filteredFlights = filterFlights(selectedFlightType);
 
 	return (
-		<div className='py-32 -mt-28'>
+		<div className='py-16 -mt-28'>
 
 			<div className='mt-10 mb-10'>
 				<div className="flex pink-blur items-center justify-center mx-auto rounded-full text-4xl w-[72px] h-[72px] info-number-pink text-pink-500 bg-[#291839]">

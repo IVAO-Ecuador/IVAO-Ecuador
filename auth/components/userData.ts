@@ -21,7 +21,7 @@ const updateUserDB = async (userInfo: IUser) => {
 			console.log(result);
 		})
 		.catch(() => {
-			console.error('Error xd');
+			console.error('Se ha producido un error del lado del servidor');
 		});
 };
 

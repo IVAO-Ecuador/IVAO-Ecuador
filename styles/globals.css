@@ -50,12 +50,39 @@ body::-webkit-scrollbar-thumb {
 
 @keyframes skeleton-loading {
 	0% {
-	  opacity: 0.1;
+		opacity: 0.1;
 	}
+
 	50% {
 		opacity: 0.2;
 	}
+
 	100% {
 		opacity: 0.1;
 	}
-  }
+}
+
+.active_section {
+	border: 1px solid #6c6c6c32;
+	border-bottom-color: transparent !important;
+	border-top-color: #ffffff15;
+	border-top-width: 3px;
+	border-radius: 6px 6px 0 0;
+	cursor: default !important;
+	font-weight: 500 !important;
+}
+
+.deactived_section {
+	border: 1px solid #6c6c6c32;
+	border-bottom-color: #6c6c6c32 !important;
+	border-left-color: transparent !important;
+	border-right-color: transparent !important;
+	border-top-color: transparent !important;
+}
+
+
+@media screen and (max-width: 780px) {
+	.login-bg::after {
+		display: none;
+	}
+}
