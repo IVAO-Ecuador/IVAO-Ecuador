@@ -1,0 +1,204 @@
+<html lang='es'>
+
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>Mensaje</title>
+
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Camphor, Open Sans, Segoe UI, sans-serif;
+		}
+
+		.background {
+			background: #13111C;
+			width: 100%;
+			height: 200px;
+			padding-top: 50px;
+		}
+
+		.logo_ivao {
+			display: block;
+			margin: auto;
+			width: 300px;
+			height: 100px;
+		}
+
+		.container {
+			max-width: 1000px;
+			width: 90%;
+			margin: 0 auto;
+			background: #13111C;
+		}
+
+		.bg-container {
+			background: #fff;
+			padding: 40px 20px;
+		}
+
+		.bg-container h1 {
+			text-align: center;
+			color: #484848;
+			margin-bottom: 30px;
+		}
+
+		.bg-container p {
+			padding: 0 20px;
+			text-align: left;
+			color: #484848;
+			margin-bottom: 30px;
+			font-size: 18px;
+			text-align: center;
+		}
+
+		.alert {
+			font-size: 1.5em;
+			position: relative;
+			padding: .75rem 1.25rem;
+			margin-bottom: 2rem;
+			border: 1px solid transparent;
+			border-radius: .25rem;
+		}
+
+		.alert-primary {
+			color: #004085;
+			background-color: #cce5ff;
+			border-color: #b8daff;
+		}
+
+		.img-fluid {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.mensaje {
+			width: 80%;
+			font-size: 20px;
+			margin: 80px auto;
+			color: #484848;
+		}
+
+		.texto {
+			margin-top: 20px;
+		}
+
+		.texto ul {
+			display: flex;
+			justify-content: center;
+		}
+
+		.aeropuertos {
+			font-size: 15px;
+		}
+
+		.texto ul li {
+			list-style: none;
+			width: 33.3333%;
+			text-align: center;
+		}
+
+		.flight-details-title {
+			text-align: center;
+			color: #484848;
+			margin-top: 80px;
+		}
+
+		.details {
+			padding: 0 20px;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		.odd-text {
+			background: #ddd;
+		}
+
+		.details li {
+			list-style: none;
+			padding: 10px;
+		}
+
+		.confirm-button {
+			padding: 30px;
+			background: #6E31AA;
+			color: #fff !important;
+			text-decoration: none;
+			display: block;
+			margin: 0 10%;
+			text-align: center;
+			font-weight: 500;
+			font-size: 25px;
+		}
+
+		.footer {
+			width: 100%;
+			background: #48494a;
+			text-align: center;
+			color: #ddd;
+			padding: 10px;
+			font-size: 14px;
+		}
+
+		.footer a {
+			text-decoration: underline;
+			color: #ddd;
+		}
+	</style>
+</head>
+
+<body>
+	<div class='background'>
+		<img src='https://i.imgur.com/9mfdPL7.png' alt='' class='logo_ivao'>
+	</div>
+	<div class='container'>
+		<div class='bg-container'>
+			<h1 class='titulo-email'>{{name}}, confirm your flight in this email!</h1>
+			<p>{{name}}, You have booked flight <strong>{{flightNumber}}</strong>. In this email you can confirm
+				your flight and be able to apply for the different rewards that will be given for participating
+				in this RFO at the Ecuador division. We are very happy about your participation in the event
+				and we hope you can continue sharing many adventures with us. The flight information and its
+				respective button for confirmation are detailed below:</p>
+
+			<div class='mensaje'>
+				<div class='texto'>
+					<ul>
+						<li>{{icao_departure}}</li>
+						<li>➔</li>
+						<li>{{icao_arrival}}</li>
+					</ul>
+					<ul>
+						<li class='aeropuertos'>{{departure_airport}}</li>
+						<li>➔</li>
+						<li class='aeropuertos'>{{arrival_airport}}</li>
+					</ul>
+				</div>
+			</div>
+
+			<a href='{{url}}' class='confirm-button'>Click here to
+				confirm your flight {{flightNumber}}</a>
+
+			<h3 class='flight-details-title'>Check flight details:</h3>
+
+			<ul class='details'>
+				<li class='odd-text'>Captain: {{name}} {{lastName}} </li>
+				<li>Airline: {{airline}} </li>
+				<li class='odd-text'>Flight: {{flightNumber}} </li>
+				<li>Route: {{route}}</li>
+				<li class='odd-text'>Departure time: {{departure_time}}</li>
+				<li>Arrival time: {{arrival_time}}</li>
+				<li class='odd-text'>Spot: {{spot}}</li>
+				<li>Aircraft: {{aircraft}}</li>
+			</ul>
+
+			<div class='footer'>
+				If you are not comfortable with your flight, you can cancel or change it at <a
+					href='https://ec.ivao.aero/'>https://ec.ivao.aero/</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
