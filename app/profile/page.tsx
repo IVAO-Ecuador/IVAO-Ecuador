@@ -53,11 +53,31 @@ export default function Profile() {
 	const [flightsInfo, setFlightsInfo] = useState<Flight[]>([]);
 
 	const [userFlights, setUserFlights] = useState<Flight[]>([]);
+	const [isUserFlightsLoading, setUserFlightsLoading] = useState(true);
+
+	const getUserFlights = async (userData:IUser) => {
+		fetch('http://localhost:3005/ec/api/rfo/checkFlights', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ usuario: userData }),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setUserFlights(data)
+				setUserFlightsLoading(false)
+			})
+			.catch((error) => {
+				console.log(error)
+			});
+	}
 
 	useEffect(() => {
 		const refreshData = async () => {
 			const result = await getUserData();
 			setUserData(result);
+			getUserFlights(result);
 		};
 
 		if (status === 'authenticated' || status === 'loading') {
@@ -87,7 +107,6 @@ export default function Profile() {
 	}, [])
 
 	useEffect(() => {
-
 		async function fetchData() {
 			const url = buildUrl(selectAirport, type);
 			const response = await fetch(url);
@@ -180,29 +199,6 @@ export default function Profile() {
 		})
 	}
 
-	useEffect(() => {
-
-		const getUserFlights = async() => {
-			fetch('http://localhost:3005/ec/api/rfo/checkFlights', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ usuario: userData }),
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					setUserFlights(data)
-				})
-				.catch((error) => {
-					console.log(error)
-				});
-		}
-
-		getUserFlights();
-
-	}, [userData])
-
 	if (isLoading) {
 
 		return (
@@ -250,6 +246,43 @@ export default function Profile() {
 										<p className='mt-5 text-text-color text-lg'>{event.descripcion_evento} Remember that you can book up to 3 flights for this RFO event.</p>
 									</div>
 								))}
+
+								<div className='mt-6'>
+									{isUserFlightsLoading ? (
+										<div>
+											<p className='text-text-color'>Loading...</p>
+										</div>
+									) : (
+										<>
+											{userFlights.length > 0 && (
+												<div>
+													<h3 className='text-text-white text-xl mb-5'>Your current flights ({userFlights.length} of 3 possible)</h3>
+													{userFlights.map(flight => (
+														<div key={flight.id_vuelo} className={`${flight.estado_vuelo == 'RESERVADO' ? 'border-l-yellow' : 'border-l-green'} 
+														border-l-4 bg-sub-menus p-8 rounded-sm flex mb-5`}>
+															<div className='w-3/5'>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Flight number:</span> {flight.numero_vuelo}</p>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Departure Airport:</span> {flight.aeropuerto_salida} - ({flight.icao_salida})</p>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Arrival Airport:</span> {flight.aeropuerto_llegada} - ({flight.icao_llegada})</p>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Departure time:</span> {flight.hora_salida}Z</p>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Arrival time:</span> {flight.hora_llegada}Z</p>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Flight status:</span> {flight.estado_vuelo == 'RESERVADO' ? 'Booked (Check your email to confirm the flight' : 'Confirmed'}</p>
+															</div>
+															<div className='w-2/5 flex justify-end items-center mr-10'>
+																<div>
+																	<img src={`/airlines/${flight.logo_aerolinea}.png`} className=' h-10 mx-auto mb-5' />
+																	<button className='bg-red text-text-white px-10 py-2 rounded-sm'>Cancel flight</button>
+																</div>
+															</div>
+
+														</div>
+													))}
+												</div>
+											)}
+										</>
+									)}
+								</div>
+
 
 								<div className='mt-10'>
 									<ul className='md:flex block mb-5'>
@@ -318,13 +351,13 @@ export default function Profile() {
 														<p className="lg:w-1/12 w-full lg:text-center max-lg:mb-4"><span className='lg:hidden font-medium'>Aircraft: </span><span className='max-lg:py-1 max-lg:p-3 max-lg:bg-bg-dark-blue max-lg:rounded-md max-lg:float-right'>{flight.tipo_aeronave}</span></p>
 														<div className="lg:w-2/12 w-full lg:text-center max-lg:mt-10 text-center">
 															<div>
-																{flight.estado_vuelo === 'LIBRE' ?
+																{(flight.estado_vuelo === 'LIBRE' && userFlights.length < 3) ?
 																	<button onClick={() => handleBookFlight(flight)} className='block w-full bg-main-green text-text-white p-3 rounded-md'>Available</button> :
 																	flight.estado_vuelo === 'RESERVADO' ?
 																		<div className='w-full bg-yellow p-3 rounded-md text-text-white'>Waiting for confirmation</div> :
 																		flight.estado_vuelo === 'CONFIRMADO' ?
-																			<div className='w-full bg-red p-3 rounded-md text-text-white'>Booked (<span className='font-normal text-sm'>{flight.VID}</span>)</div> :
-																			<p>Opción no válida</p>}
+																			<div className='w-full bg-red p-3 rounded-md text-text-white'>Booked (<span className='font-normal '>{flight.VID}</span>)</div> :
+																			<div className=' w-full bg-dark-blue text-text-white p-3 rounded-md'>You can't book more flights</div>}
 															</div>
 														</div>
 													</div>
