@@ -1,9 +1,15 @@
+'use client'
 
 import CtaIVAO from '@/components/navigation/CtaIVAO'
 import React from 'react'
 import { BsFillAirplaneEnginesFill, BsRocketFill } from 'react-icons/bs'
+import { useGlobalContext } from '../context/transalation';
+import { translations } from '@/components/translation/translations';
 
 export default function SpecialOperations() {
+
+	const { selectedLanguage } = useGlobalContext();
+
 	return (
 		<div className="overflow-hidden relative">
 			<div className="bg-dark-blue relative">
@@ -11,25 +17,20 @@ export default function SpecialOperations() {
 					<div className='container px-8'>
 						<div className='text-text-white bg-green px-5 py-1 rounded flex w-min items-center gap-x-2'>
 							<BsFillAirplaneEnginesFill className='text-sm'></BsFillAirplaneEnginesFill>
-							<p>Departamento</p>
+							{/*@ts-ignore*/}
+							<p>{translations[selectedLanguage]?.SO_category}</p>
 						</div>
-						<h1 className='text-text-white md:text-6xl text-4xl mt-5 font-extrabold'>Operaciones especiales</h1>
+						{/*@ts-ignore*/}
+						<h1 className='text-text-white md:text-6xl text-4xl mt-5 font-extrabold'>{translations[selectedLanguage]?.SO_title}</h1>
 					</div>
 				</div>
 
 				<div className='container py-24 px-8'>
-					<p className='text-text-color text-lg mb-8'>
-						¡Te invitamos a observar las operaciones especiales de Ecuador en la plataforma de IVAO! Descubre
-						diversos temas relacionados con patrones de tráfico, altitudes y niveles de vuelo, clases de
-						espacio aéreo y mucho más. Esta información es fundamental para elevar el nivel de simulación
-						y garantizar la ejecución de buenos procedimientos.
-					</p>
-					<p className='text-text-color text-lg mb-8'>
-						La guía de operaciones especiales ofrece valiosa información sobre las particularidades del espacio
-						aéreo ecuatoriano, como las rutas de tráfico preferidas, las altitudes y niveles de vuelo recomendados,
-						así como las clases de espacio aéreo utilizadas en Ecuador. Además, te proporcionará conocimientos sobre
-						los procedimientos y normas específicas que debes seguir al volar en el espacio aéreo del país.
-					</p>
+					{/*@ts-ignore*/}
+					<p className='text-text-color text-lg mb-8'>{translations[selectedLanguage]?.SO_p1}</p>
+
+					{/*@ts-ignore*/}
+					<p className='text-text-color text-lg mb-8'>{translations[selectedLanguage]?.SO_p2}</p>
 
 					<div className='w-full bg-hover-color rounded-xl xl:flex mt-8 p-8'>
 						<div className='xl:flex items-center gap-x-8 xl:w-7/12 max-xl:text-center max-xl:mb-5'>
@@ -37,13 +38,16 @@ export default function SpecialOperations() {
 								<BsRocketFill className='text-4xl text-text-white'></BsRocketFill>
 							</div>
 							<div className='w-full'>
-								<h3 className='text-text-white max-md:mb-3'>Documentación para operaciones especiales en Ecuador</h3>
-								<p className='text-text-color'>Accede al documento guía de procedimientos para operaciones especiales.</p>
+								{/*@ts-ignore*/}
+								<h3 className='text-text-white max-md:mb-3'>{translations[selectedLanguage]?.SO_document_title}</h3>
+								{/*@ts-ignore*/}
+								<p className='text-text-color'>{translations[selectedLanguage]?.SO_document_text}</p>
 							</div>
 						</div>
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
-							<button className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>Abrir documento</button>
+							{/*@ts-ignore*/}
+							<button className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.SO_document_button}</button>
 						</div>
 					</div>
 

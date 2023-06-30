@@ -40,7 +40,7 @@ const connection = mysql.createPool({
 const transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'santiago.baron.zuleta@ivao.aero',
+		user: 'juan.david.cardona.lopez@ivao.aero',
 		pass: process.env.MAILPASS
 	}
 });
@@ -225,32 +225,6 @@ app.post('/ec/api/rfo/actualizarEstadoVuelo', async (req, res) => {
 		res.status(500).json({ error: 'Error al actualizar el estado de vuelo y crear la reserva' });
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.post('/ec/api/updateUser', async (req, res) => {
 

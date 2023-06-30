@@ -276,7 +276,7 @@ export default function Profile() {
 						<div className="container px-8">
 							<div className="text-text-white bg-green px-5 py-1 rounded flex w-32 items-center gap-x-2">
 								<BsPersonFill className="text-sm" />
-								<p>Mi perfil</p>
+								<p>Profile</p>
 							</div>
 							<h1 className="text-text-white md:text-6xl text-4xl mt-5 font-extrabold">{`${userData.firstName} ${userData.lastName}`}</h1>
 						</div>

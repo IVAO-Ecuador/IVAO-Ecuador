@@ -57,13 +57,24 @@ export default function Events() {
 
 		const eventInitialDate = new Date(date);
 
-		const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+		const monthsSpanish = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
 			'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
 		]
 
-		return `${eventInitialDate.getDate()} de
-		 		${months[eventInitialDate.getMonth()]} de
+		const monthsEnglish = ['January', 'February', 'March', 'April', 'May',
+			'June', 'July', 'August', 'September', 'Octuber', 'November', 'December'
+		]
+
+		if (selectedLanguage == 'English') {
+			return `${monthsEnglish[eventInitialDate.getMonth()]}
+			${eventInitialDate.getDate()},
+			  ${eventInitialDate.getFullYear()}`
+		} else {
+			return `${eventInitialDate.getDate()} de
+		 		${monthsSpanish[eventInitialDate.getMonth()]} de
 		  		${eventInitialDate.getFullYear()}`
+		}
+
 	}
 
 	return (
