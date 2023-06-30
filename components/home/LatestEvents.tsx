@@ -1,7 +1,9 @@
+import { useGlobalContext } from '@/app/context/transalation';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { BsFillCalendarDateFill } from 'react-icons/bs'
+import { translations } from '../translation/translations';
 
 interface Event {
 	id_evento: number;
@@ -16,6 +18,7 @@ interface Event {
 export default function LatestEvents() {
 	const [eventsList, setEventsList] = useState<Event[]>([])
 	const [isLoading, setIsLoading] = useState(true);
+	const { selectedLanguage } = useGlobalContext();
 
 	useEffect(() => {
 		const fetchData = () => {
@@ -54,13 +57,19 @@ export default function LatestEvents() {
 				</div>
 			</div>
 
-			<p className="text-2xl font-bold mb-2 text-green text-center">¡Autorizado a despegar!</p>
-			<h2 className="text-4xl font-bold text-text-white text-center">Eventos en nuestros cielos </h2>
+			{/*@ts-ignore*/}
+			<p className="text-2xl font-bold mb-2 text-green text-center">{translations[selectedLanguage]?.home_second_label}</p>
+			{/*@ts-ignore*/}
+			<h2 className="text-4xl font-bold text-text-white text-center">{translations[selectedLanguage]?.home_LatestEvents_title}</h2>
 			<hr className="w-40 mx-auto my-6 border-green"></hr>
-			<p className="text-lg max-w-4xl mx-auto text-text-color text-center mb-10">Únete a nuestros eventos, disfruta de volar y controlar y gana medallas</p>
+			{/*@ts-ignore*/}
+			<p className="text-lg max-w-4xl mx-auto text-text-color text-center mb-10">{translations[selectedLanguage]?.home_LatestEvents_description}</p>
 
 			{isLoading ? (
-				<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Cargando información...</p>
+				<p className="text-lg max-w-4xl mx-auto text-text-color text-center">
+					{/*@ts-ignore*/}
+					{translations[selectedLanguage]?.home_LatestEvents_loading}
+				</p>
 			) : (
 				<div>
 					{eventsList.length != undefined && (
@@ -81,7 +90,8 @@ export default function LatestEvents() {
 								))}
 							</div>
 							<div className='flex justify-center'>
-								<Link href={'/events'} className='text-green font-bold border px-8 py-1 rounded-md hover:px-10 transition-all'>Ver todos los eventos</Link>
+								{/*@ts-ignore*/}
+								<Link href={'/events'} className='text-green font-bold border px-8 py-1 rounded-md hover:px-10 transition-all'>{translations[selectedLanguage]?.home_LatestEvents_see_all}</Link>
 							</div>
 						</>
 					)}

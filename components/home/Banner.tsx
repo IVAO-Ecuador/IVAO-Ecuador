@@ -1,9 +1,12 @@
 import React from 'react'
 import { RiSendPlaneFill } from 'react-icons/ri'
 import GlobeCanvas from './GlobeCanvas'
-import { useSession } from 'next-auth/react';
+import { useGlobalContext } from '@/app/context/transalation';
+import { translations } from '../translation/translations';
 
 export default function Banner() {
+
+	const { selectedLanguage } = useGlobalContext();
 
 	return (
 		<>
@@ -12,19 +15,20 @@ export default function Banner() {
 			</ul>
 			<div className="xl:flex xl:items-center relative z-0 max-xl:mt-16">
 				<div className="xl:w-1/2 w-full ">
-					<p className="text-text-color opacity-50 md:mb-8 select-none mb-10">✔️ Estas en la página oficial de IVAO Ecuador</p>
-					<h1 className="sm:text-6xl text-5xl font-bold text-text-white mb-8">Únete a la comunidad de IVAO Ecuador y vuela alto</h1>
-					<p className="text-text-color text-lg">
-						¡Explora el fascinante mundo de la simulación de vuelo en IVAO Ecuador! Nuestra comunidad te ofrece una experiencia única
-						para disfrutar de la aviación virtual en Ecuador. Conéctate con entusiastas de la aviación, participa en eventos emocionantes,
-						controla el tráfico aéreo y vive la emoción de volar en un entorno virtual realista.
-					</p>
+					{/*@ts-ignore*/}
+					<p className="text-text-color opacity-50 md:mb-8 select-none mb-10">✔️ {translations[selectedLanguage]?.home_label}</p>
+					{/*@ts-ignore*/}
+					<h1 className="sm:text-6xl text-5xl font-bold text-text-white mb-8">{translations[selectedLanguage]?.home_title}</h1>
+					{/*@ts-ignore*/}
+					<p className="text-text-color text-lg">{translations[selectedLanguage]?.home_description}</p>
 
 					<div className="md:flex gap-x-5 mt-10">
-						<button className="bg-main-green max-md:w-full max-md:mb-5 text-text-white px-8 py-3 rounded-md">¡Registrarme!</button>
+						{/*@ts-ignore*/}
+						<button className="bg-main-green max-md:w-full max-md:mb-5 text-text-white px-8 py-3 rounded-md">{translations[selectedLanguage]?.home_signup}</button>
 						<button className="bg-main-purple max-md:w-full  text-text-white px-8 py-3 rounded-md flex justify-center items-center gap-x-2">
 							<RiSendPlaneFill></RiSendPlaneFill>
-							Primeros pasos
+							{/*@ts-ignore*/}
+							{translations[selectedLanguage]?.home_first_steps}
 						</button>
 					</div>
 				</div>

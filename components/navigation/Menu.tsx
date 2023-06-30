@@ -17,6 +17,7 @@ import { BsArrowRight } from 'react-icons/bs';
 import { getUserData } from '@/auth/components/userData';
 import { IUser } from "@/auth/types/user";
 import { useGlobalContext } from '@/app/context/transalation';
+import { translations } from '../translation/translations';
 
 
 const useStyles = createStyles((theme) => ({
@@ -80,7 +81,7 @@ export function Menu() {
 	const [eventAlert, setEventAlert] = useState(true);
 	const [userData, setUserData] = useState<IUser | null>(null);
 	const [isLoading, setIsLoading] = useState<Boolean>(true)
-	const { selectedLanguage, setSelectedLanguage} = useGlobalContext();
+	const { selectedLanguage, setSelectedLanguage } = useGlobalContext();
 
 
 	const { classes } = useStyles();
@@ -142,7 +143,7 @@ export function Menu() {
 		}
 
 		return menuSelected.map((item: any) => (
-			<Link key={item.title} href={item.url} target={item.newTab ? '_blank' : '_self'}>
+			<Link key={item.title[selectedLanguage]} href={item.url} target={item.newTab ? '_blank' : '_self'}>
 				<UnstyledButton className={classes.subLink} key={item.title}>
 					<Group noWrap align="flex-start">
 						<ThemeIcon size={46} className={`${item.iconBackground} border-none rounded-md`} >
@@ -150,10 +151,10 @@ export function Menu() {
 						</ThemeIcon>
 						<div>
 							<Text className='text-[16px] text-text-white' fw={500}>
-								{item.title}
+								{item.title[selectedLanguage]}
 							</Text>
 							<Text className='text-[14px]' color="dimmed">
-								{item.description}
+								{item.description[selectedLanguage]}
 							</Text>
 						</div>
 					</Group>
@@ -193,7 +194,8 @@ export function Menu() {
 								<a href="#" className={classes.link}>
 									<Center inline>
 										<Box component="span" mr={5}>
-											División
+											{/*@ts-ignore*/}
+											{translations[selectedLanguage]?.division}
 										</Box>
 										<FiChevronDown size={16} color={'#d2d3e0bf'} />
 									</Center>
@@ -212,7 +214,8 @@ export function Menu() {
 								<a href="#" className={classes.link}>
 									<Center inline>
 										<Box component="span" mr={5}>
-											Pilotos
+											{/*@ts-ignore*/}
+											{translations[selectedLanguage]?.pilots}
 										</Box>
 										<FiChevronDown size={16} color={'#d2d3e0bf'} />
 									</Center>
@@ -231,7 +234,8 @@ export function Menu() {
 								<a href="#" className={classes.link}>
 									<Center inline>
 										<Box component="span" mr={5}>
-											Controladores
+											{/*@ts-ignore*/}
+											{translations[selectedLanguage]?.controllers}
 										</Box>
 										<FiChevronDown size={16} color={'#d2d3e0bf'} />
 									</Center>
@@ -250,7 +254,8 @@ export function Menu() {
 								<a href="#" className={classes.link}>
 									<Center inline>
 										<Box component="span" mr={5}>
-											Recursos
+											{/*@ts-ignore*/}
+											{translations[selectedLanguage]?.resources}
 										</Box>
 										<FiChevronDown size={16} color={'#d2d3e0bf'} />
 									</Center>
@@ -265,13 +270,16 @@ export function Menu() {
 									<Group position="apart">
 										<div>
 											<Text fw={500} fz="sm" className='text-text-white text-[15px]'>
-												Más información en nuestro foro
+												{/*@ts-ignore*/}
+												{translations[selectedLanguage]?.forum_label}
 											</Text>
 											<Text size="xs" color="dimmed" className='text-text-color text-[14px]'>
-												Visita el foro de publicaciones de la división
+												{/*@ts-ignore*/}
+												{translations[selectedLanguage]?.forum_text}
 											</Text>
 										</div>
-										<Link href={'https://ec.forum.ivao.aero/'} target='_blank' className='bg-main-purple border-none text-text-white px-4 py-2 rounded-[5px] transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>Ir al foro</Link>
+										{/*@ts-ignore*/}
+										<Link href={'https://ec.forum.ivao.aero/'} target='_blank' className='bg-main-purple border-none text-text-white px-4 py-2 rounded-[5px] transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>{translations[selectedLanguage]?.go_forum}</Link>
 									</Group>
 								</div>
 							</HoverCard.Dropdown>
@@ -284,7 +292,10 @@ export function Menu() {
 							<RiTranslate2 className='text-xl'></RiTranslate2>
 						</div>
 						{status == 'unauthenticated' ? (
-							<button className='bg-main-green text-text-white px-5 py-2 rounded-md' onClick={() => signIn("ivao")}>Iniciar sesión</button>
+							<button className='bg-main-green text-text-white px-5 py-2 rounded-md' onClick={() => signIn("ivao")}>
+								{/*@ts-ignore*/}
+								{translations[selectedLanguage]?.login_button}
+							</button>
 						) : (
 							<>
 								<Link href={'/profile'} className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</Link>
@@ -306,7 +317,8 @@ export function Menu() {
 						<Link href={status == 'authenticated' ? '/profile' : '#'} className='sm:w-5/6'>
 							<div className='flex gap-x-4 items-center max-sm:text-center'>
 								<FiLoader className='max-lg:hidden'></FiLoader>
-								<p className='text-[15px] max-md:mr-5'>Un nuevo evento RFO esta disponible - {status == 'authenticated' ? 'Reserva tu lugar ahora' : 'Inicia sesión y reserva tu lugar'}</p>
+								{/*@ts-ignore*/}
+								<p className='text-[15px] max-md:mr-5'>{translations[selectedLanguage]?.announcement} - {status == 'authenticated' ? translations[selectedLanguage]?.announcement_status_logged_in : translations[selectedLanguage]?.announcement_status}</p>
 							</div>
 						</Link>
 						<FiX className='cursor-pointer max-sm:hidden' onClick={closeEventAlert}></FiX>
@@ -314,12 +326,12 @@ export function Menu() {
 				</div>
 			)}
 
-			<Drawer
+			{/*@ts-ignore*/}
+			<Drawer title={translations[selectedLanguage]?.navigation_menu}
 				opened={drawerOpened}
 				onClose={closeDrawer}
 				size="85%"
 				padding="xl"
-				title="Menú de navegación"
 				className={classes.hiddenDesktop}
 				zIndex={1000000}
 
@@ -330,7 +342,8 @@ export function Menu() {
 					<UnstyledButton className={`${classes.link} mb-8 mt-5`} onClick={() => handleToggle('division')}>
 						<Center inline>
 							<Box component="span" mr={5}>
-								División
+								{/*@ts-ignore*/}
+								{translations[selectedLanguage]?.division}
 							</Box>
 							<FiChevronDown size={16} color={'#d2d3e0bf'} />
 						</Center>
@@ -341,7 +354,8 @@ export function Menu() {
 					<UnstyledButton className={`${classes.link} mb-8 mt-5`} onClick={() => handleToggle('pilotos')}>
 						<Center inline>
 							<Box component="span" mr={5}>
-								Pilotos
+								{/*@ts-ignore*/}
+								{translations[selectedLanguage]?.pilots}
 							</Box>
 							<FiChevronDown size={16} color={'#d2d3e0bf'} />
 						</Center>
@@ -351,7 +365,8 @@ export function Menu() {
 					<UnstyledButton className={`${classes.link} mb-8 mt-5`} onClick={() => handleToggle('controladores')}>
 						<Center inline>
 							<Box component="span" mr={5}>
-								Controladores
+								{/*@ts-ignore*/}
+								{translations[selectedLanguage]?.controllers}
 							</Box>
 							<FiChevronDown size={16} color={'#d2d3e0bf'} />
 						</Center>
@@ -361,7 +376,8 @@ export function Menu() {
 					<UnstyledButton className={`${classes.link} mb-8 mt-5`} onClick={() => handleToggle('recursos')}>
 						<Center inline>
 							<Box component="span" mr={5}>
-								Recursos
+								{/*@ts-ignore*/}
+								{translations[selectedLanguage]?.resources}
 							</Box>
 							<FiChevronDown size={16} color={'#d2d3e0bf'} />
 						</Center>
@@ -373,12 +389,15 @@ export function Menu() {
 					<div className='md:flex gap-x-5 justify-center mt-10 flex-wrap'>
 						<div onClick={handleLanguageSelection} className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color flex max-md:justify-center max-md:gap-x-5 items-center max-md:mb-3'>
 							<RiTranslate2 className='text-xl'></RiTranslate2>
-							<p className='md:hidden'>Traducir pagina</p>
+							{/*@ts-ignore*/}
+							<p className='md:hidden'>{translations[selectedLanguage]?.translate_page}</p>
 						</div>
 						{status == 'unauthenticated' ? (
 							<>
-								<button className='bg-main-green text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3' onClick={() => signIn("ivao")}>Iniciar sesión</button>
-								<Link href={'https://www.ivao.aero/members/person/register.htm'} target='_blank' className='bg-main-purple text-text-white px-5 py-2 rounded-md block text-center max-md:w-full'>Registrarse</Link>
+								{/*@ts-ignore*/}
+								<button className='bg-main-green text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3' onClick={() => signIn("ivao")}>{translations[selectedLanguage]?.login_button}</button>
+								{/*@ts-ignore*/}
+								<Link href={'https://www.ivao.aero/members/person/register.htm'} target='_blank' className='bg-main-purple text-text-white px-5 py-2 rounded-md block text-center max-md:w-full'>{translations[selectedLanguage]?.signin_button}</Link>
 							</>
 
 						) : (

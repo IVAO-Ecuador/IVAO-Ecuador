@@ -3,6 +3,8 @@ import { BsFillAirplaneFill } from 'react-icons/bs';
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { LuTowerControl } from 'react-icons/lu';
 import CtaIVAO from '../navigation/CtaIVAO';
+import { useGlobalContext } from '@/app/context/transalation';
+import { translations } from '../translation/translations';
 
 interface Pilot {
 	id: number;
@@ -38,6 +40,7 @@ export default function DivisionData() {
 	const [showControllerList, setShowControllerList] = useState(false);
 	const [infoToShow, setInfoToShow] = useState(7)
 	const [isLoading, setIsLoading] = useState(true);
+	const { selectedLanguage } = useGlobalContext();
 
 	const airportsArray: string[] = [
 		'SEQM', 'SEGU', 'SEMT', 'SEST', 'SEGS',
@@ -57,7 +60,7 @@ export default function DivisionData() {
 					if (filterFlights('departure').length != 0) {
 						setSelectedFlightType('departure')
 						setShowControllerList(false)
-					}else if (filterFlights('arrival').length != 0) {
+					} else if (filterFlights('arrival').length != 0) {
 						setSelectedFlightType('arrival')
 						setShowControllerList(false)
 					}
@@ -70,7 +73,7 @@ export default function DivisionData() {
 
 		fetchData();
 
-		
+
 
 		const interval = setInterval(fetchData, 20000);
 		return () => clearInterval(interval);
@@ -93,13 +96,41 @@ export default function DivisionData() {
 
 	const flightStatus = (status: string) => {
 		switch (status) {
-			case 'On Blocks': return 'Aparcado';
-			case 'En Route': return 'Crucero';
-			case 'Approach': return 'Aproximación';
-			case 'Initial Climb': return 'En ascenso';
-			case 'Landed': return 'Aterrizó';
-			case 'Boarding': return 'Abordando';
-			case 'Departing': return 'Despegando';
+			case 'On Blocks':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_on_blocks;
+			}
+				
+			case 'En Route':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_en_route;
+			}
+				
+			case 'Approach':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_approach;
+			}
+				
+			case 'Initial Climb':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_initial_climb;
+			}
+				
+			case 'Landed':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_landed;
+			}
+				
+			case 'Boarding':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_boarding;
+			}
+				
+			case 'Departing':{
+				{/*@ts-ignore*/}
+				return translations[selectedLanguage]?.home_DivisionData_departing;
+			}
+				
 		}
 	};
 
@@ -127,11 +158,13 @@ export default function DivisionData() {
 					<BsFillAirplaneFill className='rotate-180'></BsFillAirplaneFill>
 				</div>
 			</div>
-
-			<p className="text-2xl font-bold mb-2 text-pink-500 text-center">¡Estás en el radar!</p>
-			<h2 className="text-4xl font-bold text-text-white text-center">Usuarios activos en Ecuador</h2>
+			{/*@ts-ignore*/}
+			<p className="text-2xl font-bold mb-2 text-pink-500 text-center">{translations[selectedLanguage]?.home_third_label}</p>
+			{/*@ts-ignore*/}
+			<h2 className="text-4xl font-bold text-text-white text-center">{translations[selectedLanguage]?.home_DivisionData_title}</h2>
 			<hr className="w-40 mx-auto my-6 border-pink-500"></hr>
-			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">A continuación te presentamos la información sobre nuestros pilotos y controladores activos en Ecuador.</p>
+			{/*@ts-ignore*/}
+			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">{translations[selectedLanguage]?.home_DivisionData_description}</p>
 
 			<div className="flex justify-center my-8 max-md:flex-wrap">
 				{filterFlights('departure').length !== 0 && (
@@ -140,7 +173,8 @@ export default function DivisionData() {
 							}`}
 						onClick={() => handleFlightTypeChange('departure')}
 					>
-						<p>Salidas</p>
+						{/*@ts-ignore*/}
+						<p>{translations[selectedLanguage]?.home_DivisionData_departures}</p>
 						<FaPlaneDeparture></FaPlaneDeparture>
 					</button>
 				)}
@@ -151,7 +185,8 @@ export default function DivisionData() {
 							}`}
 						onClick={() => handleFlightTypeChange('arrival')}
 					>
-						<p>Llegadas</p>
+						{/*@ts-ignore*/}
+						<p>{translations[selectedLanguage]?.home_DivisionData_arrivals}</p>
 						<FaPlaneArrival></FaPlaneArrival>
 					</button>
 				)}
@@ -162,14 +197,18 @@ export default function DivisionData() {
 							}`}
 						onClick={handleControllerList}
 					>
-						<p>Controladores</p>
+						{/*@ts-ignore*/}
+						<p>{translations[selectedLanguage]?.home_DivisionData_atcs}</p>
 						<LuTowerControl></LuTowerControl>
 					</button>
 				)}
 			</div>
 
 			{isLoading ? (
-				<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Cargando información...</p>
+				<p className="text-lg max-w-4xl mx-auto text-text-color text-center">
+					{/*@ts-ignore*/}
+					{translations[selectedLanguage]?.home_DivisionData_loading}
+				</p>
 			) : showControllerList ? (
 				<div className="max-w-full overflow-x-auto">
 					<ul className="md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -200,16 +239,20 @@ export default function DivisionData() {
 										VID
 									</th>
 									<th scope="col" className="px-6 py-3 text-center text-xs font-semibold text-pink-500 uppercase tracking-wider">
-										Origen
+										{/*@ts-ignore*/}
+										{translations[selectedLanguage]?.home_DivisionData_origin}
 									</th>
 									<th scope="col" className="px-6 py-3 text-center text-xs font-semibold text-pink-500 uppercase tracking-wider">
-										Llegada
+										{/*@ts-ignore*/}
+										{translations[selectedLanguage]?.home_DivisionData_destination}
 									</th>
 									<th scope="col" className="px-6 py-3 text-center text-xs font-semibold text-pink-500 uppercase tracking-wider">
-										Aeronave
+										{/*@ts-ignore*/}
+										{translations[selectedLanguage]?.home_DivisionData_aircraft}
 									</th>
 									<th scope="col" className="px-6 py-3 text-center text-xs font-semibold text-pink-500 uppercase tracking-wider">
-										Estado
+										{/*@ts-ignore*/}
+										{translations[selectedLanguage]?.home_DivisionData_status}
 									</th>
 								</tr>
 							</thead>
@@ -242,7 +285,8 @@ export default function DivisionData() {
 							<div className='mt-10 text-center'>
 								<button className="text-pink-500 font-bold border px-8 py-1 rounded-md hover:px-10 transition-all"
 									onClick={handleInfoToShow}>
-									{infoToShow == 7 ? 'Ver más' : 'Ver menos'}
+									{/*@ts-ignore*/}
+									{infoToShow == 7 ? translations[selectedLanguage]?.home_DivisionData_show_more : translations[selectedLanguage]?.home_DivisionData_show_less}
 								</button>
 							</div>
 
@@ -252,7 +296,7 @@ export default function DivisionData() {
 			)}
 
 			<CtaIVAO></CtaIVAO>
-			
+
 		</div>
 	);
 }

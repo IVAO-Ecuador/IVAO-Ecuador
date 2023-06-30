@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { BsAwardFill, BsBoxSeam, BsFillAirplaneFill, BsFillEaselFill, BsFillLightningFill, BsHeartFill } from "react-icons/bs";
+import { translations } from '../translation/translations';
+import { useGlobalContext } from '@/app/context/transalation';
 
 export default function AInformation() {
 
 	const airplaneRef = useRef<HTMLImageElement>(null);
+	const { selectedLanguage } = useGlobalContext();
 
 	useEffect(() => {
 		let animationFrameId: number;
@@ -52,18 +55,23 @@ export default function AInformation() {
 				<BsFillLightningFill></BsFillLightningFill>
 			</div>
 
-			<p className="text-2xl font-bold mb-2 text-light-blue text-center">¡Abordando ahora, no esperes más!</p>
-			<h2 className="text-4xl font-bold text-text-white text-center">Comienza y explora</h2>
+			{/*@ts-ignore*/}
+			<p className="text-2xl font-bold mb-2 text-light-blue text-center">{translations[selectedLanguage]?.home_first_label}</p>
+			{/*@ts-ignore*/}
+			<h2 className="text-4xl font-bold text-text-white text-center">{translations[selectedLanguage]?.home_AInformation_title}</h2>
 			<hr className="w-40 mx-auto my-6 border-light-blue"></hr>
-			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Comienza con tu experiencia en IVAO Ecuador, regístrate y comienza a volar o controlar. Nuestra división extiende a sus usuarios las herramientas necesarias para aumentar el realismo en las operaciones áreas.</p>
+			{/*@ts-ignore*/}
+			<p className="text-lg max-w-4xl mx-auto text-text-color text-center">{translations[selectedLanguage]?.home_AInformation_description}</p>
 
 			<div className='lg:flex gap-x-5 lg:mt-24 mt-16 justify-center pb-36'>
 				<div className='lg:w-2/5 w-full justify-center text-text-white grid lg:justify-end gap-y-8 max-sm:scale-95'>
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-lg font-semibold mb-4 text-text-blue">Entrenamientos</p>
-								<p className="text-sm text-text-color">Solicita un entrenamiento para mejorar tus habilidades como piloto o controlador.</p>
+								{/*@ts-ignore*/}
+								<p className="text-lg font-semibold mb-4 text-text-blue">{translations[selectedLanguage]?.home_AInformation_training}</p>
+								{/*@ts-ignore*/}
+								<p className="text-sm text-text-color">{translations[selectedLanguage]?.home_AInformation_training_text}</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
@@ -85,8 +93,10 @@ export default function AInformation() {
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-lg font-semibold mb-4 text-text-blue">Eventos</p>
-								<p className="text-sm text-text-color">Explora una amplia variedad de eventos y disfruta de vuelos en grupo con pilotos del país.</p>
+								{/*@ts-ignore*/}
+								<p className="text-lg font-semibold mb-4 text-text-blue">{translations[selectedLanguage]?.home_AInformation_events}</p>
+								{/*@ts-ignore*/}
+								<p className="text-sm text-text-color">{translations[selectedLanguage]?.home_AInformation_events_text}</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
@@ -121,8 +131,10 @@ export default function AInformation() {
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-lg font-semibold mb-4 text-text-blue">Recursos</p>
-								<p className="text-sm text-text-color">Usa nuestras cartas de navegación y escenarios del Ecuador para aumentar el realismo.</p>
+								{/*@ts-ignore*/}
+								<p className="text-lg font-semibold mb-4 text-text-blue">{translations[selectedLanguage]?.home_AInformation_resources}</p>
+								{/*@ts-ignore*/}
+								<p className="text-sm text-text-color">{translations[selectedLanguage]?.home_AInformation_resources_text}</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
@@ -144,8 +156,10 @@ export default function AInformation() {
 					<div className='w-[368px] h-48 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 						<div className="grid grid-cols-4 gap-8 relative px-8 pt-8 pb-14 rounded-xl overflow-hidden text-left bg-background info-box">
 							<div className="col-span-3">
-								<p className="text-lg font-semibold mb-4 text-text-blue">Comunidad</p>
-								<p className="text-sm text-text-color">Forma parte de una comunidad apasionada por la aviación y establece nuevas conexiones.</p>
+								{/*@ts-ignore*/}
+								<p className="text-lg font-semibold mb-4 text-text-blue">{translations[selectedLanguage]?.home_AInformation_community}</p>
+								{/*@ts-ignore*/}
+								<p className="text-sm text-text-color">{translations[selectedLanguage]?.home_AInformation_community_text}</p>
 							</div>
 							<div className="absolute flex items-center justify-center -bottom-8 -right-8 w-32 h-32 text-light-blue ">
 								<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 z-0 opacity-40">
