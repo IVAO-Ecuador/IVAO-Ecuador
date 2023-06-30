@@ -7,6 +7,7 @@ import { Menu } from '@/components/navigation/Menu';
 import { Footer } from '@/components/navigation/Footer';
 import { NextAuthProvider, QueryProvider } from '@/auth/providers';
 import { useSession } from 'next-auth/react';
+import { GlobalContextProvider } from './context/transalation';
 
 const pageFont = Nunito_Sans({
 	weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
@@ -35,22 +36,24 @@ export default function RootLayout({ children, }: { children: any }) {
 			</head>
 
 			<body className={`${pageFont.className} bg-degrade-purple`}>
-				<QueryProvider>
-					<NextAuthProvider>
-						{/* @ts-ignore*/}
-						<MantineProvider theme={{ fontFamily: pageFont }}>
-							<header className='border-menu'>
-								<Menu></Menu>
-							</header>
-							<main>
-								{children}
-							</main>
-							<footer className='bg-degrade-black'>
-								<Footer></Footer>
-							</footer>
-						</MantineProvider>
-					</NextAuthProvider>
-				</QueryProvider>
+				<GlobalContextProvider>
+					<QueryProvider>
+						<NextAuthProvider>
+							{/* @ts-ignore*/}
+							<MantineProvider theme={{ fontFamily: pageFont }}>
+								<header className='border-menu'>
+									<Menu></Menu>
+								</header>
+								<main>
+									{children}
+								</main>
+								<footer className='bg-degrade-black'>
+									<Footer></Footer>
+								</footer>
+							</MantineProvider>
+						</NextAuthProvider>
+					</QueryProvider>
+				</GlobalContextProvider>
 			</body>
 		</html>
 	)

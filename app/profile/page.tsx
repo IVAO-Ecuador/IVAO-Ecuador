@@ -55,7 +55,7 @@ export default function Profile() {
 	const [userFlights, setUserFlights] = useState<Flight[]>([]);
 	const [isUserFlightsLoading, setUserFlightsLoading] = useState(true);
 
-	const getUserFlights = async (userData:IUser) => {
+	const getUserFlights = async (userData: IUser) => {
 		fetch('http://localhost:3005/ec/api/rfo/checkFlights', {
 			method: 'POST',
 			headers: {
@@ -199,6 +199,62 @@ export default function Profile() {
 		})
 	}
 
+	const handleCancelFlight = (flightID: number) => {
+
+		Swal.fire({
+			title: 'Do you want to cancel this flight?',
+			text: "It may not be available later.",
+			icon: 'question',
+			iconColor: 'hsl(220, 80%, 55%)',
+			showCancelButton: true,
+			background: '#1D1E2B',
+			color: '#d2d3e0bf',
+			confirmButtonColor: '#2faf5a',
+			cancelButtonColor: 'hsl(1, 62%, 44%)',
+			confirmButtonText: 'Yes, cancel it!'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch('http://localhost:3005/ec/api/rfo/cancelFlight', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ flightID: flightID }),
+				})
+					.then((response) => response.json())
+					.then((data) => {
+
+						Swal.fire({
+							icon: 'success',
+							title: 'The flight has been cancel!',
+							text: 'This page will reload!',
+							iconColor: 'hsl(220, 80%, 55%)',
+							background: '#1D1E2B',
+							color: '#d2d3e0bf',
+							confirmButtonColor: '#2faf5a',
+						})
+
+						setTimeout(() => {
+							window.location.href = window.location.href
+						}, 3000);
+
+					})
+					.catch((error) => {
+
+						Swal.fire({
+							icon: 'error',
+							title: 'An error has occurred',
+							text: 'Try again later.',
+							iconColor: 'hsl(220, 80%, 55%)',
+							background: '#1D1E2B',
+							color: '#d2d3e0bf',
+							confirmButtonColor: 'hsl(220, 80%, 55%)',
+						})
+					});
+			}
+		})
+	}
+
 	if (isLoading) {
 
 		return (
@@ -233,6 +289,11 @@ export default function Profile() {
 							<p>Profile settings have been temporarily disabled. They will be reactivated once the present RFO event has ended.</p>
 						</div>
 
+						<div className='flex items-center mt-3 gap-x-3 max-md:gap-x-5 w-full bg-[#6c4e1f] py-2 max-md:py-5 px-5 rounded-md text-[#E7CCA5]'>
+							<BsBell className='xl:text-base md:text-2xl max-md:text-6xl'></BsBell>
+							<p>If you have problems loading flights, please return to the main page of the website and return to this page.</p>
+						</div>
+
 						{isEventLoading ? (
 							<div>
 								<div className='bg-gray w-full h-36 rounded-xl opacity-20 skeleton-animation my-5'></div>
@@ -259,8 +320,9 @@ export default function Profile() {
 													<h3 className='text-text-white text-xl mb-5'>Your current flights ({userFlights.length} of 3 possible)</h3>
 													{userFlights.map(flight => (
 														<div key={flight.id_vuelo} className={`${flight.estado_vuelo == 'RESERVADO' ? 'border-l-yellow' : 'border-l-green'} 
-														border-l-4 bg-sub-menus p-8 rounded-sm flex mb-5`}>
-															<div className='w-3/5'>
+														border-l-4 bg-sub-menus p-8 rounded-sm lg:flex mb-5`}>
+															<div className='lg:w-3/5'>
+																<img src={`/airlines/${flight.logo_aerolinea}.png`} className=' h-10 lg:mx-auto mb-5 lg:hidden' />
 																<p className='text-text-color mb-1'><span className='text-text-white'>Flight number:</span> {flight.numero_vuelo}</p>
 																<p className='text-text-color mb-1'><span className='text-text-white'>Departure Airport:</span> {flight.aeropuerto_salida} - ({flight.icao_salida})</p>
 																<p className='text-text-color mb-1'><span className='text-text-white'>Arrival Airport:</span> {flight.aeropuerto_llegada} - ({flight.icao_llegada})</p>
@@ -268,10 +330,10 @@ export default function Profile() {
 																<p className='text-text-color mb-1'><span className='text-text-white'>Arrival time:</span> {flight.hora_llegada}Z</p>
 																<p className='text-text-color mb-1'><span className='text-text-white'>Flight status:</span> {flight.estado_vuelo == 'RESERVADO' ? 'Booked (Check your email to confirm the flight' : 'Confirmed'}</p>
 															</div>
-															<div className='w-2/5 flex justify-end items-center mr-10'>
+															<div className='md:w-2/5 lg:flex justify-end items-center mr-10 max-lg:mt-5'>
 																<div>
-																	<img src={`/airlines/${flight.logo_aerolinea}.png`} className=' h-10 mx-auto mb-5' />
-																	<button className='bg-red text-text-white px-10 py-2 rounded-sm'>Cancel flight</button>
+																	<img src={`/airlines/${flight.logo_aerolinea}.png`} className=' h-10 mx-auto mb-5 max-lg:hidden' />
+																	<button onClick={() => handleCancelFlight(flight.id_vuelo)} className='bg-red text-text-white px-10 py-2 rounded-sm'>Cancel flight</button>
 																</div>
 															</div>
 

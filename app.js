@@ -150,6 +150,30 @@ app.post('/ec/api/rfo/confirmFlight', async (req, res) => {
 	}
 });
 
+app.post('/ec/api/rfo/cancelFlight', async (req, res) => {
+	const idVuelo = req.body.flightID;
+
+	try {
+		const deleteReservasQuery = `
+		DELETE FROM reservas_eventos
+		WHERE id_vuelo = ?;
+	  `;
+		await connection.query(deleteReservasQuery, [idVuelo]);
+
+		const updateVuelosQuery = `
+		UPDATE vuelos_eventos
+		SET estado_vuelo = 'LIBRE'
+		WHERE id_vuelo = ?;
+	  `;
+		await connection.query(updateVuelosQuery, [idVuelo]);
+
+		res.json({ message: 'Reserva de vuelo cancelada correctamente' });
+	} catch (error) {
+		console.error('Error al cancelar la reserva de vuelo:', error);
+		res.status(500).json({ error: 'Error al cancelar la reserva de vuelo' });
+	}
+});
+
 
 app.post('/ec/api/rfo/actualizarEstadoVuelo', async (req, res) => {
 	try {
@@ -273,6 +297,7 @@ app.get('/ec/api/rfo/flights', async (req, res) => {
 	} else if (selectAirport === "SEGU" && type === "Arrivals") {
 		sql += " WHERE icao_llegada = 'SEGU'";
 	}
+	
 
 	const [rows] = await connection.query(sql);
 	res.json(rows);

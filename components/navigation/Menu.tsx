@@ -16,6 +16,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import { BsArrowRight } from 'react-icons/bs';
 import { getUserData } from '@/auth/components/userData';
 import { IUser } from "@/auth/types/user";
+import { useGlobalContext } from '@/app/context/transalation';
 
 
 const useStyles = createStyles((theme) => ({
@@ -79,6 +80,9 @@ export function Menu() {
 	const [eventAlert, setEventAlert] = useState(true);
 	const [userData, setUserData] = useState<IUser | null>(null);
 	const [isLoading, setIsLoading] = useState<Boolean>(true)
+	const { selectedLanguage, setSelectedLanguage} = useGlobalContext();
+
+
 	const { classes } = useStyles();
 	const [linksOpened, setLinksOpened] = useState({
 		division: false,
@@ -88,6 +92,7 @@ export function Menu() {
 	});
 
 	useEffect(() => {
+
 		const refreshData = async () => {
 			const result = await getUserData();
 
@@ -109,11 +114,13 @@ export function Menu() {
 
 	}, [status]);
 
-
-
 	const closeEventAlert = () => {
 		setEventAlert(false);
 	}
+
+	const handleLanguageSelection = () => {
+		(selectedLanguage == 'Español') ? setSelectedLanguage('English') : setSelectedLanguage('Español');;
+	};
 
 	const handleToggle = (key: any) => {
 		setLinksOpened((prevState) => ({
@@ -273,7 +280,7 @@ export function Menu() {
 					</Group>
 
 					<Group className={classes.hiddenMobile}>
-						<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
+						<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color' onClick={handleLanguageSelection}>
 							<RiTranslate2 className='text-xl'></RiTranslate2>
 						</div>
 						{status == 'unauthenticated' ? (
@@ -281,8 +288,8 @@ export function Menu() {
 						) : (
 							<>
 								<Link href={'/profile'} className='bg-main-purple text-text-white px-5 py-2 rounded-md'>{userData?.publicNickname}</Link>
-								<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color'>
-									<BsArrowRight className='text-xl' onClick={() => signOut()}></BsArrowRight>
+								<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color' onClick={() => signOut()}>
+									<BsArrowRight className='text-xl'></BsArrowRight>
 								</div>
 							</>
 						)}
@@ -364,7 +371,7 @@ export function Menu() {
 					<Divider my="sm" color='#21232E' />
 
 					<div className='md:flex gap-x-5 justify-center mt-10 flex-wrap'>
-						<div className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color flex max-md:justify-center max-md:gap-x-5 items-center max-md:mb-3'>
+						<div onClick={handleLanguageSelection} className='border p-2 rounded-md opacity-40 cursor-pointer text-text-color flex max-md:justify-center max-md:gap-x-5 items-center max-md:mb-3'>
 							<RiTranslate2 className='text-xl'></RiTranslate2>
 							<p className='md:hidden'>Traducir pagina</p>
 						</div>
@@ -376,13 +383,13 @@ export function Menu() {
 
 						) : (
 							<>
-								<button className='bg-main-purple text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3'>{userData?.publicNickname}</button>
+								<Link href={'/profile'}>
+									<button className='bg-main-purple text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3'>{userData?.publicNickname}</button>
+								</Link>
 								<button className='bg-red text-text-white px-5 py-2 rounded-md max-md:w-full max-md:mb-3' onClick={() => signOut()}>Cerrar sesión</button>
 							</>
 						)}
-
 					</div>
-
 				</ScrollArea>
 			</Drawer>
 		</Box>

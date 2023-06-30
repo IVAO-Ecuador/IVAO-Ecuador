@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { BsArrowRight } from 'react-icons/bs';
+import Swal from 'sweetalert2'
 
 interface Flight {
 	id_vuelo: number;
@@ -59,7 +60,20 @@ export default function ConfirmFlight({ params }: any) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data)
+
+				Swal.fire({
+					icon: 'success',
+					title: 'Flight confirmed!',
+					text: `Thank you for your participation in our RFO! You'll be redirected to our homepage`,
+					iconColor: 'hsl(220, 80%, 55%)',
+					background: '#1D1E2B',
+					color: '#d2d3e0bf',
+					confirmButtonColor: '#2faf5a',
+				})
+
+				setTimeout(() => {
+					window.location.href = '/'
+				}, 3000);
 			})
 			.catch((error) => {
 				console.log(error)
@@ -131,7 +145,13 @@ export default function ConfirmFlight({ params }: any) {
 		)
 	} else {
 		return (
-			<p>No hay vuelo</p>
+			<div className='container py-20'>
+				<h1 className='text-text-white text-center text-4xl font-semibold'>An error has occurred</h1>
+				<p className=' text-center text-text-color text-lg mt-5'>The flight you are trying to confirm
+					has not been previously booked. Go to your profile and book an available flight. An email will
+					be sent to you with the confirmation link.
+				</p>
+			</div>
 		)
 	}
 }
