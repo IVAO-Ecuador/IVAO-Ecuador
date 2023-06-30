@@ -17,6 +17,11 @@ export const translations = {
 		announcement_status: 'Sign in and book your flight',
 		go_forum: 'Forum',
 
+		// Footer
+
+		footer_text: 'Explore the fascinating world of flight simulation on IVAO Ecuador!',
+		footer_disclaimer: '© 2023 IVAO Ecuador. All rights reserved.',
+
 		// CtaIVAO
 
 		cta_title: 'Start your adventure on IVAO Ecuador now.',
@@ -69,10 +74,23 @@ export const translations = {
 		home_DivisionData_initial_climb: 'Initial climb',
 		home_DivisionData_landed: 'Landed',
 		home_DivisionData_boarding: 'Boarding',
-		home_DivisionData_departing: 'Departing'
+		home_DivisionData_departing: 'Departing',
+
+		// About IVAO Ecuador
+
+		about_title: 'About IVAO Ecuador',
+		about_category: 'History',
+		about_title_article: 'The history of IVAO Ecuador',
+		about_p1: 'IVAO Ecuador is the Ecuadorian division of IVAO (International Virtual Aviation Organization), a global network of online flight simulation that has captivated aviation enthusiasts worldwide. IVAO Ecuador is dedicated to providing a realistic and educational experience to its members, promoting flight simulation and air traffic control in a virtual environment. Join us on this journey through its fascinating trajectory.',
+		about_p2: 'IVAO Ecuador was inactive for several years until 2020. Since 2013, attempts were made to reactivate the division without success, as interested individuals to join the management team did not meet the necessary rank requirements. However, support and guidance were received from members of the IVAO Argentina and IVAO Chile teams. Finally, in June 2020, the mini division of IVAO Ecuador was successfully reopened with a committed team working hard to improve the division and introduce new projects. Their goal is to innovate and align with European divisions.',
+		about_p3: `Over the years, significant efforts have been made to strengthen the division's internal structure.More rigorous recruitment processes have been established for the management team, which has allowed for highly skilled and committed members in key roles.This has resulted in more efficient management and higher quality of services offered.`,
+		about_p4: 'Furthermore, IVAO Ecuador has placed a strong emphasis on training and development of its members. Internal training programs have been established for virtual pilots and virtual air traffic controllers, aiming to enhance their skills and knowledge. Additionally, collaborative learning activities with other divisions have been promoted, and special training events have been conducted to foster professional growth of participants.',
+		about_p5: 'In terms of participation and events, IVAO Ecuador has experienced significant growth. Group flights, themed events, and competitions have been organized, providing members with opportunities to interact, share experiences, and strengthen community bonds. These activities have been designed to cater to the needs and interests of virtual pilots and virtual air traffic controllers in Ecuador, offering an enriching and realistic flight simulation experience.'
 
 
 	},
+
+
 	Español: {
 		// Menu
 		division: 'División',
@@ -90,6 +108,11 @@ export const translations = {
 		announcement_status_logged_in: 'Reserva tu vuelo ahora',
 		announcement_status: 'Inicia sesión y reserva tu vuelo',
 		go_forum: 'Ir al foro',
+
+		// Footer
+
+		footer_text: '¡Explora el fascinante mundo de la simulación de vuelo en IVAO Ecuador!',
+		footer_disclamer: '© 2023 IVAO Ecuador. Todos los derechos reservados.',
 
 		// CtaIVAO
 
@@ -142,7 +165,21 @@ export const translations = {
 		home_DivisionData_initial_climb: 'En ascenso',
 		home_DivisionData_landed: 'Aterrizó',
 		home_DivisionData_boarding: 'Abordando',
-		home_DivisionData_departing: 'Despegando'
+		home_DivisionData_departing: 'Despegando',
+
+
+		// About IVAO Ecuador
+
+		about_title: 'Sobre IVAO Ecuador',
+		about_category: 'Historia',
+		about_title_article: 'La historia de IVAO Ecuador',
+		about_p1: 'IVAO Ecuador es la división ecuatoriana de IVAO (International Virtual Aviation Organization), una red global de simulación de vuelo en línea que ha cautivado a entusiastas de la aviación en todo el mundo. IVAO Ecuador se dedica a brindar una experiencia realista y educativa a sus miembros, promoviendo la simulación de vuelo y el control de tráfico aéreo en un entorno virtual. Acompáñanos en este recorrido por su fascinante trayectoria.',
+		about_p2: 'IVAO Ecuador estuvo inactivo durante varios años hasta 2020. Desde 2013, se intentó reactivar la división sin éxito, ya que las personas interesadas en formar parte del equipo de administración no cumplían con los requisitos de rango necesarios. Sin embargo, se recibió apoyo y asesoría de miembros del equipo de IVAO Argentina e IVAO Chile. Finalmente, en junio de 2020, se logró reabrir la mini división de IVAO Ecuador con un equipo comprometido que trabaja arduamente para mejorar la división y presentar nuevos proyectos. Su objetivo es innovar y equipararse con las divisiones europeas.',
+		about_p3: 'Con los años se han llevado a cabo esfuerzos significativos para fortalecer la estructura interna de la división. Se han establecido procesos de reclutamiento más rigurosos para el equipo de administración, lo que ha permitido contar con miembros altamente capacitados y comprometidos en roles clave. Esto ha generado una gestión más eficiente y una mayor calidad en los servicios ofrecidos.',
+		about_p4: 'Además, IVAO Ecuador ha puesto un fuerte énfasis en la formación y capacitación de sus miembros. Se han establecido programas de entrenamiento internos para pilotos virtuales y controladores aéreos virtuales, con el objetivo de mejorar sus habilidades y conocimientos. Asimismo, se han promovido actividades de aprendizaje en colaboración con otras divisiones y se han llevado a cabo eventos especiales de formación para fomentar el crecimiento profesional de los participantes.',
+		about_p5: 'En términos de participación y eventos, IVAO Ecuador ha experimentado un incremento significativo. Se han organizado vuelos grupales, eventos temáticos y competencias, lo que ha brindado a los miembros la oportunidad de interactuar, compartir experiencias y fortalecer los lazos de comunidad. Estas actividades han sido diseñadas para adaptarse a las necesidades e intereses de los pilotos virtuales y controladores aéreos virtuales en Ecuador, ofreciendo una experiencia de simulación de vuelo enriquecedora y realista.',
+
+
 
 
 

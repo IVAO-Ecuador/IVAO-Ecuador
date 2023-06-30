@@ -6,6 +6,7 @@ import { BsDiscord, BsFacebook, BsInstagram } from 'react-icons/bs';
 import { infoFooter } from './infoFooter';
 import { useEffect, useState } from 'react';
 import { useGlobalContext } from '@/app/context/transalation';
+import { translations } from '../translation/translations';
 
 const useStyles = createStyles((theme) => ({
 	footer: {
@@ -156,7 +157,8 @@ export function Footer() {
 				<div className={classes.logo}>
 					<Image src={'/logos/logo-complete.png'} width={270} height={30} alt='Logo IVAO Ecuador' className='-ml-9'></Image>
 					<Text size="xs" color="dimmed" className={classes.description}>
-						¡Explora el fascinante mundo de la simulación de vuelo en IVAO Ecuador!
+						{/*@ts-ignore*/}
+						{translations[selectedLanguage]?.footer_text}
 					</Text>
 				</div>
 				<div className={classes.groups}>
@@ -165,7 +167,8 @@ export function Footer() {
 			</Container>
 			<Container className={classes.afterFooter}>
 				<Text color="dimmed" size="sm" className='max-md:text-center'>
-					© 2023 IVAO Ecuador. Todos los derechos reservados.
+					{/*@ts-ignore*/}
+					{translations[selectedLanguage]?.footer_disclaimer}
 				</Text>
 
 				<Group spacing={0} className={classes.social} position="right" noWrap>
