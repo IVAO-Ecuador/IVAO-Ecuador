@@ -85,7 +85,17 @@ export const translations = {
 		about_p2: 'IVAO Ecuador was inactive for several years until 2020. Since 2013, attempts were made to reactivate the division without success, as interested individuals to join the management team did not meet the necessary rank requirements. However, support and guidance were received from members of the IVAO Argentina and IVAO Chile teams. Finally, in June 2020, the mini division of IVAO Ecuador was successfully reopened with a committed team working hard to improve the division and introduce new projects. Their goal is to innovate and align with European divisions.',
 		about_p3: `Over the years, significant efforts have been made to strengthen the division's internal structure.More rigorous recruitment processes have been established for the management team, which has allowed for highly skilled and committed members in key roles.This has resulted in more efficient management and higher quality of services offered.`,
 		about_p4: 'Furthermore, IVAO Ecuador has placed a strong emphasis on training and development of its members. Internal training programs have been established for virtual pilots and virtual air traffic controllers, aiming to enhance their skills and knowledge. Additionally, collaborative learning activities with other divisions have been promoted, and special training events have been conducted to foster professional growth of participants.',
-		about_p5: 'In terms of participation and events, IVAO Ecuador has experienced significant growth. Group flights, themed events, and competitions have been organized, providing members with opportunities to interact, share experiences, and strengthen community bonds. These activities have been designed to cater to the needs and interests of virtual pilots and virtual air traffic controllers in Ecuador, offering an enriching and realistic flight simulation experience.'
+		about_p5: 'In terms of participation and events, IVAO Ecuador has experienced significant growth. Group flights, themed events, and competitions have been organized, providing members with opportunities to interact, share experiences, and strengthen community bonds. These activities have been designed to cater to the needs and interests of virtual pilots and virtual air traffic controllers in Ecuador, offering an enriching and realistic flight simulation experience.',
+
+		// Events
+		event_title: 'Events',
+		event_category: 'Department',
+		event_description: `Below you will find our upcoming events. Check their category and participate to earn points and medals. Don't forget to report your attendance through the following link: `,
+		event_loading: 'Loading information...',
+		event_idea: 'Do you have any ideas for an event?',
+		event_idea_text: 'Contact us via email to share your idea with us.',
+		event_date: 'Date:',
+		email_copied: 'Email copied',
 
 
 	},
@@ -179,9 +189,14 @@ export const translations = {
 		about_p4: 'Además, IVAO Ecuador ha puesto un fuerte énfasis en la formación y capacitación de sus miembros. Se han establecido programas de entrenamiento internos para pilotos virtuales y controladores aéreos virtuales, con el objetivo de mejorar sus habilidades y conocimientos. Asimismo, se han promovido actividades de aprendizaje en colaboración con otras divisiones y se han llevado a cabo eventos especiales de formación para fomentar el crecimiento profesional de los participantes.',
 		about_p5: 'En términos de participación y eventos, IVAO Ecuador ha experimentado un incremento significativo. Se han organizado vuelos grupales, eventos temáticos y competencias, lo que ha brindado a los miembros la oportunidad de interactuar, compartir experiencias y fortalecer los lazos de comunidad. Estas actividades han sido diseñadas para adaptarse a las necesidades e intereses de los pilotos virtuales y controladores aéreos virtuales en Ecuador, ofreciendo una experiencia de simulación de vuelo enriquecedora y realista.',
 
-
-
-
-
+		// Events
+		event_title: 'Eventos',
+		event_category: 'Departamento',
+		event_description: 'A continuación encontrarás nuestros proximos eventos. Revisa su categoria y participa para obtener puntos y medallas. No olvides de reportar tu asistencia a través del siguiente enlace:',
+		event_loading: 'Cargando información...',
+		event_idea: '¿Tienes ideas sobre algun evento?',
+		event_idea_text: 'Comunicate con nosotros a través del correo para leer sobre tu idea.',
+		event_date: 'Fecha:',
+		email_copied: 'Correo copiado'
 	}
 };

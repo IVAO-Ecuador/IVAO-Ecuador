@@ -4,6 +4,8 @@ import CtaIVAO from '@/components/navigation/CtaIVAO'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { BsLightningFill, BsTelephoneForward } from 'react-icons/bs'
+import { useGlobalContext } from '../context/transalation'
+import { translations } from '@/components/translation/translations'
 
 interface Event {
 	id_evento: number;
@@ -20,8 +22,7 @@ export default function Events() {
 	const [eventsList, setEventsList] = useState<Event[]>([])
 	const [emailCopy, setEmailCopy] = useState(false)
 	const [isLoading, setIsLoading] = useState(true);
-
-
+	const { selectedLanguage } = useGlobalContext();
 
 	useEffect(() => {
 		const fetchData = () => {
@@ -47,7 +48,7 @@ export default function Events() {
 		if (emailText !== 'Correo copiado') {
 			navigator.clipboard.writeText(emailText)
 			{/*@ts-ignore*/ }
-			emailElement.innerHTML = "Correo copiado"
+			emailElement.innerHTML = translations[selectedLanguage]?.email_copied
 			setEmailCopy(true)
 		}
 	};
@@ -72,21 +73,26 @@ export default function Events() {
 					<div className='container px-8'>
 						<div className='text-text-white bg-green px-5 py-1 rounded flex w-min items-center gap-x-2'>
 							<BsLightningFill className='text-sm'></BsLightningFill>
-							<p>Departamento</p>
+							{/*@ts-ignore*/}
+							<p>{translations[selectedLanguage]?.event_category}</p>
 						</div>
-						<h1 className='text-text-white md:text-6xl text-4xl mt-5 font-extrabold'>Eventos</h1>
+						{/*@ts-ignore*/}
+						<h1 className='text-text-white md:text-6xl text-4xl mt-5 font-extrabold'>{translations[selectedLanguage]?.event_title}</h1>
 					</div>
 				</div>
 
 				<div className='container py-24 px-8'>
-					<p className='text-text-color text-lg mb-8'>
-						A continuación encontrarás nuestros proximos eventos. Revisa su categoria y participa para obtener puntos y
-						medallas. No olvides de reportar tu asistencia a través del siguiente enlace:
+					{/*@ts-ignore*/}
+					<p className='text-text-color text-lg mb-8'> {translations[selectedLanguage]?.event_description}
 						<Link href={'https://tours.th.ivao.aero/index.php?div=EC'} className='text-green'> IVAO Ecuador Tour System.</Link>
 					</p>
 
 					{isLoading ? (
-						<p className="text-lg max-w-4xl mx-auto text-text-color text-center">Cargando información...</p>
+						<>
+							{/*@ts-ignore*/}
+							<p className="text-lg max-w-4xl mx-auto text-text-color text-center">{translations[selectedLanguage]?.event_loading}</p>
+						</>
+
 					) : (
 						<div>
 							<div className='grid xl:grid-cols-3 lg:grid-cols-2 gap-5  mb-10'>
@@ -99,7 +105,8 @@ export default function Events() {
 												<span className='text-sm text-text-white px-2 rounded-sm bg-cyan'>{event.tipo_evento}</span>
 											</div>
 											<p className='mt-5 text-text-color mb-5'>{event.descripcion_evento}</p>
-											<p className='text-text-white'>Fecha: {calculateDate(event.fecha_evento)}</p>
+											{/*@ts-ignore*/}
+											<p className='text-text-white'>{translations[selectedLanguage]?.event_date} {calculateDate(event.fecha_evento)}</p>
 										</div>
 									</div>
 								))}
@@ -111,8 +118,10 @@ export default function Events() {
 										<BsTelephoneForward className='text-4xl text-text-white'></BsTelephoneForward>
 									</div>
 									<div className='w-full'>
-										<h3 className='text-text-white max-md:mb-3'>¿Tienes ideas sobre algun evento?</h3>
-										<p className='text-text-color'>Comunicate con nosotros a través del correo para leer sobre tu idea.</p>
+										{/*@ts-ignore*/}
+										<h3 className='text-text-white max-md:mb-3'>{translations[selectedLanguage]?.event_idea}</h3>
+										{/*@ts-ignore*/}
+										<p className='text-text-color'>{translations[selectedLanguage]?.event_idea_text}</p>
 									</div>
 								</div>
 
