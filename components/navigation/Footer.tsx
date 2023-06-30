@@ -1,8 +1,11 @@
+'use client'
+
 import { createStyles, Text, Container, ActionIcon, Group, rem } from '@mantine/core';
 import Image from 'next/image';
 import { BsDiscord, BsFacebook, BsInstagram } from 'react-icons/bs';
 import { infoFooter } from './infoFooter';
 import { useEffect, useState } from 'react';
+import { useGlobalContext } from '@/app/context/transalation';
 
 const useStyles = createStyles((theme) => ({
 	footer: {
@@ -96,6 +99,7 @@ const useStyles = createStyles((theme) => ({
 export function Footer() {
 	const { classes } = useStyles();
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const { selectedLanguage } = useGlobalContext();
 
 	useEffect(() => {
 		const loadFooter = () => {
@@ -116,15 +120,20 @@ export function Footer() {
 				href={link.link}
 				onClick={(event) => event.preventDefault()}
 			>
-				{link.label}
+				{/*@ts-ignore*/}
+				{link.label[selectedLanguage]}
 			</Text>
 		));
 
 		return (
-			<div className={classes.wrapper} key={group.title}>
-				<Text className={classes.title}>{group.title}</Text>
-				{links}
-			</div>
+			<>
+				{/*@ts-ignore*/}
+				<div className={classes.wrapper} key={group.title[selectedLanguage]}>
+					{/*@ts-ignore*/}
+					<Text className={classes.title}>{group.title[selectedLanguage]}</Text>
+					{links}
+				</div>
+			</>
 		);
 	});
 

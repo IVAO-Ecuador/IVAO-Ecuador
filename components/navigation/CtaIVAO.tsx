@@ -1,3 +1,5 @@
+'use client'
+
 import { useGlobalContext } from '@/app/context/transalation';
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs'
