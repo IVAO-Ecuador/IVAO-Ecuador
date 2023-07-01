@@ -263,11 +263,11 @@ app.get('/ec/api/rfo/flights', async (req, res) => {
 	`;
 
 	if (selectAirport === "SEQM" && type === "Departures") {
-		sql += " WHERE icao_salida = 'SEQM'";
+		sql += " WHERE icao_salida = 'SEQM' ORDER BY hora_salida ASC";
 	} else if (selectAirport === "SEQM" && type === "Arrivals") {
 		sql += " WHERE icao_llegada = 'SEQM'";
 	} else if (selectAirport === "SEGU" && type === "Departures") {
-		sql += " WHERE icao_salida = 'SEGU'";
+		sql += " WHERE icao_salida = 'SEGU' ORDER BY hora_salida ASC";
 	} else if (selectAirport === "SEGU" && type === "Arrivals") {
 		sql += " WHERE icao_llegada = 'SEGU'";
 	}

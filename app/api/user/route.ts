@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import { IUser } from "@/auth/types/user";
-import { useContext } from "react";
 
 const secret = process.env.NEXTAUTH_SECRET as string
 

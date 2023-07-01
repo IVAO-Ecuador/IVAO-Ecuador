@@ -328,7 +328,7 @@ export default function Profile() {
 																<p className='text-text-color mb-1'><span className='text-text-white'>Arrival Airport:</span> {flight.aeropuerto_llegada} - ({flight.icao_llegada})</p>
 																<p className='text-text-color mb-1'><span className='text-text-white'>Departure time:</span> {flight.hora_salida}Z</p>
 																<p className='text-text-color mb-1'><span className='text-text-white'>Arrival time:</span> {flight.hora_llegada}Z</p>
-																<p className='text-text-color mb-1'><span className='text-text-white'>Flight status:</span> {flight.estado_vuelo == 'RESERVADO' ? 'Booked (Check your email to confirm the flight' : 'Confirmed'}</p>
+																<p className='text-text-color mb-1'><span className='text-text-white'>Flight status:</span> {flight.estado_vuelo == 'RESERVADO' ? 'Booked (Check your email to confirm the flight)' : 'Confirmed'}</p>
 															</div>
 															<div className='md:w-2/5 lg:flex justify-end items-center mr-10 max-lg:mt-5'>
 																<div>

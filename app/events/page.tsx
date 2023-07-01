@@ -26,7 +26,7 @@ export default function Events() {
 
 	useEffect(() => {
 		const fetchData = () => {
-			fetch('http://localhost:3005/api/events')
+			fetch('http://localhost:3005/ec/api/events')
 				.then(response => response.json())
 				.then(page => {
 					setEventsList(page)

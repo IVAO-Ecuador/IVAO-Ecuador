@@ -13,10 +13,10 @@ export const infoFooter = [
 				Español: 'Eventos',
 				English: 'Events',
 			}, link: '/events' },
-			{ label: {
+			/*{ label: {
 				Español: 'Entrenamientos',
 				English: 'Trainings',
-			}, link: '/training' },
+			}, link: '/training' },*/
 			{ label: {
 				Español: 'Recursos',
 				English: 'Resources',

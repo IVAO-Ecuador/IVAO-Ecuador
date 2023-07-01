@@ -51,7 +51,7 @@ export const infoMenu = {
 			url: '/events',
 			newTab: false
 		},
-		{
+		/*{
 			icon: BsClipboardDataFill,
 			iconBackground: 'degradado-verde',
 			title: {
@@ -64,7 +64,7 @@ export const infoMenu = {
 			},
 			url: '/training',
 			newTab: false
-		},
+		}*/,
 		{
 			icon: BsDiscord,
 			iconBackground: 'degradado-morado',
