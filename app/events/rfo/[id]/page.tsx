@@ -33,7 +33,7 @@ export default function ConfirmFlight({ params }: any) {
 
 	useEffect(() => {
 
-		fetch('http://localhost:3005/ec/api/rfo/verifyFlight', {
+		fetch('https://api.ec.ivao.aero/ec/api/rfo/verifyFlight', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export default function ConfirmFlight({ params }: any) {
 	}, [id])
 
 	const confirmFlight = () => {
-		fetch('http://localhost:3005/ec/api/rfo/confirmFlight', {
+		fetch('https://api.ec.ivao.aero/ec/api/rfo/confirmFlight', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

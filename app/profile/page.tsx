@@ -56,7 +56,7 @@ export default function Profile() {
 	const [isUserFlightsLoading, setUserFlightsLoading] = useState(true);
 
 	const getUserFlights = async (userData: IUser) => {
-		fetch('http://localhost:3005/ec/api/rfo/checkFlights', {
+		fetch('https://api.ec.ivao.aero/ec/api/rfo/checkFlights', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export default function Profile() {
 
 	useEffect(() => {
 		const fetchData = () => {
-			fetch('http://localhost:3005/ec/api/rfo')
+			fetch('https://api.ec.ivao.aero/ec/api/rfo')
 				.then(response => response.json())
 				.then(result => {
 					setEventsList(result)
@@ -117,7 +117,7 @@ export default function Profile() {
 	}, [selectAirport, type]);
 
 	const buildUrl = (selectAirport: string, type: string) => {
-		let url = "http://localhost:3005/ec/api/rfo/flights";
+		let url = "https://api.ec.ivao.aero/ec/api/rfo/flights";
 		url += `?selectAirport=${selectAirport}&type=${type}`;
 		return url;
 	};
@@ -158,7 +158,7 @@ export default function Profile() {
 			confirmButtonText: 'Book it!'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch('http://localhost:3005/ec/api/rfo/actualizarEstadoVuelo', {
+				fetch('https://api.ec.ivao.aero/ec/api/rfo/actualizarEstadoVuelo', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -214,7 +214,7 @@ export default function Profile() {
 			confirmButtonText: 'Yes, cancel it!'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch('http://localhost:3005/ec/api/rfo/cancelFlight', {
+				fetch('https://api.ec.ivao.aero/ec/api/rfo/cancelFlight', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',

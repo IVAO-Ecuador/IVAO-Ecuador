@@ -120,7 +120,7 @@ export default function AInformation() {
 					<div className="w-4 -mt-12 h-[130%] mx-auto blue-track"></div>
 					<img
 						ref={airplaneRef}
-						src="/icons/airplane.png"
+						src="/images/airplane.png"
 						className='absolute top-0 bottom-0 w-24'
 						style={{ transform: 'translateY(0) rotate(180deg)' }}
 					/>

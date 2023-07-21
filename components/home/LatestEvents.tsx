@@ -22,7 +22,7 @@ export default function LatestEvents() {
 
 	useEffect(() => {
 		const fetchData = () => {
-			fetch('http://localhost:3005/ec/api/events')
+			fetch('https://api.ec.ivao.aero/ec/api/events')
 				.then(response => response.json())
 				.then(page => {
 					setEventsList(page)
