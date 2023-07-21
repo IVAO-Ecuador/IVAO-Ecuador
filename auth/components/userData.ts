@@ -9,7 +9,7 @@ const getData = async () => {
 }
 
 const updateUserDB = async (userInfo: IUser) => {
-	await fetch('http://localhost:3005/ec/api/updateUser', {
+	await fetch('https://api.ec.ivao.aero/ec/api/updateUser', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
