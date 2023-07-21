@@ -188,7 +188,7 @@ export const translations = {
 		division: 'División',
 		pilots: 'Pilotos',
 		controllers: 'Controladores',
-		resources: 'Recursos',
+		resources: 'Recursossssssss',
 		login_button: 'Iniciar sesión',
 		signin_button: 'Registrarse',
 		logout_button: 'Cerrar sesión',
