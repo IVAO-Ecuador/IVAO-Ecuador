@@ -289,10 +289,13 @@ export default function Profile() {
 							<p>Profile settings have been temporarily disabled. They will be reactivated once the present RFO event has ended.</p>
 						</div>
 
-						<div className='flex items-center mt-3 gap-x-3 max-md:gap-x-5 w-full bg-[#6c4e1f] py-2 max-md:py-5 px-5 rounded-md text-[#E7CCA5]'>
+						{/*
+							<div className='flex items-center mt-3 gap-x-3 max-md:gap-x-5 w-full bg-[#6c4e1f] py-2 max-md:py-5 px-5 rounded-md text-[#E7CCA5]'>
 							<BsBell className='xl:text-base md:text-2xl max-md:text-6xl'></BsBell>
 							<p>If you have problems loading flights, please return to the main page of the website and return to this page.</p>
-						</div>
+							</div>
+						*/}
+
 
 						{isEventLoading ? (
 							<div>
