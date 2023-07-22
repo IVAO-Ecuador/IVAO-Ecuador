@@ -12,6 +12,7 @@
 /.next/
 /out/
 /dist/
+/public/docs/
 
 # production
 /build
