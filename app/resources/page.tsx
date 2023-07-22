@@ -12,7 +12,7 @@ export default function Resources() {
 
 	return (
 		<div className="overflow-hidden relative">
-			<div className="bg-dark-blue pb-56 relative">
+			<div className="bg-dark-blue pb-24 relative">
 
 				<div className='bg-[url("/images/resources.jpg")] bg-cover bg-no-repeat bg-center h-60 flex items-center'>
 					<div className='container px-8'>
@@ -26,7 +26,7 @@ export default function Resources() {
 					</div>
 				</div>
 
-				<div className="container relative px-8 mt-14">
+				<div className="container relative px-8 mt-24">
 					<div className='lg:flex gap-x-6'>
 						<div className='lg:w-1/3 h-auto bg-hover-color rounded-xl max-lg:mb-8 transition-all hover:translate-x-0.5 hover:-translate-y-0.5'>
 							<Image width={700} height={80} src="/images/avion.jpg"
@@ -42,7 +42,7 @@ export default function Resources() {
 								{/*@ts-ignore*/}
 								<p className='mt-5 text-text-color mb-5'>{translations[selectedLanguage]?.Resources_card_1_text}</p>
 								{/*@ts-ignore*/}
-								<button className='bg-gray-200 text-text-white px-10 py-2 rounded-md hover:bg-gray transition-all'>{translations[selectedLanguage]?.Resources_card_1_button}</button>
+								<a href='/docs/P-INS-Guia-novatos.pdf' target='_blank' className='bg-gray-200 text-text-white px-10 py-2 rounded-md hover:bg-gray transition-all'>{translations[selectedLanguage]?.Resources_card_1_button}</a>
 							</div>
 						</div>
 
@@ -98,7 +98,7 @@ export default function Resources() {
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
-							<button className='bg-gray-200 text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.Resources_GCA_button}</button>
+							<a href='/docs/P-INS-Lineamientos-examen-GCA.pdf' target='_blank' className='bg-gray-200 text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.Resources_GCA_button}</a>
 							{/*@ts-ignore*/}
 							<button className='bg-pink text-text-white px-10 py-2 rounded-md max-md:w-full hover:px-11 transition-all'>{translations[selectedLanguage]?.Resources_GCA_request_exam}</button>
 						</div>

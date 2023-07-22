@@ -1,7 +1,7 @@
 'use client'
 import CtaIVAO from '@/components/navigation/CtaIVAO'
 import React from 'react'
-import { BsClipboard2Check, BsRocketFill } from 'react-icons/bs'
+import { BsClipboard2Check } from 'react-icons/bs'
 import { LuTowerControl } from 'react-icons/lu'
 import { useGlobalContext } from '../context/transalation';
 import { translations } from '@/components/translation/translations'
@@ -48,7 +48,7 @@ export default function AtcGuidelines() {
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
-							<button className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.ATCGuide_document_button}</button>
+							<a href='/docs/P-INS-Lineamientos-examenes-ATC.pdf' target='_blank' className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.ATCGuide_document_button}</a>
 						</div>
 					</div>
 

@@ -49,7 +49,7 @@ export default function GCAExam() {
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
-							<button className='bg-gray-200 text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.GCAExam_document_button}</button>
+							<a href='/docs/P-INS-Lineamientos-examen-GCA.pdf' target='_blank' className='bg-gray-200 text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.GCAExam_document_button}</a>
 							{/*@ts-ignore*/}
 							<button className='bg-pink text-text-white px-10 py-2 rounded-md max-md:w-full hover:px-11 transition-all'>{translations[selectedLanguage]?.GCAExam_request_exam}</button>
 						</div>

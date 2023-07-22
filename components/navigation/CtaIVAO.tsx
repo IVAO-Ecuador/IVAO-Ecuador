@@ -17,11 +17,11 @@ export default function CtaIVAO() {
 					<p className='text-3xl font-semibold mb-5 max-w-md text-text-white'>{translations[selectedLanguage]?.cta_title}</p>
 					{/*@ts-ignore*/}
 					<p className='text-xl mb-7 text-gray-600 text-text-color'>{translations[selectedLanguage]?.cta_text}</p>
-					<button className='bg-main-purple text-text-white px-16 py-2 rounded-md flex justify-center items-center gap-x-3'>
+					<a href='https://www.ivao.aero/members/person/register.htm' target='_blank' className='bg-main-purple text-text-white px-16 py-2 rounded-md flex justify-center items-center gap-x-3'>
 						{/*@ts-ignore*/}
 						<p>{translations[selectedLanguage]?.cta_button}</p>
 						<BsArrowRight className='max-md:hidden'></BsArrowRight>
-					</button>
+					</a>
 				</div>
 				<div className='max-xl:hidden w-1/2'>
 					<img src="/images/about/c3.jpg" alt="" className=' h-[420px] object-cover brightness-50' />

@@ -120,8 +120,8 @@ export const translations = {
 		ATCOp_p3: `Furthermore, the guides cover essential aspects such as communications, aerodrome information, and navigation aids (navaids). These resources will provide you with the necessary data to establish effective communication with pilots and to use the available navigation aids in Ecuadorian airspace.`,
 		ATCOp_document_title_1: 'ATC Operations Manual (QuickView for ATC)',
 		ATCOp_document_text_1: 'Access the operations manual for controllers in Ecuador.',
-		ATCOp_document_title_2: 'ATC Communications Manual in Ecuador',
-		ATCOp_document_text_2: 'Access the communications manual for controllers.',
+		ATCOp_document_title_2: 'Manual of local procedures in Ecuador',
+		ATCOp_document_text_2: 'Access the local ATC procedures manual in Ecuador.',
 		ATCOp_document_button: 'Open Document',
 
 		// ATC - Guidelines
@@ -304,8 +304,8 @@ export const translations = {
 		ATCOp_p3: 'Asimismo, las guías cubren aspectos esenciales como las comunicaciones, información de aeródromos y ayudas a la navegación (navaids). Estos recursos te proporcionarán los datos necesarios para establecer una comunicación efectiva con los pilotos y para utilizar las ayudas a la navegación disponibles en el espacio aéreo ecuatoriano.',
 		ATCOp_document_title_1: 'Manual de operaciones ATC (QuickView for ATC)',
 		ATCOp_document_text_1: 'Accede al manual de operaciones para controladores en Ecuador.',
-		ATCOp_document_title_2: 'Manual de comunicaciones ATC en Ecuador',
-		ATCOp_document_text_2: 'Accede al manual de comunicaciones para controladores.',
+		ATCOp_document_title_2: 'Manual de procedimientos locales en Ecuador',
+		ATCOp_document_text_2: 'Accede al manual de procedimientos locales ATC en Ecuador.',
 		ATCOp_document_button: 'Abrir documento',
 
 		// ATC - Guidelines
