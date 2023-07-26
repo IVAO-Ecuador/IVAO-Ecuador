@@ -47,7 +47,7 @@ export default function SpecialOperations() {
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
-							<button className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.SO_document_button}</button>
+							<a className='bg-gray-200 block text-center text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.SO_document_button}</a>
 						</div>
 					</div>
 

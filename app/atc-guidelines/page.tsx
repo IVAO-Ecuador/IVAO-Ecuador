@@ -48,7 +48,7 @@ export default function AtcGuidelines() {
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
-							<a href='/docs/P-INS-Lineamientos-examenes-ATC.pdf' target='_blank' className='bg-gray-200 text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.ATCGuide_document_button}</a>
+							<a href='/docs/P-INS-Lineamientos-examenes-ATC.pdf' target='_blank' className='bg-gray-200 block text-center text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.ATCGuide_document_button}</a>
 						</div>
 					</div>
 

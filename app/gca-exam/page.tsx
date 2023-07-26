@@ -1,7 +1,7 @@
 'use client'
 
 import CtaIVAO from '@/components/navigation/CtaIVAO'
-import React from 'react'
+import React, { useState } from 'react'
 import { BsClipboard2Check, BsRocketFill, BsStarFill } from 'react-icons/bs'
 import { LuTowerControl } from 'react-icons/lu'
 import { useGlobalContext } from '../context/transalation';
@@ -10,6 +10,19 @@ import { translations } from '@/components/translation/translations'
 export default function GCAExam() {
 
 	const { selectedLanguage } = useGlobalContext();
+	const [emailCopy, setEmailCopy] = useState(false)
+
+	const copyToClipboard = () => {
+		const emailElement = document.getElementById('email');
+		{/*@ts-ignore*/ }
+
+		if (!emailCopy) {
+			navigator.clipboard.writeText("ec-training@ivao.aero")
+			{/*@ts-ignore*/ }
+			emailElement.innerHTML = translations[selectedLanguage]?.email_copied
+			setEmailCopy(true)
+		}
+	};
 
 	return (
 		<div className="overflow-hidden relative">
@@ -49,14 +62,12 @@ export default function GCAExam() {
 
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
-							<a href='/docs/P-INS-Lineamientos-examen-GCA.pdf' target='_blank' className='bg-gray-200 text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.GCAExam_document_button}</a>
+							<a href='/docs/P-INS-Lineamientos-examen-GCA.pdf' target='_blank' className='bg-gray-200 block text-center text-text-white px-10 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.GCAExam_document_button}</a>
 							{/*@ts-ignore*/}
-							<button className='bg-pink text-text-white px-10 py-2 rounded-md max-md:w-full hover:px-11 transition-all'>{translations[selectedLanguage]?.GCAExam_request_exam}</button>
+							<p id="email" className={`${emailCopy ? 'bg-main-green' : 'bg-pink'} text-text-white text-center px-10 max-md:px-8 max-md:py-3 py-2 rounded-md max-md:w-full max-md:mb-2 transition-all`} onClick={copyToClipboard}>{translations[selectedLanguage]?.Resources_GCA_request_exam}</p>
 						</div>
 					</div>
-
 					<CtaIVAO></CtaIVAO>
-
 				</div>
 			</div>
 		</div>

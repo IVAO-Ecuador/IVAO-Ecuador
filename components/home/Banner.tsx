@@ -24,7 +24,7 @@ export default function Banner() {
 
 					<div className="md:flex gap-x-5 mt-10">
 						{/*@ts-ignore*/}
-						<a href='https://www.ivao.aero/members/person/register.htm' target='_blank' className="bg-main-green max-md:w-full max-md:mb-5 text-text-white px-8 py-3 rounded-md">{translations[selectedLanguage]?.home_signup}</a>
+						<a href='https://www.ivao.aero/members/person/register.htm' target='_blank' className="bg-main-green max-md:w-full max-md:mb-5 text-text-white px-8 py-3 rounded-md flex justify-center items-center">{translations[selectedLanguage]?.home_signup}</a>
 						<a href='/docs/P-INS-Guia-novatos.pdf' target='_blank' className="bg-main-purple max-md:w-full  text-text-white px-8 py-3 rounded-md flex justify-center items-center gap-x-2">
 							<RiSendPlaneFill></RiSendPlaneFill>
 							{/*@ts-ignore*/}
