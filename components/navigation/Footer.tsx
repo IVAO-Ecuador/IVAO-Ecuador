@@ -7,6 +7,7 @@ import { infoFooter } from './infoFooter';
 import { useEffect, useState } from 'react';
 import { useGlobalContext } from '@/app/context/transalation';
 import { translations } from '../translation/translations';
+import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
 	footer: {
@@ -172,14 +173,20 @@ export function Footer() {
 				</Text>
 
 				<Group spacing={0} className={classes.social} position="right" noWrap>
-					<ActionIcon size="lg">
-						<BsInstagram size="1.05rem" />
+					<ActionIcon size="lg" className='hover:bg-gray-200 hover:text-text-white'>
+						<Link href={'https://www.instagram.com/ivao.ec/'} target='_blank'>
+							<BsInstagram size="1.05rem" />
+						</Link>
 					</ActionIcon>
-					<ActionIcon size="lg">
-						<BsFacebook size="1.05rem" />
+					<ActionIcon size="lg" className='hover:bg-gray-200 hover:text-text-white'>
+						<Link href={'https://www.facebook.com/groups/493147607384302'} target='_blank'>
+							<BsFacebook size="1.05rem" />
+						</Link>
 					</ActionIcon>
-					<ActionIcon size="lg">
-						<BsDiscord size="1.05rem" />
+					<ActionIcon size="lg" className='hover:bg-gray-200 hover:text-text-white'>
+						<Link href={'https://discord.gg/hJ3xNWVuP9'} target='_blank'>
+							<BsDiscord size="1.05rem" />
+						</Link>
 					</ActionIcon>
 				</Group>
 			</Container>
