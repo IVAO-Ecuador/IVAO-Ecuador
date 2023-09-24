@@ -78,7 +78,7 @@ export function Menu() {
 
 	const { status } = useSession();
 	const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
-	const [eventAlert, setEventAlert] = useState(true);
+	const [eventAlert, setEventAlert] = useState(false);
 	const [userData, setUserData] = useState<IUser | null>(null);
 	const [isLoading, setIsLoading] = useState<Boolean>(true)
 	const { selectedLanguage, setSelectedLanguage } = useGlobalContext();

@@ -29,25 +29,32 @@ export default function ConfirmFlight({ params }: any) {
 
 	const [flight, setFlight] = useState<Flight[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const isEventInProgress = false;
 	const { id } = params;
 
 	useEffect(() => {
 
-		fetch('https://api.ec.ivao.aero/ec/api/rfo/verifyFlight', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ id: id }),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setFlight(data)
-				setIsLoading(false)
+		if (isEventInProgress) {
+			fetch('https://api.ec.ivao.aero/ec/api/rfo/verifyFlight', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ id: id }),
 			})
-			.catch((error) => {
-				console.log(error)
-			});
+				.then((response) => response.json())
+				.then((data) => {
+					setFlight(data)
+					setIsLoading(false)
+				})
+				.catch((error) => {
+					console.log(error)
+				});
+		}else{
+			setIsLoading(false)
+		}
+
+
 	}, [id])
 
 	const confirmFlight = () => {
@@ -144,14 +151,26 @@ export default function ConfirmFlight({ params }: any) {
 			})
 		)
 	} else {
-		return (
-			<div className='container py-20'>
-				<h1 className='text-text-white text-center text-4xl font-semibold'>An error has occurred</h1>
-				<p className=' text-center text-text-color text-lg mt-5'>The flight you are trying to confirm
-					has not been previously booked. Go to your profile and book an available flight. An email will
-					be sent to you with the confirmation link.
-				</p>
-			</div>
-		)
+
+		if (!isEventInProgress) {
+			return (
+				<div className='container py-20'>
+					<h1 className='text-text-white text-center text-4xl font-semibold'>There are no active events!</h1>
+					<p className=' text-center text-text-color text-lg mt-5'>The flight you are trying to confirm is not
+						linked to any active event. If you think it is an error, contact a staff.
+					</p>
+				</div>
+			)
+		} else {
+			return (
+				<div className='container py-20'>
+					<h1 className='text-text-white text-center text-4xl font-semibold'>An error has occurred</h1>
+					<p className=' text-center text-text-color text-lg mt-5'>The flight you are trying to confirm
+						has not been previously booked. Go to your profile and book an available flight. An email will
+						be sent to you with the confirmation link.
+					</p>
+				</div>
+			)
+		}
 	}
 }

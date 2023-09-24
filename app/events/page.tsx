@@ -137,7 +137,7 @@ export default function Events() {
 								</div>
 
 								<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
-									<p id="email" className={`${emailCopy ? 'bg-main-green' : 'bg-gray-200 hover:bg-gray'} text-text-white text-center px-20 py-2 rounded-md max-md:w-full max-md:mb-2 transition-all`} onClick={copyToClipboard}>ec-ec@ivao.aero</p>
+									<p id="email" className={`${emailCopy ? 'bg-main-green' : 'bg-gray-200 hover:bg-gray'} text-text-white text-center px-20 py-2 rounded-md max-md:w-full max-md:mb-2 transition-all`} onClick={copyToClipboard}>ec-events@ivao.aero</p>
 								</div>
 							</div>
 						</div>
