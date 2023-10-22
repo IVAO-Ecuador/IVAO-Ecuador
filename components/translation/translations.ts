@@ -109,6 +109,8 @@ export const translations = {
 		comms_p3: 'To access the complete manual and improve your communication skills in aviation, click the button below.',
 		comms_document_title: 'Communication Manual',
 		comms_document_text: 'Access the guide document to improve communications',
+		comms_unicom_document_title: 'UNICOM User Guide',
+		comms_unicom_document_text: 'Access the guide for the use of UNICOM in IVAO',
 		comms_document_button: 'Open Document',
 
 		// ATC - Operations
@@ -293,6 +295,8 @@ export const translations = {
 		comms_p3: 'Para acceder al manual completo y mejorar tus habilidades de comunicación en la aviación, haz clic en el botón de abajo.',
 		comms_document_title: 'Manual de comunicaciones',
 		comms_document_text: 'Accede al documento guía para mejorar las comunicaciones',
+		comms_unicom_document_title: 'Guía del uso de UNICOM',
+		comms_unicom_document_text: 'Accede a la guía para el uso de UNICOM en IVAO',
 		comms_document_button: 'Abrir documento',
 
 		// ATC - Operations

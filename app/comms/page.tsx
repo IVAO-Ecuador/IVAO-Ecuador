@@ -2,7 +2,7 @@
 
 import CtaIVAO from '@/components/navigation/CtaIVAO'
 import React from 'react'
-import { BsJournalBookmarkFill, BsStarFill, BsTools } from 'react-icons/bs'
+import { BsFillMicFill, BsJournalBookmarkFill, BsStarFill, BsTools } from 'react-icons/bs'
 import { useGlobalContext } from '../context/transalation';
 import { translations } from '@/components/translation/translations';
 
@@ -62,6 +62,25 @@ export default function Comms() {
 						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
 							{/*@ts-ignore*/}
 							<a href='/docs/P-INS-Manual-de-comunicaciones.pdf' target='_blank' className='bg-gray-200 block text-center text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.comms_document_button}</a>
+						</div>
+					</div>
+
+					<div className='w-full bg-hover-color rounded-xl xl:flex mt-8 p-8'>
+						<div className='xl:flex items-center gap-x-8 xl:w-7/12 max-xl:text-center max-xl:mb-5'>
+							<div className='bg-main-purple rounded-full p-4 w-min mx-auto max-xl:mb-5'>
+								<BsFillMicFill className='text-3xl text-text-white'></BsFillMicFill>
+							</div>
+							<div className='w-full'>
+								{/*@ts-ignore*/}
+								<h3 className='text-text-white max-md:mb-3'>{translations[selectedLanguage]?.comms_unicom_document_title}</h3>
+								{/*@ts-ignore*/}
+								<p className='text-text-color'>{translations[selectedLanguage]?.comms_unicom_document_text}</p>
+							</div>
+						</div>
+
+						<div className='md:flex xl:justify-end justify-center gap-x-5 items-center xl:w-5/12'>
+							{/*@ts-ignore*/}
+							<a href='/docs/S-INS-Guia-de-uso-UNICOM-por-voz.pdf' target='_blank' className='bg-gray-200 block text-center text-text-white px-20 py-2 rounded-md max-md:w-full max-md:mb-2 hover:bg-gray transition-all'>{translations[selectedLanguage]?.comms_document_button}</a>
 						</div>
 					</div>
 
