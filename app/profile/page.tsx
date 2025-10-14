@@ -2,6 +2,7 @@
 
 import { getUserData } from '@/auth/components/userData';
 import { IUser } from '@/auth/types/user';
+import { apiClient } from '@/lib/apiClient'
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { BsBell, BsPersonFill } from 'react-icons/bs';
@@ -58,21 +59,14 @@ export default function Profile() {
 	const [isUserFlightsLoading, setUserFlightsLoading] = useState(true);
 
 	const getUserFlights = async (userData: IUser) => {
-		fetch('https://api.ec.ivao.aero/ec/api/rfo/checkFlights', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ usuario: userData }),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setUserFlights(data)
-				setUserFlightsLoading(false)
-			})
-			.catch((error) => {
-				console.log(error)
-			});
+		try {
+			const data = await apiClient.post('/ec/api/rfo/checkFlights', { usuario: userData });
+			setUserFlights(data || []);
+		} catch (err) {
+			console.error('checkFlights error', err);
+		} finally {
+			setUserFlightsLoading(false);
+		}
 	}
 
 	useEffect(() => {
@@ -93,17 +87,15 @@ export default function Profile() {
 	}, [status]);
 
 	useEffect(() => {
-		const fetchData = () => {
-			fetch('https://api.ec.ivao.aero/ec/api/rfo')
-				.then(response => response.json())
-				.then(result => {
-					setEventsList(result)
-					setEventIsLoading(false);
-				})
-				.catch(() => {
-					console.error('Error al obtener datos de IVAO');
-					setEventIsLoading(false);
-				});
+		const fetchData = async () => {
+			try {
+				const result = await apiClient.get('/ec/api/rfo');
+				setEventsList(result || []);
+			} catch (err) {
+				console.error('Error al obtener datos de IVAO', err);
+			} finally {
+				setEventIsLoading(false);
+			}
 		};
 
 		if (isEventInProgress) fetchData();
@@ -113,9 +105,12 @@ export default function Profile() {
 	useEffect(() => {
 		async function fetchData() {
 			const url = buildUrl(selectAirport, type);
-			const response = await fetch(url);
-			const result = await response.json();
-			setFlightsInfo(result);
+			try {
+				const result = await apiClient.get(url);
+				setFlightsInfo(result || []);
+			} catch (err) {
+				console.error('Error fetching flights', err);
+			}
 		}
 		fetchData();
 	}, [selectAirport, type]);

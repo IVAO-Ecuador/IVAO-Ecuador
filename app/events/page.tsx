@@ -1,6 +1,7 @@
 'use client'
 
 import CtaIVAO from '@/components/navigation/CtaIVAO'
+import { apiClient } from '@/lib/apiClient'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { BsLightningFill, BsTelephoneForward } from 'react-icons/bs'
@@ -25,17 +26,15 @@ export default function Events() {
 	const { selectedLanguage } = useGlobalContext();
 
 	useEffect(() => {
-		const fetchData = () => {
-			fetch('https://api.ec.ivao.aero/ec/api/events')
-				.then(response => response.json())
-				.then(page => {
-					setEventsList(page)
-					setIsLoading(false);
-				})
-				.catch(() => {
-					console.error('Error al obtener datos de IVAO');
-					setIsLoading(false);
-				});
+		const fetchData = async () => {
+			try {
+				const page = await apiClient.get<any[]>('https://api.ec.ivao.aero/ec/api/events');
+				setEventsList(page || []);
+			} catch (err) {
+				console.error('Error al obtener datos de IVAO', err);
+			} finally {
+				setIsLoading(false);
+			}
 		};
 		fetchData();
 	}, [])

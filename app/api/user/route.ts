@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import { IUser } from "@/auth/types/user";
+import { apiClient } from '@/lib/apiClient'
 
 const secret = process.env.NEXTAUTH_SECRET as string
 
@@ -9,16 +10,14 @@ export async function GET(req: any) {
 
     if(token) {
         try {
-            const response = await fetch(`${process.env.IVAO_API_URL}/v2/users/me`, {
+            const data: IUser = await apiClient.request(`${process.env.IVAO_API_URL}/v2/users/me`, {
+                method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token.accessToken}`
-                },
-                method: "GET"
+                }
             })
-        
-            const data: IUser = await response.json()
+
             return NextResponse.json({ ...data })
-			
         }catch (err) {
             return NextResponse.json(err)
         }

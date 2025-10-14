@@ -2,6 +2,7 @@ import { useGlobalContext } from '@/app/context/transalation';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import { apiClient } from '@/lib/apiClient';
 import { BsFillCalendarDateFill } from 'react-icons/bs'
 import { translations } from '../translation/translations';
 
@@ -21,17 +22,15 @@ export default function LatestEvents() {
 	const { selectedLanguage } = useGlobalContext();
 
 	useEffect(() => {
-		const fetchData = () => {
-			fetch('https://api.ec.ivao.aero/ec/api/events')
-				.then(response => response.json())
-				.then(page => {
-					setEventsList(page)
-					setIsLoading(false);
-				})
-				.catch(() => {
-					console.error('Error al obtener datos de IVAO');
-					setIsLoading(false);
-				});
+		const fetchData = async () => {
+			try {
+				const page = await apiClient.get<Event[]>('https://api.ec.ivao.aero/ec/api/events');
+				setEventsList(page || []);
+			} catch (err) {
+				console.error('Error al obtener datos de IVAO', err);
+			} finally {
+				setIsLoading(false);
+			}
 		};
 		fetchData();
 	}, [])

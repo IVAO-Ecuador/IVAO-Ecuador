@@ -7,7 +7,7 @@ export type IUser = {
   languageId: string;
   centerId: string;
   isStaff: boolean;
-  createdAt: Date;
+  createdAt: string | Date;
   rating: {
     isAtc: boolean;
     isPilot: boolean;
@@ -29,34 +29,30 @@ export type IUser = {
     pilot: number;
     staff: number;
   };
-  staffPositions: [
-    {
-      id: string;
-      staffPositionId: string;
-      divisionId: string;
-      onTrial: boolean;
-      description: string;
-    }
-  ];
-  userStaffDetail: {
-    email: string;
-    note: string;
-    description: string;
-    remark: string;
+  staffPositions: Array<{
+    id: string;
+    staffPositionId: string;
+    divisionId: string;
+    onTrial: boolean;
+    description?: string;
+  }>;
+  userStaffDetail?: {
+    email?: string;
+    note?: string;
+    description?: string;
+    remark?: string;
   };
-  prCreator: {
-    description: string;
-    tier: number;
+  prCreator?: {
+    description?: string;
+    tier?: number;
   };
-  ownedVirtualAirlines: [
-    {
-      id: number;
-      name: string;
-      airlineId: string;
-      divisionId: string;
-      website: string;
-    }
-  ];
+  ownedVirtualAirlines?: Array<{
+    id: number;
+    name: string;
+    airlineId: string;
+    divisionId: string;
+    website?: string;
+  }>;
   publicNickname: string;
   message: string;
 };
