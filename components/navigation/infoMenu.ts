@@ -76,7 +76,7 @@ export const infoMenu = {
 				Español: 'Canal oficial de comunicación',
 				English: 'Official communication channel',
 			},
-			url: 'https://discord.gg/hJ3xNWVuP9',
+			url: 'https://discord.ec.ivao.aero',
 			newTab: true
 		}
 	],
