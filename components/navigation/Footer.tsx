@@ -183,7 +183,7 @@ export function Footer() {
 						</Link>
 					</ActionIcon>
 					<ActionIcon size="lg" className='hover:bg-gray-200 hover:text-text-white'>
-						<Link href={'https://discord.gg/hJ3xNWVuP9'} target='_blank'>
+						<Link href={'https://discord.ec.ivao.aero'} target='_blank'>
 							<BsDiscord size="1.05rem" />
 						</Link>
 					</ActionIcon>
