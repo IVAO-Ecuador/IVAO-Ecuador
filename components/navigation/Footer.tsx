@@ -113,10 +113,10 @@ export function Footer() {
 
 	let data = infoFooter;
 
-	const groups = data.map((group: any) => {
+	const groups = data.map((group: any, groupIndex: number) => {
 		const links = group.links.map((link: any, index: any) => (
 			<Text<'a'>
-				key={index}
+				key={link.link ?? `${index}`}
 				className={classes.link}
 				component="a"
 				href={link.link}
@@ -127,15 +127,14 @@ export function Footer() {
 			</Text>
 		));
 
+		// Use the wrapper div as the single root element for this map entry
 		return (
-			<>
+			/*@ts-ignore*/
+			<div className={classes.wrapper} key={group.title?.[selectedLanguage] ?? `group-${groupIndex}`}>
 				{/*@ts-ignore*/}
-				<div className={classes.wrapper} key={group.title[selectedLanguage]}>
-					{/*@ts-ignore*/}
-					<Text className={classes.title}>{group.title[selectedLanguage]}</Text>
-					{links}
-				</div>
-			</>
+				<Text className={classes.title}>{group.title[selectedLanguage]}</Text>
+				{links}
+			</div>
 		);
 	});
 
